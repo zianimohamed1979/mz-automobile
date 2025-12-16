@@ -3,159 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ MOTORSPORT | File Service Pro .BIN</title>
+    <title>MZ MOTORSPORT | Atelier & File Service .BIN</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #e63946; --dark: #0a0a0a; --grey: #1a1a1a; --white: #ffffff; --win-green: #25d366; }
         body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); margin: 0; scroll-behavior: smooth; }
         
-        /* Nav Premium */
-        nav { display: flex; justify-content: space-between; padding: 20px 8%; background: rgba(255,255,255,0.98); position: fixed; width: 84%; z-index: 1000; border-bottom: 1px solid #eee; align-items: center; }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; padding: 20px 8%; background: rgba(255,255,255,0.98); position: fixed; width: 84%; z-index: 1000; border-bottom: 1px solid #eee; align-items: center; backdrop-filter: blur(10px); }
         .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--dark); letter-spacing: 1px; }
         .logo span { color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 700; font-size: 0.75rem; margin-left: 20px; font-family: 'Orbitron'; }
 
-        /* Hero Performance */
-        .hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; }
-        .hero-content h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 0; color: var(--dark); }
-        .hero-content p { font-weight: 800; color: var(--primary); letter-spacing: 4px; font-size: 0.8rem; margin-top: 10px; }
+        /* Hero */
+        .hero { height: 75vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; }
+        .hero-content h1 { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; margin: 0; color: var(--dark); line-height: 1; }
+        .hero-content p { font-weight: 800; color: var(--primary); letter-spacing: 5px; font-size: 0.9rem; margin-top: 15px; }
 
-        /* Tarifs Ultra Compétitifs */
-        .pricing-section { padding: 80px 10%; background: #fbfbfb; }
-        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 50px; }
-        .section-title span { color: var(--primary); }
-        
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        .price-card { background: white; padding: 35px; border-radius: 8px; border: 1px solid #eee; transition: 0.4s; position: relative; overflow: hidden; }
-        .price-card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-        .price-card h4 { font-family: 'Orbitron'; font-size: 0.75rem; color: #999; margin: 0; text-transform: uppercase; }
-        .price-card .amount { font-family: 'Orbitron'; font-size: 2.5rem; font-weight: 900; display: block; margin: 20px 0; color: var(--dark); }
-        .price-card .amount span { font-size: 1rem; color: var(--primary); }
-        .price-card ul { list-style: none; padding: 0; font-size: 0.85rem; color: #666; }
-        .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .price-card ul li::before { content: '✓'; color: var(--primary); font-weight: bold; }
+        /* Hardware Bar */
+        .hardware { display: flex; justify-content: center; gap: 40px; padding: 30px; background: var(--dark); color: white; }
+        .hw-item { font-family: 'Orbitron'; font-weight: 900; font-size: 1rem; letter-spacing: 2px; }
+        .hw-item span { color: var(--primary); }
 
-        /* Formulaire */
-        .file-section { padding: 100px 10%; background: var(--white); }
-        .form-container { max-width: 850px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.03); }
-        .form-header { background: var(--dark); color: white; padding: 40px; text-align: center; }
-        .form-header h2 { font-family: 'Orbitron'; margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
-        .form-body { padding: 50px; }
-        
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
-        label { font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        input, select, textarea { width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-family: 'Inter'; font-size: 0.9rem; background: #fdfdfd; box-sizing: border-box; }
-        input:focus { border-color: var(--primary); outline: none; }
+        /* Split Section: Atelier vs Online */
+        .method-container { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #eee; }
+        .method-card { padding: 80px 10%; transition: 0.5s; }
+        .card-atelier { background: var(--white); border-right: 1px solid #eee; }
+        .card-online { background: #f9f9f9; }
+        .method-card h2 { font-family: 'Orbitron'; font-size: 1.8rem; margin-bottom: 20px; }
+        .method-card h2 span { color: var(--primary); }
+        .method-card p { font-size: 0.95rem; line-height: 1.7; color: #555; margin-bottom: 30px; }
+        .btn-action { display: inline-block; padding: 15px 40px; background: var(--dark); color: white; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; font-size: 0.75rem; border-radius: 4px; transition: 0.3s; }
+        .btn-action:hover { background: var(--primary); transform: translateY(-3px); }
 
-        .btn-submit { width: 100%; padding: 22px; background: var(--primary); color: white; border: none; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; border-radius: 6px; font-size: 0.9rem; transition: 0.3s; margin-top: 30px; letter-spacing: 1px; }
-        .btn-submit:hover { background: var(--dark); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* Tarifs B2B */
+        .pricing-section { padding: 80px 10%; background: #f4f4f4; text-align: center; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
+        .price-card { background: white; padding: 30px; border-radius: 4px; border-bottom: 4px solid var(--dark); }
+        .price-card .amount { font-family: 'Orbitron'; font-size: 2.2rem; font-weight: 900; display: block; margin: 15px 0; }
+        .price-card ul { list-style: none; padding: 0; font-size: 0.8rem; color: #666; text-align: left; }
+        .price-card ul li { margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+        /* Formulaire File Service */
+        .file-section { padding: 80px 10%; }
+        .form-container { max-width: 850px; margin: 0 auto; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .form-header { background: var(--dark); color: white; padding: 30px; text-align: center; }
+        .form-header h3 { font-family: 'Orbitron'; margin: 0; }
+        .form-body { padding: 40px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        label { font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 900; color: #999; margin-bottom: 8px; display: block; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter'; box-sizing: border-box; }
+        .btn-submit { width: 100%; padding: 20px; background: var(--primary); color: white; border: none; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 20px; }
 
         /* Footer */
-        footer { padding: 50px; text-align: center; background: #fafafa; border-top: 1px solid #eee; color: #bbb; font-size: 0.75rem; }
-        
-        /* Float Buttons */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 18px 30px; border-radius: 60px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; font-size: 0.8rem; z-index: 1000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.05); }
+        footer { padding: 60px 10%; background: #fafafa; text-align: center; border-top: 1px solid #eee; }
+        .siret { font-size: 0.7rem; color: #ccc; margin-top: 20px; display: block; }
 
-        @media (max-width: 768px) {
-            .form-row { grid-template-columns: 1fr; }
-            nav { width: 90%; padding: 15px 5%; }
-        }
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 18px 28px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; font-size: 0.8rem; z-index: 2000; box-shadow: 0 10px 30px rgba(37,211,102,0.3); }
+
+        @media (max-width: 768px) { .method-container, .form-row { grid-template-columns: 1fr; } .hero-content h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">MZ <span>MOTORSPORT</span></div>
+    <div class="nav-links">
+        <a href="#atelier">ATELIER</a>
+        <a href="#fileservice">FILE SERVICE</a>
+    </div>
 </nav>
 
 <section class="hero">
     <div class="hero-content">
-        <h1>PRO FILE SERVICE</h1>
-        <p>ENGINEERING & SOLUTIONS .BIN</p>
+        <h1>MZ PERFORMANCE</h1>
+        <p>ENGINEERING SOLUTIONS .BIN</p>
+    </div>
+</section>
+
+<div class="hardware">
+    <div class="hw-item">AUTO<span>TUNER</span></div>
+    <div class="hw-item">FLEX <span>MOTORSPORT</span></div>
+</div>
+
+<section class="method-container" id="atelier">
+    <div class="method-card card-atelier">
+        <h2>L'ATELIER <span>MZ</span></h2>
+        <p>Prestation complète véhicule en main dans nos locaux. Stage 1, Stage 2, Conversion E85 et diagnostics complexes avec matériel officiel Master.</p>
+        <a href="tel:0768879185" class="btn-action">RÉSERVER À L'ATELIER</a>
+    </div>
+    <div class="method-card card-online" id="fileservice">
+        <h2>FILE <span>SERVICE B2B</span></h2>
+        <p>Service ultra-rapide dédié aux professionnels. Envoyez vos lectures .BIN et recevez vos fichiers modifiés sous 60 minutes avec support technique.</p>
+        <a href="#formulaire" class="btn-action" style="background:transparent; color:var(--dark); border:2px solid var(--dark);">DÉPOSER UN FICHIER</a>
     </div>
 </section>
 
 <section class="pricing-section">
-    <h2 class="section-title">TARIFS <span>B2B PRO</span></h2>
+    <h2 style="font-family:'Orbitron';">TARIFS <span>PRO FILE SERVICE</span></h2>
     <div class="price-grid">
         <div class="price-card">
-            <h4>STAGE 1 / STAGE 2</h4>
-            <span class="amount">70<span>€</span></span>
+            <h4>STAGE 1 / 2</h4>
+            <span class="amount">70€</span>
             <ul>
-                <li>Optimisation sur mesure</li>
+                <li>Optimisation Couple/Puissance</li>
+                <li>Fichiers sur mesure (.bin)</li>
                 <li>Logs d'analyse inclus</li>
-                <li>Support technique</li>
             </ul>
         </div>
         <div class="price-card">
             <h4>SOLUTIONS OFF</h4>
-            <span class="amount">50<span>€</span></span>
+            <span class="amount">50€</span>
             <ul>
                 <li>AdBlue / FAP / EGR Off</li>
                 <li>DTC Off / VMAX Off</li>
-                <li>Start & Stop Off</li>
+                <li>Start-Stop Off</li>
             </ul>
         </div>
         <div class="price-card">
             <h4>FLEXFUEL E85</h4>
-            <span class="amount">90<span>€</span></span>
+            <span class="amount">90€</span>
             <ul>
-                <li>Cold Start optimisé</li>
-                <li>Mélange automatique</li>
-                <li>Testé sur banc</li>
+                <li>Démarrage à froid optimisé</li>
+                <li>Gestion mélange automatique</li>
+                <li>Full E85 ou Mixte</li>
             </ul>
         </div>
-        <div class="price-card" style="border-color: var(--primary);">
+        <div class="price-card" style="border-bottom-color: var(--primary);">
             <h4>PACK COMBO</h4>
-            <span class="amount">130<span>€</span></span>
+            <span class="amount">130€</span>
             <ul>
                 <li>Stage 1 + E85 + Options</li>
                 <li>Traitement prioritaire</li>
-                <li>Révisions gratuites</li>
+                <li>Support technique dédié</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section class="file-section">
+<section class="file-section" id="formulaire">
     <div class="form-container">
         <div class="form-header">
-            <h2>DÉPOSER VOTRE FICHIER .BIN</h2>
+            <h3>ENVOI DE FICHIER .BIN</h3>
         </div>
         <div class="form-body">
             <form action="https://formspree.io/f/zianimohamed1979@yahoo.com" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>NOM DU GARAGE / CONTACT</label>
-                        <input type="text" name="nom" placeholder="Votre nom" required>
+                        <label>VOTRE NOM / GARAGE</label>
+                        <input type="text" name="nom" required>
                     </div>
                     <div class="form-group">
-                        <label>VOTRE ADRESSE MAIL</label>
-                        <input type="email" name="_replyto" placeholder="Pour le retour fichier" required>
+                        <label>VOTRE EMAIL</label>
+                        <input type="email" name="_replyto" required>
                     </div>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>MARQUE & MODÈLE</label>
-                        <input type="text" name="vehicule" placeholder="ex: BMW M3 G80" required>
-                    </div>
-                    <div class="form-group">
-                        <label>RÉFÉRENCE ECU</label>
-                        <input type="text" name="ecu" placeholder="ex: Bosch MG1CS003" required>
-                    </div>
-                </div>
-
                 <div class="form-group">
-                    <label>MODIFICATIONS DEMANDÉES (TARIFS CI-DESSUS)</label>
-                    <textarea name="options" rows="4" placeholder="Précisez : Stage 1, AdBlue Off, E85..."></textarea>
+                    <label>VÉHICULE & CALCULATEUR (ECU)</label>
+                    <input type="text" name="vehicule" placeholder="ex: BMW G30 - Bosch MD1CS001" required>
                 </div>
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <label>SÉLECTIONNER LE FICHIER .BIN</label>
-                    <input type="file" name="file_bin" accept=".bin,.ori,.zip,.rar" required>
+                <div class="form-group">
+                    <label>MODIFICATIONS SOUHAITÉES</label>
+                    <textarea name="message" rows="4" placeholder="Stage 1, AdBlue, E85..."></textarea>
                 </div>
-
+                <div class="form-group">
+                    <label>JOINDRE LE FICHIER .BIN</label>
+                    <input type="file" name="upload" required>
+                </div>
                 <button type="submit" class="btn-submit">ENVOYER À L'INGÉNIEUR</button>
             </form>
         </div>
@@ -163,9 +178,9 @@
 </section>
 
 <footer>
-    <p>MZ MOTORSPORT | SIRET : 943 225 953 00018</p>
-    <p>Expert en Bosch MD1/MG1, EDC17 & Continental SID</p>
-    <p>© 2025 - Engineering Haute Performance</p>
+    <div class="logo">MZ <span>MOTORSPORT</span></div>
+    <p>Expertise logicielle Bosch MD1, MG1, EDC17 & Continental SID</p>
+    <p>SIRET : 943 225 953 00018 | © 2025</p>
 </footer>
 
 <a href="https://wa.me/33768879185" class="whatsapp-float" target="_blank">
