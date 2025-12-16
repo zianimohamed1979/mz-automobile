@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,41 +13,41 @@
         .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--dark); text-transform: uppercase; }
         .logo span { color: var(--primary); }
 
+        /* HERO AVEC TITRE EN COULEUR */
         .hero { height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&q=80&w=1600'); background-size: cover; color: white; }
         .hero .brand-name { font-family: 'Orbitron'; font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
+        .hero .brand-name .red { color: var(--primary); }
+        .hero .brand-name .white { color: var(--white); }
         .hero .slogan { font-family: 'Orbitron'; font-size: 1.2rem; font-weight: 400; margin-top: 15px; letter-spacing: 8px; color: #ccc; text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.2); display: inline-block; padding-top: 15px; }
 
         section { padding: 60px 10%; }
         .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 40px; text-transform: uppercase; font-size: 1.8rem; }
         .section-title span { color: var(--primary); }
 
-        /* Grille Atelier */
         .atelier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card-atelier { padding: 25px; border-radius: 10px; border: 1px solid #eee; transition: 0.3s; border-left: 5px solid var(--primary); display: flex; flex-direction: column; }
-        .card-atelier:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .card-atelier h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin: 0; letter-spacing: 1px; }
         .card-atelier .definition { font-size: 0.8rem; color: #666; margin: 10px 0; line-height: 1.5; flex-grow: 1; }
         .card-atelier .price { display: block; font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-top: 10px; }
 
-        /* Image BMW Rouge (Transition) */
+        /* DIVIDER BMW ROUGE */
         .car-divider { 
             height: 500px; 
-            background: url('https://raw.githubusercontent.com/AI-Generated-Images/BMW-Red-M4/main/red-m4.jpg') center no-repeat; /* Note: Remplacez par le lien de l'image rouge générée */
+            background: url('https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&q=80&w=1600') center no-repeat;
             background-size: cover; 
             position: relative; 
             border-top: 5px solid var(--primary); 
-            border-bottom: 5px solid var(--primary); 
-            background-attachment: fixed; /* Effet Parallaxe */
+            border-bottom: 5px solid var(--primary);
+            background-attachment: fixed;
         }
-        .car-divider::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); }
 
         #fileservice { background: var(--dark); color: white; }
         .pro-card { border: 1px solid #333; border-radius: 12px; overflow: hidden; background: #111; max-width: 900px; margin: 0 auto; }
         .pro-header { background: var(--primary); padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; }
         
         .reassurance-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-bottom: 30px; padding: 20px; border: 1px dashed #444; border-radius: 8px; }
-        .reassurance-item strong { color: var(--primary); display: block; font-family: 'Orbitron'; font-size: 0.8rem; margin-bottom: 5px; }
-        .reassurance-item p { font-size: 0.75rem; margin: 0; color: #aaa; }
+        .reassurance-item strong { color: var(--primary); display: block; font-family: 'Orbitron'; font-size: 0.8rem; }
+        .reassurance-item p { font-size: 0.75rem; color: #aaa; margin-top: 5px; }
 
         .form-pro { padding: 40px; background: #161616; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -60,9 +59,7 @@
 
         footer { background: #000; color: white; padding: 60px 10% 40px; border-top: 5px solid var(--primary); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-box h4 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 20px; }
-        .footer-box p { font-size: 0.9rem; color: #ccc; margin: 8px 0; }
-        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
+        .footer-box span { color: var(--primary); font-weight: bold; }
 
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
     </style>
@@ -79,7 +76,9 @@
 
 <section class="hero">
     <div>
-        <div class="brand-name">MZ AUTO <span>MOTORSPORT</span></div>
+        <div class="brand-name">
+            <span class="white">MZ AUTO</span> <span class="red">MOTORSPORT</span>
+        </div>
         <div class="slogan">Expert en programmation</div>
     </div>
 </section>
@@ -87,16 +86,15 @@
 <section id="atelier">
     <h2 class="section-title">NOS PRESTATIONS <span>ATELIER</span></h2>
     <div class="atelier-grid">
-        <div class="card-atelier"><h3>STAGE 1 PERF</h3><p class="definition">Optimisation logicielle pour plus de puissance et moins de consommation.</p><span class="price">390€*</span></div>
-        <div class="card-atelier"><h3>BIO-ÉTHANOL E85</h3><p class="definition">Conversion FlexFuel pour rouler à l'E85 (carburant économique).</p><span class="price">450€*</span></div>
-        <div class="card-atelier"><h3>ADBLUE OFF</h3><p class="definition">Suppression définitive des défauts et blocages du système AdBlue.</p><span class="price">300€*</span></div>
-        <div class="card-atelier"><h3>FAP / EGR OFF</h3><p class="definition">Désactivation électronique pour fiabiliser et libérer le moteur.</p><span class="price">250€*</span></div>
-        <div class="card-atelier"><h3>IMMO-OFF</h3><p class="definition">Désactivation de l'antidémarrage pour dépannage ou changement d'ECU.</p><span class="price">80€*</span></div>
-        <div class="card-atelier"><h3>CLONAGE ECU/BSI</h3><p class="definition">Copie intégrale de vos données vers un nouveau boîtier Plug&Play.</p><span class="price">Dès 80€*</span></div>
-        <div class="card-atelier"><h3>OPTIONS PERF</h3><p class="definition">Pop & Bang, Launch Control, Rupture, Suppression V-Max.</p><span class="price">Dès 150€*</span></div>
-        <div class="card-atelier"><h3>DIAGNOSTIC</h3><p class="definition">Scan complet, lecture défauts et rapport technique détaillé.</p><span class="price">80€*</span></div>
+        <div class="card-atelier"><h3>STAGE 1 PERF</h3><p class="definition">Optimisation sur mesure pour plus de puissance et de couple.</p><span class="price">390€*</span></div>
+        <div class="card-atelier"><h3>BIO-ÉTHANOL E85</h3><p class="definition">Conversion FlexFuel pour rouler à l'E85 économique.</p><span class="price">450€*</span></div>
+        <div class="card-atelier"><h3>ADBLUE OFF</h3><p class="definition">Suppression définitive des pannes et blocages AdBlue.</p><span class="price">300€*</span></div>
+        <div class="card-atelier"><h3>FAP / EGR OFF</h3><p class="definition">Désactivation électronique pour fiabiliser votre moteur.</p><span class="price">250€*</span></div>
+        <div class="card-atelier"><h3>IMMO-OFF</h3><p class="definition">Désactivation de l'antidémarrage (perte de clés, bug calculateur).</p><span class="price">80€*</span></div>
+        <div class="card-atelier"><h3>CLONAGE ECU/BSI</h3><p class="definition">Copie intégrale de données vers un boîtier d'occasion (Plug & Play).</p><span class="price">Dès 80€*</span></div>
+        <div class="card-atelier"><h3>OPTIONS PERF</h3><p class="definition">Pop & Bang, Launch Control, Rupture, No V-Max.</p><span class="price">Dès 150€*</span></div>
+        <div class="card-atelier"><h3>DIAGNOSTIC</h3><p class="definition">Scan complet et effacement des voyants moteur.</p><span class="price">40€*</span></div>
     </div>
-    <p style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 30px;">✓ Travail Garanti | ✓ Matériel Officiel | ✓ Diagnostic pré-repro inclus.</p>
 </section>
 
 <div class="car-divider"></div>
@@ -107,9 +105,9 @@
         <div class="pro-header">ZONE PROFESSIONNELLE</div>
         <div class="form-pro">
             <div class="reassurance-bar">
-                <div class="reassurance-item"><strong>LIVRAISON 60MIN</strong>Réactivité maximale pour vos clients.</div>
-                <div class="reassurance-item"><strong>SUPPORT LOG</strong>Aide technique sur les logs en temps réel.</div>
-                <div class="reassurance-item"><strong>QUALITÉ BANC</strong>Solutions testées et approuvées.</div>
+                <div class="reassurance-item"><strong>LIVRAISON 60MIN</strong>Réactivité maximale.</div>
+                <div class="reassurance-item"><strong>SUPPORT TECHNIQUE</strong>Assistance Pro 6j/7.</div>
+                <div class="reassurance-item"><strong>QUALITÉ TESTÉE</strong>Fichiers développés sur banc.</div>
             </div>
             <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
@@ -121,13 +119,16 @@
                     <input type="text" name="ecu" placeholder="Modèle ECU" required>
                 </div>
                 <select name="prestation" id="preSelect" required>
-                    <option value="100">Stage 1 - 100€</option>
-                    <option value="100">Adblue OFF - 100€</option>
-                    <option value="90">FAP / EGR OFF - 90€</option>
-                    <option value="80">Immo-OFF / Clonage - 80€</option>
-                    <option value="120">Pack E85 Flexfuel - 120€</option>
+                    <option value="100">Stage 1 Performance - 100€</option>
+                    <option value="120">E85 Flexfuel / Bio-éthanol - 120€</option>
+                    <option value="100">AdBlue OFF (SCR) - 100€</option>
+                    <option value="90">FAP / DPF OFF - 90€</option>
+                    <option value="90">EGR OFF - 90€</option>
+                    <option value="60">Immo-OFF (Antidémarrage) - 60€</option>
+                    <option value="80">Clonage ECU / BSI - 80€</option>
+                    <option value="50">DTC OFF (Code défaut) - 50€</option>
                 </select>
-                <input type="file" name="file" required style="border: 2px dashed #444; padding:20px; background:#050505; margin-bottom:20px;">
+                <input type="file" name="file" required style="border: 2px dashed #444; padding:20px; background:#050505; margin-bottom:20px; width:100%; box-sizing:border-box; color:white;">
                 <div class="form-row">
                     <button type="submit" class="btn-submit">1. ENVOYER LE FICHIER</button>
                     <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank" class="btn-paypal-direct">
@@ -145,17 +146,15 @@
             <h4>📍 CONTACT</h4>
             <p><strong>MZ AUTO MOTORSPORT</strong></p>
             <p>2 Boulevard Charles Gallet, 42120 Le Coteau</p>
-            <p><span>TÉL :</span> 07 68 87 91 85</p>
-            <p><span>SIRET :</span> 943 225 953 00018</p>
+            <p><span>TÉL :</span> 07 68 87 91 85 | <span>SIRET :</span> 943 225 953 00018</p>
         </div>
         <div class="footer-box">
             <h4>🛡️ GARANTIES</h4>
             <p>✓ Garantie logicielle à vie.</p>
             <p>✓ Remise à l'origine offerte.</p>
-            <p>✓ Assistance technique Pro 6j/7.</p>
         </div>
     </div>
-    <div class="footer-bottom">&copy; 2024 MZ AUTO MOTORSPORT - Le Coteau</div>
+    <div class="footer-bottom" style="text-align: center; margin-top: 30px; color: #444;">&copy; 2024 MZ AUTO MOTORSPORT</div>
 </footer>
 
 <a href="https://wa.me/33768879185" class="whatsapp-float">WHATSAPP</a>
