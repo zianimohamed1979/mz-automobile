@@ -3,187 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ AUTOMOBILE | Reprogrammation & Électronique</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>MZ MOTORSPORT | File Service Pro .BIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #e63946;
-            --dark: #0a0a0a;
-            --card: #151515;
-            --text: #ffffff;
-        }
-
-        body { font-family: 'Roboto', sans-serif; background: var(--dark); color: var(--text); margin: 0; scroll-behavior: smooth; }
+        :root { --primary: #e63946; --dark: #0a0a0a; --grey: #1a1a1a; --white: #ffffff; --win-green: #25d366; }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); margin: 0; scroll-behavior: smooth; }
         
-        /* Nav */
-        nav { display: flex; justify-content: space-between; padding: 15px 5%; background: rgba(0,0,0,0.95); position: fixed; width: 90%; z-index: 1000; border-bottom: 2px solid var(--primary); align-items: center; }
-        .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
+        /* Nav Premium */
+        nav { display: flex; justify-content: space-between; padding: 20px 8%; background: rgba(255,255,255,0.98); position: fixed; width: 84%; z-index: 1000; border-bottom: 1px solid #eee; align-items: center; }
+        .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--dark); letter-spacing: 1px; }
         .logo span { color: var(--primary); }
-        .nav-contact a { color: var(--primary); font-weight: bold; font-family: 'Orbitron'; font-size: 1.1rem; text-decoration: none; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 5px; transition: 0.3s; }
-        .nav-contact a:hover { background: var(--primary); color: white; }
 
-        /* Hero */
-        .hero { height: 75vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 4rem; margin: 0; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; color: #bbb; margin: 15px 0 30px; max-width: 600px; }
+        /* Hero Performance */
+        .hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center; }
+        .hero-content h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 0; color: var(--dark); }
+        .hero-content p { font-weight: 800; color: var(--primary); letter-spacing: 4px; font-size: 0.8rem; margin-top: 10px; }
 
-        /* Quick Contact Bar */
-        .trust-bar { background: #111; padding: 20px; text-align: center; border-bottom: 1px solid #222; }
-        .trust-bar span { margin: 0 15px; color: #777; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; }
-        .trust-bar .highlight { color: var(--primary); }
-
-        /* Sections */
-        .section { padding: 80px 8%; }
-        h2 { text-align: center; font-family: 'Orbitron', sans-serif; margin-bottom: 50px; font-size: 2rem; border-bottom: 2px solid var(--primary); display: inline-block; left: 50%; position: relative; transform: translateX(-50%); padding-bottom: 10px; text-transform: uppercase; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card); border-radius: 8px; padding: 35px; border: 1px solid #222; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card h3 { margin-top: 0; color: var(--primary); font-size: 1.5rem; text-transform: uppercase; }
-        .price { font-size: 1.8rem; font-weight: 900; margin: 15px 0; display: block; font-family: 'Orbitron'; }
+        /* Tarifs Ultra Compétitifs */
+        .pricing-section { padding: 80px 10%; background: #fbfbfb; }
+        .section-title { text-align: center; font-family: 'Orbitron'; margin-bottom: 50px; }
+        .section-title span { color: var(--primary); }
         
-        .card ul { padding: 0; list-style: none; color: #999; }
-        .card li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .card li::before { content: "›"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .price-card { background: white; padding: 35px; border-radius: 8px; border: 1px solid #eee; transition: 0.4s; position: relative; overflow: hidden; }
+        .price-card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .price-card h4 { font-family: 'Orbitron'; font-size: 0.75rem; color: #999; margin: 0; text-transform: uppercase; }
+        .price-card .amount { font-family: 'Orbitron'; font-size: 2.5rem; font-weight: 900; display: block; margin: 20px 0; color: var(--dark); }
+        .price-card .amount span { font-size: 1rem; color: var(--primary); }
+        .price-card ul { list-style: none; padding: 0; font-size: 0.85rem; color: #666; }
+        .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .price-card ul li::before { content: '✓'; color: var(--primary); font-weight: bold; }
 
-        .quality { background: #111; padding: 50px 8%; text-align: center; border-radius: 20px; margin: 40px 8%; border: 1px solid var(--primary); }
-        .quality h3 { color: var(--primary); font-family: 'Orbitron'; margin-top: 0; }
+        /* Formulaire */
+        .file-section { padding: 100px 10%; background: var(--white); }
+        .form-container { max-width: 850px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.03); }
+        .form-header { background: var(--dark); color: white; padding: 40px; text-align: center; }
+        .form-header h2 { font-family: 'Orbitron'; margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
+        .form-body { padding: 50px; }
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
+        label { font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        input, select, textarea { width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; font-family: 'Inter'; font-size: 0.9rem; background: #fdfdfd; box-sizing: border-box; }
+        input:focus { border-color: var(--primary); outline: none; }
 
-        /* Contact Section */
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; padding: 80px 8%; background: #080808; }
-        .info-contact { text-align: left; }
-        .info-contact h3 { font-family: 'Orbitron'; color: var(--primary); margin-bottom: 25px; }
-        .info-contact p { font-size: 1.1rem; margin: 15px 0; display: flex; align-items: center; }
-        .info-contact span { color: var(--primary); font-weight: bold; margin-right: 12px; font-family: 'Orbitron'; font-size: 0.9rem; }
-        .info-contact a { color: white; text-decoration: none; }
+        .btn-submit { width: 100%; padding: 22px; background: var(--primary); color: white; border: none; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; border-radius: 6px; font-size: 0.9rem; transition: 0.3s; margin-top: 30px; letter-spacing: 1px; }
+        .btn-submit:hover { background: var(--dark); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        form { background: var(--card); padding: 30px; border-radius: 10px; display: grid; gap: 15px; }
-        input, select, textarea { padding: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 5px; width: 100%; box-sizing: border-box; }
-        button { background: var(--primary); color: white; border: none; padding: 18px; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 1rem; text-transform: uppercase; font-family: 'Orbitron'; }
+        /* Footer */
+        footer { padding: 50px; text-align: center; background: #fafafa; border-top: 1px solid #eee; color: #bbb; font-size: 0.75rem; }
+        
+        /* Float Buttons */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 18px 30px; border-radius: 60px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; font-size: 0.8rem; z-index: 1000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.05); }
 
-        footer { text-align: center; padding: 40px; color: #444; background: #000; font-size: 0.8rem; border-top: 1px solid #111; }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            nav { width: 90%; padding: 15px 5%; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">MZ <span>AUTOMOBILE</span></div>
-    <div class="nav-contact"><a href="tel:0768879185">📞 07 68 87 91 85</a></div>
+    <div class="logo">MZ <span>MOTORSPORT</span></div>
 </nav>
 
 <section class="hero">
-    <h1>MZ AUTOMOBILE</h1>
-    <p>Solutions de programmation haute performance et électronique moteur complexe avec matériel 100% officiel.</p>
-    <a href="tel:0768879185" style="background:var(--primary); color:white; padding:15px 40px; text-decoration:none; font-weight:bold; border-radius:5px; font-family:'Orbitron';">APPELER MAINTENANT</a>
+    <div class="hero-content">
+        <h1>PRO FILE SERVICE</h1>
+        <p>ENGINEERING & SOLUTIONS .BIN</p>
+    </div>
 </section>
 
-<div class="trust-bar">
-    <span class="highlight">MATÉRIEL OFFICIEL :</span>
-    <span>AUTOTUNER</span> <span>FLEX</span> <span>ALIENTECH</span> <span>KESS3</span>
-</div>
-
-<section id="performance" class="section">
-    <h2>Performance <span>Moteur</span></h2>
-    <div class="grid">
-        <div class="card">
-            <h3>STAGE 1</h3>
-            <span class="price">Dès 350€</span>
+<section class="pricing-section">
+    <h2 class="section-title">TARIFS <span>B2B PRO</span></h2>
+    <div class="price-grid">
+        <div class="price-card">
+            <h4>STAGE 1 / STAGE 2</h4>
+            <span class="amount">70<span>€</span></span>
             <ul>
-                <li>Optimisation couple et puissance sur mesure</li>
-                <li>Réduction de la consommation de carburant</li>
-                <li>Matériel officiel - Aucun risque calculateur</li>
+                <li>Optimisation sur mesure</li>
+                <li>Logs d'analyse inclus</li>
+                <li>Support technique</li>
             </ul>
         </div>
-        <div class="card">
-            <h3>BIO-ÉTHANOL E85</h3>
-            <span class="price">450€</span>
+        <div class="price-card">
+            <h4>SOLUTIONS OFF</h4>
+            <span class="amount">50<span>€</span></span>
             <ul>
-                <li>Conversion Flexfuel (SP95 / E85)</li>
-                <li>Démarrages à froid optimisés</li>
-                <li>Économies massives à chaque plein</li>
+                <li>AdBlue / FAP / EGR Off</li>
+                <li>DTC Off / VMAX Off</li>
+                <li>Start & Stop Off</li>
             </ul>
         </div>
-        <div class="card">
-            <h3>STAGES 2 & 3</h3>
-            <span class="price">Sur Devis</span>
+        <div class="price-card">
+            <h4>FLEXFUEL E85</h4>
+            <span class="amount">90<span>€</span></span>
             <ul>
-                <li>Optimisation avec modifications mécaniques</li>
-                <li>Gestion Turbo, Échangeur et Échappement</li>
-                <li>Usage circuit et compétition</li>
+                <li>Cold Start optimisé</li>
+                <li>Mélange automatique</li>
+                <li>Testé sur banc</li>
+            </ul>
+        </div>
+        <div class="price-card" style="border-color: var(--primary);">
+            <h4>PACK COMBO</h4>
+            <span class="amount">130<span>€</span></span>
+            <ul>
+                <li>Stage 1 + E85 + Options</li>
+                <li>Traitement prioritaire</li>
+                <li>Révisions gratuites</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section class="quality">
-    <h3>SÉCURITÉ & FIABILITÉ GARANTIE</h3>
-    <p>Nous utilisons exclusivement des outils de programmation <strong>SOUS LICENCE OFFICIELLE</strong>. <br> 
-    Contrairement aux outils "clones", cela garantit une lecture/écriture stable et une protection totale de vos données constructeur.</p>
-</section>
+<section class="file-section">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>DÉPOSER VOTRE FICHIER .BIN</h2>
+        </div>
+        <div class="form-body">
+            <form action="https://formspree.io/f/zianimohamed1979@yahoo.com" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>NOM DU GARAGE / CONTACT</label>
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>VOTRE ADRESSE MAIL</label>
+                        <input type="email" name="_replyto" placeholder="Pour le retour fichier" required>
+                    </div>
+                </div>
 
-<section id="electronique" class="section">
-    <h2>Solutions <span>Électroniques</span></h2>
-    <div class="grid">
-        <div class="card">
-            <h3>CLONAGE ECU</h3>
-            <span class="price">Dès 150€</span>
-            <ul>
-                <li>Récupération de données après panne</li>
-                <li>Clonage intégral (Immo, VIN, Codages)</li>
-                <li>Solution Plug & Play : branchez et démarrez</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>ANTI-POLLUTION</h3>
-            <span class="price">Dès 180€</span>
-            <ul>
-                <li>Correction définitive erreurs AdBlue</li>
-                <li>Suppression FAP & EGR (Usage Off-Road)</li>
-                <li>Nettoyage des codes erreurs DTC</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>OPTIONS ECU</h3>
-            <span class="price">Dès 80€</span>
-            <ul>
-                <li>Pop & Bang / Crackle Map</li>
-                <li>Désactivation Start & Stop / V-Max</li>
-                <li>Diagnostic électronique approfondi</li>
-            </ul>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>MARQUE & MODÈLE</label>
+                        <input type="text" name="vehicule" placeholder="ex: BMW M3 G80" required>
+                    </div>
+                    <div class="form-group">
+                        <label>RÉFÉRENCE ECU</label>
+                        <input type="text" name="ecu" placeholder="ex: Bosch MG1CS003" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>MODIFICATIONS DEMANDÉES (TARIFS CI-DESSUS)</label>
+                    <textarea name="options" rows="4" placeholder="Précisez : Stage 1, AdBlue Off, E85..."></textarea>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>SÉLECTIONNER LE FICHIER .BIN</label>
+                    <input type="file" name="file_bin" accept=".bin,.ori,.zip,.rar" required>
+                </div>
+
+                <button type="submit" class="btn-submit">ENVOYER À L'INGÉNIEUR</button>
+            </form>
         </div>
     </div>
-</section>
-
-<section id="contact" class="contact-container">
-    <div class="info-contact">
-        <h3>NOS <span>COORDONNÉES</span></h3>
-        <p>Expert en électronique automobile disponible du Lundi au Samedi.</p>
-        <br>
-        <p><span>📍 ADRESSE :</span> [Indiquez votre ville ou adresse ici]</p>
-        <p><span>📞 TÉLÉPHONE :</span> <a href="tel:0768879185">07 68 87 91 85</a></p>
-        <p><span>✉️ EMAIL :</span> [Votre email ici]</p>
-        <p><span>🕒 HORAIRES :</span> 09h00 - 18h30</p>
-    </div>
-
-    <form>
-        <h3 style="font-family:'Orbitron'; color:white; margin-top:0;">CONTACT <span>RAPIDE</span></h3>
-        <input type="text" placeholder="Nom et Prénom" required>
-        <input type="text" placeholder="Véhicule (Marque et Modèle)" required>
-        <select>
-            <option>Service : Stage 1 / E85</option>
-            <option>Service : Clonage Calculateur</option>
-            <option>Service : AdBlue / FAP / EGR</option>
-            <option>Autre demande technique</option>
-        </select>
-        <textarea rows="4" placeholder="Décrivez votre besoin ou les symptômes de panne..."></textarea>
-        <button type="submit">DEMANDER UN TARIF PRÉCIS</button>
-    </form>
 </section>
 
 <footer>
-    <p><strong>MZ AUTOMOBILE</strong> | Électronique Automobile de Haute Précision</p>
-    <p>Matériel Officiel Autotuner & Flex | © 2025 Tous droits réservés</p>
+    <p>MZ MOTORSPORT | SIRET : 943 225 953 00018</p>
+    <p>Expert en Bosch MD1/MG1, EDC17 & Continental SID</p>
+    <p>© 2025 - Engineering Haute Performance</p>
 </footer>
+
+<a href="https://wa.me/33768879185" class="whatsapp-float" target="_blank">
+    URGENCE WHATSAPP
+</a>
 
 </body>
 </html>
