@@ -71,4 +71,101 @@
         /* Footer completé */
         footer { padding: 60px 10%; background: #fafafa; text-align: center; border-top: 1px solid #eee; }
         .footer-logo { font-family: 'Orbitron'; font-weight: 900; font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; }
-        .address-text { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom:
+        .address-text { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 20px; }
+        .siret { font-size: 0.75rem; color: #999; font-weight: 600; letter-spacing: 1px; }
+
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; font-size: 0.8rem; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        @media (max-width: 768px) { .method-container, .form-row { grid-template-columns: 1fr; } .hero-content h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body id="top">
+
+<nav>
+    <a href="#top" class="logo">MZ AUTO <span>MOTORSPORT</span></a>
+    <div class="nav-links">
+        <a href="#atelier">ATELIER</a>
+        <a href="#fileservice">FILE SERVICE</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>MZ AUTO MOTORSPORT</h1>
+        <p>ENGINEERING SOLUTIONS .BIN</p>
+    </div>
+</section>
+
+<section class="method-container" id="atelier">
+    <div class="method-card card-atelier">
+        <h2>L'ATELIER <span>PHYSIQUE</span></h2>
+        <p>Diagnostics, Stage 1 & 2, E85 sur banc. Découvrez les gains pour votre véhicule en quelques secondes.</p>
+        <button onclick="toggleCatalogue()" class="btn-action btn-pulse">CLIQUEZ ICI POUR RÉSERVER À L'ATELIER</button>
+    </div>
+    <div class="method-card card-online" id="fileservice">
+        <h2>ONLINE <span>FILE SERVICE</span></h2>
+        <p>Envoi de fichiers .BIN pour les professionnels. Retour ultra-rapide sous 60 minutes.</p>
+        <a href="#formulaire" class="btn-action" style="background:transparent; color:var(--dark); border:2px solid var(--dark);">DÉPOSER UN FICHIER .BIN</a>
+    </div>
+</section>
+
+<section class="catalogue-section" id="catalogue">
+    <h2 style="font-family:'Orbitron';">SÉLECTIONNEZ VOTRE <span>MARQUE</span></h2>
+    <div class="brand-grid">
+        <div class="brand-item" onclick="selectBrand('BMW')">BMW</div>
+        <div class="brand-item" onclick="selectBrand('AUDI')">AUDI</div>
+        <div class="brand-item" onclick="selectBrand('MERCEDES')">MERCEDES</div>
+        <div class="brand-item" onclick="selectBrand('VOLKSWAGEN')">VOLKSWAGEN</div>
+        <div class="brand-item" onclick="selectBrand('PORSCHE')">PORSCHE</div>
+        <div class="brand-item" onclick="selectBrand('RENAULT')">RENAULT</div>
+        <div class="brand-item" onclick="selectBrand('PEUGEOT')">PEUGEOT</div>
+        <div class="brand-item" onclick="selectBrand('CUPRA/SEAT')">CUPRA / SEAT</div>
+    </div>
+
+    <div id="model-selector" class="selection-box" style="display:none;">
+        <h3 id="selected-brand-title" style="font-family:'Orbitron'; color: var(--primary);"></h3>
+        <p>Sélectionnez votre motorisation exacte :</p>
+        <select id="model-list" onchange="showResult()">
+            <option value="">-- Liste des modèles --</option>
+            <option value="m3">M3/M4 G80 (3.0 Bi-Turbo 510cv)</option>
+            <option value="330d">330d G20 (3.0d 265cv)</option>
+            <option value="golf8r">Golf 8 R (2.0 TSI 320cv)</option>
+            <option value="rs3">RS3 8Y (2.5 TFSI 400cv)</option>
+            <option value="a45">A45s AMG (2.0T 421cv)</option>
+        </select>
+    </div>
+
+    <div id="result-display" class="result-card">
+        <h4 id="res-title">STAGE 1 - OPTIMISATION SUR MESURE</h4>
+        <div class="gain-box">
+            <div class="stat">ORIGINE<b>--- CV</b></div>
+            <div class="stat">STAGE 1<b style="color:var(--primary);">+ 60 CV</b></div>
+            <div class="stat">COUPLE<b>+ 100 NM</b></div>
+            <div class="stat">PRIX ATELIER<b>À PARTIR DE 390€</b></div>
+        </div>
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <a href="https://wa.me/33768879185" class="btn-action" style="background:#25d366;">PRENDRE RDV WHATSAPP</a>
+        </div>
+    </div>
+</section>
+
+<section class="pricing-section">
+    <h2 style="font-family:'Orbitron';">TARIFS <span>PRO FILE SERVICE (.BIN)</span></h2>
+    <div class="price-grid">
+        <div class="price-card"><h4>STAGE 1</h4><span class="amount">100€</span></div>
+        <div class="price-card"><h4>SOLUTIONS OFF</h4><span class="amount">50€</span></div>
+        <div class="price-card"><h4>FLEXFUEL E85</h4><span class="amount">120€</span></div>
+        <div class="price-card" style="border-color:var(--primary);"><h4>PACK COMBO</h4><span class="amount">150€</span></div>
+    </div>
+</section>
+
+<section class="file-section" id="formulaire">
+    <div class="form-container">
+        <div class="form-header">DÉPÔT DE FICHIER PROFESSIONNEL</div>
+        <div class="form-body">
+            <form action="https://formspree.io/f/zianimohamed1979@yahoo.com" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <input type="text" name="nom" placeholder="Garage / Contact" required>
+                    <input type="email" name="_replyto" placeholder="Email" required>
+                </div>
+                <input type="text" name="vehicule" placeholder="Marque, Modèle & ECU" required style="margin-bottom
