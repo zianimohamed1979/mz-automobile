@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ AUTO MOTORSPORT | Expert Programmation & Clonage</title>
+    <title>MZ AUTO MOTORSPORT | Leader Programmation 2025</title>
     <link href="fonts.googleapis.com" rel="stylesheet">
     <style>
         :root { 
             --primary: #ff0000; 
             --dark: #0a0a0a; 
+            --dark-grey: #1a1a1a;
             --white: #ffffff;
             --win-green: #25d366;
-            --paypal-blue: #0070ba;
         }
         
         * { box-sizing: border-box; }
@@ -22,70 +22,74 @@
         nav { display: flex; justify-content: space-between; padding: 15px 5%; background: rgba(10, 10, 10, 0.98); position: fixed; width: 100%; z-index: 1000; border-bottom: 2px solid var(--primary); align-items: center; }
         .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--white); text-transform: uppercase; font-size: 1.1rem; }
         .logo span { color: var(--primary); }
-        .nav-links a { text-decoration: none; color: white; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 700; margin-left: 15px; }
+        .nav-links a { text-decoration: none; color: white; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 700; margin-left: 15px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
         /* HERO */
         .hero { 
-            height: 70vh; position: relative; overflow: hidden;
+            height: 90vh; position: relative; overflow: hidden;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
         .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 120%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('images.unsplash.com') center/cover no-repeat;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('images.unsplash.com') center 30%/cover no-repeat;
             z-index: -1;
         }
-        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2rem, 7vw, 3.5rem); margin: 0; font-weight: 900; line-height: 1.1; }
-        .hero-text h1 span { color: var(--primary); }
-        .slogan { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 2px; margin-top: 20px; color: #ddd; }
+        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0; font-weight: 900; line-height: 1; }
+        .hero-text h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(255,0,0,0.5); }
 
+        /* STATS BAR */
+        .stats-bar { display: flex; justify-content: space-around; background: var(--dark); padding: 30px 5%; color: white; border-bottom: 4px solid var(--primary); }
+        .stat-item h2 { color: var(--primary); font-family: 'Orbitron'; font-size: 1.8rem; margin: 0; }
+        .stat-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin: 5px 0 0; opacity: 0.8; }
+
+        /* SECTIONS GENERALES */
         section { padding: 80px 6%; }
-        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 1.8rem; text-transform: uppercase; }
+        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--primary); }
 
-        /* --- CARTES PIVOTANTES 3D --- */
-        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .flip-card { background-color: transparent; width: 100%; height: 220px; perspective: 1000px; cursor: pointer; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        /* OUTILS OFFICIELS */
+        .tools-bar { background: #f4f4f4; padding: 40px; display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; filter: grayscale(100%); opacity: 0.6; }
+        .tools-bar img { height: 40px; }
+
+        /* CARTES 3D PIVOTANTES */
+        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .flip-card { background-color: transparent; height: 250px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
         .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); padding: 20px; }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .flip-card-front { background: #fff; border-bottom: 4px solid var(--primary); }
-        .flip-card-front h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin-bottom: 20px; color: var(--dark); }
-        
-        /* Bouton Arrondi "Cliquez ici" */
-        .btn-click { background: var(--primary); color: white; padding: 10px 20px; border-radius: 50px; font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 900; border: none; text-transform: uppercase; letter-spacing: 1px; }
+        .flip-card-front { background: #fff; border-bottom: 6px solid var(--primary); border-top: 1px solid #eee; }
+        .flip-card-front h3 { font-family: 'Orbitron'; font-size: 0.9rem; margin-bottom: 20px; }
+        .btn-click { background: var(--primary); color: white; padding: 12px 30px; border-radius: 50px; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 900; border: none; cursor: pointer; }
 
-        .flip-card-back { background: var(--dark); color: white; transform: rotateY(180deg); }
-        .flip-card-back .price { font-family: 'Orbitron'; font-size: 2.2rem; font-weight: 900; color: var(--primary); }
-        .flip-card-back span { font-size: 0.7rem; margin-top: 10px; opacity: 0.6; }
+        .flip-card-back { background: var(--dark); color: white; transform: rotateY(180deg); border: 2px solid var(--primary); }
+        .flip-card-back .price { font-family: 'Orbitron'; font-size: 2.8rem; font-weight: 900; color: var(--primary); }
 
-        /* SECTIONS SPÉCIFIQUES */
-        .parallax-divider { height: 300px; background: url('images.unsplash.com') center/cover fixed; }
-        #fileservice { background: #0a0a0a; color: white; }
-        #fileservice .flip-card-front { background: #1a1a1a; border-color: var(--primary); }
-        #fileservice .flip-card-front h3 { color: white; }
+        /* AVIS CLIENTS */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .review-card { background: white; padding: 30px; border-radius: 15px; border-left: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .stars { color: #ffcc00; margin-bottom: 10px; font-size: 1.2rem; }
+        .review-text { font-style: italic; font-size: 0.9rem; color: #444; }
+        .review-author { margin-top: 15px; font-weight: 800; font-family: 'Orbitron'; font-size: 0.7rem; }
 
-        /* FORMULAIRE */
-        .pro-card-form { background: white; border-radius: 15px; max-width: 800px; margin: 50px auto; overflow: hidden; color: var(--dark); }
-        .pro-header { background: var(--primary); color: white; padding: 20px; text-align: center; font-family: 'Orbitron'; font-weight: 900; font-size: 0.9rem; }
-        .form-pro { padding: 30px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; }
-        .btn-submit { background: var(--dark); color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; transition: 0.3s; }
-        .btn-submit:hover { background: var(--primary); }
-
-        /* --- CONTACT WHATSAPP DOUBLE --- */
+        /* CONTACT WHATSAPP */
         .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 2000; display: flex; flex-direction: column; align-items: flex-end; }
         .wa-menu { display: none; flex-direction: column; gap: 10px; margin-bottom: 15px; }
-        .wa-menu.active { display: flex; }
-        .wa-btn-contact { background: white; color: var(--dark); padding: 12px 20px; border-radius: 30px; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 800; border: 2px solid var(--win-green); box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 220px; text-align: center; }
-        .wa-btn-contact span { display: block; color: var(--win-green); font-size: 0.6rem; margin-bottom: 2px; }
-        .wa-main-trigger { background: var(--win-green); color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .wa-menu.active { display: flex; animation: slideUp 0.3s ease; }
+        .wa-link { background: white; color: var(--dark); padding: 15px 25px; border-radius: 35px; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 800; border: 2px solid var(--win-green); box-shadow: 0 5px 20px rgba(0,0,0,0.15); width: 260px; text-align: center; }
+        .wa-link span { display: block; font-size: 0.55rem; color: var(--win-green); margin-bottom: 3px; letter-spacing: 1px; }
+        .wa-trigger { background: var(--win-green); color: white; border: none; padding: 18px 35px; border-radius: 60px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
 
-        /* BOUTON RETOUR HAUT */
-        #backTop { position: fixed; bottom: 95px; right: 25px; width: 45px; height: 45px; background: var(--primary); color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 1999; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        /* BOUTON RETOUR EN HAUT */
+        #backToTop { position: fixed; bottom: 105px; right: 25px; width: 50px; height: 50px; background: var(--primary); color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 1999; font-weight: bold; font-size: 20px; box-shadow: 0 5px 15px rgba(255,0,0,0.3); }
 
-        footer { background: #000; color: #555; text-align: center; padding: 40px; font-size: 0.8rem; }
+        footer { background: var(--dark); color: #666; text-align: center; padding: 60px 6%; font-size: 0.8rem; border-top: 1px solid #222; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .stats-bar { flex-direction: column; gap: 20px; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -93,158 +97,125 @@
 <nav>
     <a href="#" class="logo">MZ AUTO <span>MOTORSPORT</span></a>
     <div class="nav-links">
-        <a href="#domicile">DOMICILE</a>
+        <a href="#domicile">INTERVENTION</a>
         <a href="#fileservice">ONLINE</a>
+        <a href="#avis">AVIS</a>
     </div>
 </nav>
 
 <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-text">
+        <p style="font-family:'Orbitron'; letter-spacing: 5px; color: var(--primary); font-weight: 900;">2025 EDITION</p>
         <h1>MZ AUTO<br><span>MOTORSPORT</span></h1>
-        <div class="slogan">L'EXCELLENCE ÉLECTRONIQUE SUR SITE & ONLINE</div>
+        <p style="font-family:'Orbitron'; font-size: 0.8rem; margin-top: 20px; opacity: 0.8;">PROGRAMMATION MOTEUR • CLONAGE • SOLUTIONS FAP/EGR/ADBLUE</p>
     </div>
 </div>
 
+<div class="stats-bar">
+    <div class="stat-item"><h2>+1500</h2><p>Véhicules Optimisés</p></div>
+    <div class="stat-item"><h2>99%</h2><p>Clients Satisfaits</p></div>
+    <div class="stat-item"><h2>24/48H</h2><p>Délais d'Intervention</p></div>
+    <div class="stat-item"><h2>100%</h2><p>Matériel Officiel</p></div>
+</div>
+
+<div class="tools-bar">
+    <span style="font-family:'Orbitron'; font-size: 0.7rem; font-weight: 900; color: #999;">NOS OUTILS :</span>
+    <img src="www.autotuner-tool.com" alt="Autotuner">
+    <img src="www.alientech-tools.com" alt="Alientech">
+    <img src="www.magicmotorsport.com" alt="Flex">
+</div>
+
 <section id="domicile">
-    <h2 class="section-title">SERVICES <span>À DOMICILE</span></h2>
+    <h2 class="section-title">NOS <span>TARIFS SUR SITE</span></h2>
     <div class="grid-prices">
         <!-- Carte 1 -->
         <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h3>REPROGRAMMATION STAGE 1</h3>
+                    <p style="font-size:0.6rem; color:var(--primary); font-weight:900;">BEST-SELLER</p>
+                    <h3>REPROG STAGE 1</h3>
                     <button class="btn-click">Cliquez ici</button>
                 </div>
-                <div class="flip-card-back">
-                    <div class="price">390€</div>
-                    <span>Intervention incluse</span>
-                </div>
+                <div class="flip-card-back"><div class="price">390€</div><p>Garantie logicielle incluse</p></div>
             </div>
         </div>
         <!-- Carte 2 -->
         <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h3>CONVERSION E85 FLEX</h3>
+                    <p style="font-size:0.6rem; color:var(--primary); font-weight:900;">ECONOMIE</p>
+                    <h3>ETHANOL E85</h3>
                     <button class="btn-click">Cliquez ici</button>
                 </div>
-                <div class="flip-card-back">
-                    <div class="price">450€</div>
-                    <span>Économies immédiates</span>
-                </div>
+                <div class="flip-card-back"><div class="price">450€</div><p>FlexFuel Intégral</p></div>
             </div>
         </div>
         <!-- Carte 3 -->
         <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
+                    <p style="font-size:0.6rem; color:var(--primary); font-weight:900;">ELECTRONIQUE</p>
                     <h3>CLONAGE CALCULATEUR</h3>
                     <button class="btn-click">Cliquez ici</button>
                 </div>
-                <div class="flip-card-back">
-                    <div class="price">200€</div>
-                    <span>Sauvegarde de données</span>
-                </div>
+                <div class="flip-card-back"><div class="price">200€</div><p>Sauvegarde des données</p></div>
             </div>
         </div>
     </div>
 </section>
 
-<div class="parallax-divider"></div>
-
-<section id="fileservice">
-    <h2 class="section-title">ONLINE <span>FILE SERVICE</span></h2>
-    <div class="grid-prices">
-        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <h3>FILE SERVICE STAGE 1</h3>
-                    <button class="btn-click">Cliquez ici</button>
-                </div>
-                <div class="flip-card-back">
-                    <div class="price">100€</div>
-                    <span>Délai < 1 Heure</span>
-                </div>
-            </div>
+<section id="avis" style="background: #fcfcfc;">
+    <h2 class="section-title">AVIS <span>CLIENTS</span></h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Anthony est venu directement à mon travail. Stage 1 sur ma Golf 8, voiture transformée et conso en baisse. Top !"</p>
+            <p class="review-author">— Thomas D. (Golf GTI)</p>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <h3>DTC / FAP / EGR OFF</h3>
-                    <button class="btn-click">Cliquez ici</button>
-                </div>
-                <div class="flip-card-back">
-                    <div class="price">60€</div>
-                    <span>Solution logicielle</span>
-                </div>
-            </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Problème d'Adblue réglé en 30 min. Mohamed connaît son sujet sur le bout des doigts. Merci encore !"</p>
+            <p class="review-author">— Kevin L. (Peugeot 3008)</p>
         </div>
-    </div>
-
-    <!-- Formulaire Pro -->
-    <div class="pro-card-form">
-        <div class="pro-header">DÉPOSER UN FICHIER (ADMIN : ANTHONY)</div>
-        <form class="form-pro">
-            <div class="form-row">
-                <input type="text" placeholder="Nom Garage / Client" required>
-                <input type="email" placeholder="Votre Email" required>
-            </div>
-            <div class="form-row">
-                <input type="text" placeholder="Véhicule (Ex: Audi RS3)" required>
-                <input type="text" placeholder="Type ECU (Ex: Bosch MED17)" required>
-            </div>
-            <input type="file" style="margin-bottom: 15px; background: #f4f4f4; padding: 10px;">
-            <button type="submit" class="btn-submit">ENVOYER POUR TRAITEMENT</button>
-        </form>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Passage à l'E85 parfait. Je divise mes pleins par deux. Équipe très pro et ponctuelle."</p>
+            <p class="review-author">— Marc A. (BMW M140i)</p>
+        </div>
     </div>
 </section>
 
-<footer>
-    <p>&copy; 2025 MZ AUTO MOTORSPORT | Experts : MOHAMED & ANTHONY</p>
-</footer>
+<button id="backToTop">↑</button>
 
-<!-- BOUTON RETOUR EN HAUT -->
-<button id="backTop">↑</button>
-
-<!-- WHATSAPP DOUBLE CONTACT -->
 <div class="wa-container">
     <div class="wa-menu" id="waMenu">
-        <a href="wa.me" class="wa-btn-contact" target="_blank">
-            <span>SUPPORT & RDV</span> ANTHONY
+        <a href="wa.me" class="wa-link" target="_blank">
+            <span>PROGRAMMEUR & RDV</span> ANTHONY (06 68 50 11 43)
         </a>
-        <a href="wa.me" class="wa-btn-contact" target="_blank"> <!-- Changer ici -->
-            <span>PROGRAMMATION</span> MOHAMED
+        <a href="wa.me" class="wa-link" target="_blank">
+            <span>PROGRAMMEUR EXPERT</span> MOHAMED
         </a>
     </div>
-    <button class="wa-main-trigger" onclick="toggleWA()">WHATSAPP DIRECT</button>
+    <button class="wa-trigger" id="waTrigger">WHATSAPP DIRECT</button>
 </div>
 
+<footer>
+    <p style="color: white; font-family:'Orbitron';">MZ AUTO MOTORSPORT 2025</p>
+    <p style="margin-top: 20px;">Experts en optimisation moteur et électronique automobile.<br>Interventions sur site et solutions professionnelles en ligne.</p>
+    <p style="margin-top: 10px; font-size: 0.6rem;">© 2025 MOHAMED & ANTHONY. Tous droits réservés.</p>
+</footer>
+
 <script>
-    // Toggle Menu WhatsApp
-    function toggleWA() {
-        document.getElementById('waMenu').classList.toggle('active');
-    }
+    const waTrigger = document.getElementById('waTrigger');
+    const waMenu = document.getElementById('waMenu');
+    waTrigger.addEventListener('click', (e) => { e.stopPropagation(); waMenu.classList.toggle('active'); });
 
-    // Bouton Retour en Haut
-    const btt = document.getElementById("backTop");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btt.style.display = "flex";
-        } else {
-            btt.style.display = "none";
-        }
-    };
-    btt.onclick = function() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    };
+    const btt = document.getElementById('backToTop');
+    window.onscroll = () => { window.scrollY > 400 ? btt.style.display = "flex" : btt.style.display = "none"; };
+    btt.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
 
-    // Fermer WhatsApp si clic ailleurs
-    window.onclick = function(event) {
-        if (!event.target.matches('.wa-main-trigger')) {
-            document.getElementById('waMenu').classList.remove('active');
-        }
-    }
+    document.addEventListener('click', () => waMenu.classList.remove('active'));
 </script>
 
 </body>
