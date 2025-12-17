@@ -1,99 +1,109 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MZ AUTO MOTORSPORT | Expert Programmation</title>
+    <title>MZ AUTO MOTORSPORT | Expert Programmation Mobile</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { 
             --primary: #ff0000; 
-            --dark: #0f0f0f; 
+            --dark: #0a0a0a; 
             --bg-light: #ffffff; 
             --white: #ffffff;
             --win-green: #25d366;
-            --gray-light: #f4f4f4;
+            --paypal-blue: #0070ba;
         }
         
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--dark); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--dark); margin: 0; overflow-x: hidden; }
 
         /* NAVIGATION */
-        nav { display: flex; justify-content: space-between; padding: 15px 5%; background: var(--dark); position: fixed; width: 100%; z-index: 1000; border-bottom: 3px solid var(--primary); align-items: center; }
-        .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--white); text-transform: uppercase; font-size: 1.2rem; }
+        nav { display: flex; justify-content: space-between; padding: 15px 5%; background: rgba(10, 10, 10, 0.95); position: fixed; width: 100%; z-index: 1000; border-bottom: 2px solid var(--primary); align-items: center; backdrop-filter: blur(10px); }
+        .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--white); text-transform: uppercase; font-size: 1.1rem; }
         .logo span { color: var(--primary); }
-        .nav-links a { text-decoration: none; color: white; font-family: 'Orbitron'; font-size: 0.75rem; font-weight: 700; margin-left: 20px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a { text-decoration: none; color: white; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 700; margin-left: 15px; }
 
         /* HERO AVEC PARALLAXE */
         .hero { 
-            height: 85vh; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2000'); 
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 5%;
+            height: 90vh; 
+            position: relative;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2.2rem, 8vw, 4rem); margin: 0; font-weight: 900; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 120%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1617814076367-b759c7d8e73a?q=80&w=2000') center/cover no-repeat;
+            z-index: -1;
+            will-change: transform;
+        }
+        .hero-content { padding: 0 5%; z-index: 2; }
+        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(1.8rem, 8vw, 3.8rem); margin: 0; font-weight: 900; }
         .hero-text h1 span { color: var(--primary); }
-        .slogan { font-family: 'Orbitron'; font-size: clamp(0.9rem, 4vw, 1.3rem); letter-spacing: 3px; color: var(--white); margin: 20px 0; font-weight: 700; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 15px; }
-        .description { font-size: clamp(0.9rem, 3vw, 1.1rem); color: #ccc; max-width: 750px; margin: 10px auto; line-height: 1.6; }
+        .slogan { font-family: 'Orbitron'; font-size: clamp(0.7rem, 3vw, 1.1rem); color: var(--white); margin: 15px 0; font-weight: 700; text-transform: uppercase; border-left: 3px solid var(--primary); padding-left: 12px; display: inline-block; }
 
-        section { padding: 80px 8%; }
-        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 2rem; text-transform: uppercase; }
+        section { padding: 60px 6%; background: white; }
+        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 40px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--primary); }
 
-        /* OUTILS OFFICIELS TAGS */
-        .tools-badge { background: #1a1a1a; color: var(--primary); padding: 10px 20px; border-radius: 4px; font-family: 'Orbitron'; font-size: 0.8rem; font-weight: 900; display: inline-block; margin-top: 15px; border: 1px solid var(--primary); }
+        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card-price { background: #fff; padding: 25px; border-radius: 4px; border-bottom: 4px solid #eee; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card-price:hover { border-bottom-color: var(--primary); transform: translateY(-3px); }
+        .card-price h3 { font-family: 'Orbitron'; margin: 0 0 10px 0; font-size: 1rem; color: var(--dark); border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .card-price p { font-size: 0.85rem; color: #555; line-height: 1.5; margin-bottom: 15px; }
+        .card-price .price { color: var(--primary); font-family: 'Orbitron'; font-weight: 900; font-size: 1.4rem; }
 
-        /* GRILLE SERVICES */
-        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card-price { background: var(--white); padding: 35px; border-radius: 4px; border-bottom: 4px solid #ddd; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card-price:hover { border-bottom-color: var(--primary); transform: translateY(-5px); }
-        .card-price h3 { font-family: 'Orbitron'; margin-top: 0; font-size: 1.1rem; color: var(--dark); border-bottom: 2px solid var(--gray-light); padding-bottom: 10px; }
-        .card-price p { font-size: 0.9rem; color: #666; line-height: 1.6; height: 60px; }
-        .card-price .price { color: var(--primary); font-family: 'Orbitron'; font-weight: 900; font-size: 1.5rem; display: block; margin-top: 20px; }
-
-        /* SECTION HISTOIRE & OUTILS */
-        .histoire-box { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center; }
-        .histoire-text p { line-height: 1.8; color: #444; font-size: 1.05rem; }
-        .tool-icons { display: flex; gap: 20px; margin-top: 25px; }
-        .tool-tag { border: 2px solid var(--dark); padding: 10px 20px; font-family: 'Orbitron'; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; }
-        .tool-tag.red { border-color: var(--primary); color: var(--primary); }
-
-        /* PARALLAXE ROUGE */
         .parallax-divider {
-            height: 300px;
-            background: linear-gradient(rgba(255,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000');
-            background-attachment: fixed; background-position: center; background-size: cover;
-            display: flex; align-items: center; justify-content: center;
+            height: 350px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000') center/cover no-repeat;
+            background-attachment: fixed;
         }
-        .parallax-content { color: white; font-family: 'Orbitron'; font-weight: 900; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 10px; }
 
-        /* FILE SERVICE PRO */
-        #fileservice { background: var(--dark); color: white; }
-        .card-file { background: #1a1a1a; border: 1px solid #333; padding: 25px; text-align: center; }
-        .card-file .price { color: var(--primary); font-weight: 900; font-size: 1.4rem; font-family: 'Orbitron'; }
+        #fileservice { background: var(--dark); color: white; padding: 60px 6%; }
+        .card-file { background: #151515; border: 1px solid #333; padding: 20px; text-align: center; margin-bottom: 15px; }
+        .card-file .price { color: var(--primary); font-weight: 900; font-size: 1.3rem; font-family: 'Orbitron'; }
 
-        /* FORMULAIRE PRO */
-        .pro-card-form { background: var(--white); border-radius: 8px; max-width: 900px; margin: 60px auto 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); color: var(--dark); }
-        .pro-header { background: var(--primary); color: white; padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; }
-        .form-pro { padding: 40px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        input, select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .btn-submit { background: var(--dark); color: white; border: none; padding: 20px; font-family: 'Orbitron'; font-weight: 900; width: 100%; cursor: pointer; text-transform: uppercase; }
+        /* FORMULAIRE & BOUTON PAYPAL DYNAMIQUE */
+        .pro-card-form { background: var(--white); border-radius: 8px; max-width: 800px; margin: 40px auto 0; overflow: hidden; color: var(--dark); }
+        .pro-header { background: var(--primary); color: white; padding: 20px; text-align: center; font-family: 'Orbitron'; font-weight: 900; font-size: 0.9rem; }
+        .form-pro { padding: 25px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        input, select { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; font-family: 'Inter'; }
+        
+        .btn-submit { background: var(--dark); color: white; border: none; padding: 18px; font-family: 'Orbitron'; font-weight: 900; width: 100%; cursor: pointer; text-transform: uppercase; margin-bottom: 15px; transition: 0.3s; }
         .btn-submit:hover { background: var(--primary); }
 
-        /* CONTACT */
-        .contact-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-        .btn-contact { padding: 22px; text-align: center; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; border-radius: 4px; }
+        #payLink { 
+            display: block; 
+            text-align: center; 
+            padding: 15px; 
+            background: #f2f7ff;
+            color: var(--paypal-blue); 
+            text-decoration: none; 
+            font-family: 'Orbitron'; 
+            font-weight: 900; 
+            border: 2px solid var(--paypal-blue);
+            border-radius: 4px;
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+        #payLink:hover { background: var(--paypal-blue); color: white; }
+        #payLink span { font-size: 1.1rem; }
+
+        .btn-action { display: block; width: 100%; padding: 20px; margin-bottom: 12px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; border-radius: 4px; text-align: center; font-size: 0.9rem; }
+        .btn-gps { background: var(--dark); color: var(--primary); border: 2px solid var(--primary); }
         .btn-phone { background: var(--primary); color: white; }
-        .btn-mail { background: transparent; color: var(--dark); border: 2px solid var(--dark); }
 
-        footer { background: #000; color: #888; padding: 50px 5%; text-align: center; }
-        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: var(--win-green); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; }
+        footer { background: #000; color: #666; padding: 40px 5%; text-align: center; font-size: 0.75rem; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: var(--win-green); color: white; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; font-size: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-        @media (max-width: 768px) { .form-row, .contact-bar { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .parallax-divider { background-attachment: scroll; }
+            .hero { height: 75vh; }
+        }
     </style>
 </head>
 <body>
@@ -101,114 +111,116 @@
 <nav>
     <a href="#" class="logo">MZ AUTO <span>MOTORSPORT</span></a>
     <div class="nav-links">
-        <a href="#atelier">ATELIER</a>
-        <a href="#histoire">EXPERTISE</a>
-        <a href="#fileservice">PRO</a>
+        <a href="#prestations">SERVICES</a>
+        <a href="#fileservice">ZONE PRO</a>
+        <a href="#contact">CONTACT</a>
     </div>
 </nav>
 
-<section class="hero">
+<div class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h1>MZ AUTO <span>MOTORSPORT</span></h1>
-            <div class="slogan">Votre performance, notre précision.</div>
-            <p class="description">Optimisation moteur haute performance au Coteau. Nous utilisons exclusivement des outils de lecture officiels pour une sécurité totale de votre véhicule.</p>
-            <div class="tools-badge">AUTOTUNER & FLEX OFFICIAL USER</div>
+            <div class="slogan">À DOMICILE OU EN GARAGE</div>
+            <p style="color:#eee; font-size: 0.9rem;">Programmation moteur BMW & Multi-marques avec matériel officiel.</p>
         </div>
     </div>
-</section>
-
-<section id="atelier">
-    <h2 class="section-title">NOS SERVICES <span>ATELIER</span></h2>
-    <div class="grid-prices">
-        <div class="card-price"><h3>STAGE 1</h3><p>Gains de couple et puissance sur-mesure.</p><span class="price">390€</span></div>
-        <div class="card-price"><h3>BIO-ÉTHANOL E85</h3><p>Conversion FlexFuel haute précision.</p><span class="price">450€</span></div>
-        <div class="card-price"><h3>ADBLUE OFF</h3><p>Correction logicielle des défauts SCR.</p><span class="price">300€</span></div>
-        <div class="card-price"><h3>DIAGNOSTIC</h3><p>Analyse électronique complète par experts.</p><span class="price">40€</span></div>
-    </div>
-</section>
-
-<section id="histoire" style="background: var(--white); border-bottom: 1px solid #eee;">
-    <div class="histoire-box">
-        <div class="histoire-text">
-            <h2 style="font-family: 'Orbitron'; font-size: 1.8rem; color: var(--dark);">SÉCURITÉ & <span style="color: var(--primary);">FIABILITÉ</span></h2>
-            <p>Forte d'une expérience solide, <strong>MZ AUTO MOTORSPORT</strong> se distingue par l'utilisation de matériel de pointe. Pour garantir l'intégrité de votre électronique, nous travaillons <strong>uniquement avec des interfaces officielles</strong>.</p>
-            <p>Zéro risque, zéro clone : nous investissons dans les meilleurs outils du marché pour vous offrir une prestation d'excellence.</p>
-            <div class="tool-icons">
-                <div class="tool-tag">AUTOTUNER</div>
-                <div class="tool-tag red">FLEX MOTORSPORT</div>
-            </div>
-        </div>
-        <div style="border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--primary);">
-            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000" alt="Matériel Officiel" style="width: 100%; display: block;">
-        </div>
-    </div>
-</section>
-
-<div class="parallax-divider">
-    <div class="parallax-content">OFFICIAL TOOLS ONLY</div>
 </div>
+
+<section id="prestations">
+    <h2 class="section-title">NOS <span>TARIFS</span> MOBILES</h2>
+    <div class="grid-prices">
+        <div class="card-price">
+            <h3>STAGE 1</h3>
+            <p>Gain de puissance et couple, consommation réduite.</p>
+            <span class="price">390€</span>
+        </div>
+        <div class="card-price">
+            <h3>BIO-ÉTHANOL E85</h3>
+            <p>Conversion Flexfuel pour rouler à l'économie.</p>
+            <span class="price">450€</span>
+        </div>
+        <div class="card-price">
+            <h3>ADBLUE OFF</h3>
+            <p>Suppression définitive des erreurs système SCR.</p>
+            <span class="price">300€</span>
+        </div>
+    </div>
+</section>
+
+<div class="parallax-divider"></div>
 
 <section id="fileservice">
     <h2 class="section-title" style="color:white;">FILE <span>SERVICE</span> PRO</h2>
-    <div class="grid-prices">
-        <div class="card-file"><h3>STAGE 1</h3><span class="price">100€</span></div>
-        <div class="card-file"><h3>E85 FLEX</h3><span class="price">120€</span></div>
-        <div class="card-file"><h3>ADBLUE OFF</h3><span class="price">100€</span></div>
-        <div class="card-file"><h3>OPTIONS</h3><span class="price">50€</span></div>
-    </div>
-
     <div class="pro-card-form">
-        <div class="pro-header">ZONE RÉSERVÉE AUX PROFESSIONNELS</div>
+        <div class="pro-header">ENVOI DE FICHIER & PAIEMENT SÉCURISÉ</div>
         <div class="form-pro">
             <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
-                    <input type="text" name="garage" placeholder="Garage" required>
-                    <input type="email" name="_replyto" placeholder="Email" required>
-                </div>
-                <div class="form-row">
-                    <input type="text" name="vehicule" placeholder="Véhicule" required>
-                    <input type="text" name="ecu" placeholder="ECU" required>
+                    <input type="text" name="garage" placeholder="Nom du Garage" required>
+                    <input type="email" name="_replyto" placeholder="Votre Email" required>
                 </div>
                 <select name="prestation" id="preSelect" required>
                     <option value="100">Stage 1 - 100€</option>
-                    <option value="120">E85 Flex - 120€</option>
-                    <option value="100">AdBlue OFF - 100€</option>
-                    <option value="50">Options / DTC - 50€</option>
+                    <option value="120">E85 Flexfuel - 120€</option>
+                    <option value="100">AdBlue / EGR / DPF OFF - 100€</option>
+                    <option value="50">Options (DTC, Pop&Bang) - 50€</option>
                 </select>
-                <input type="file" name="file" required style="border: 2px dashed #ddd; padding: 20px; width: 100%; margin-bottom: 20px;">
-                <button type="submit" class="btn-submit">ENVOYER LE FICHIER</button>
-                <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank" style="text-decoration:none; display:block; text-align:center; padding:15px; color:var(--primary); font-family:'Orbitron'; font-weight:900; margin-top: 10px;">RÉGLER PAYPAL</a>
+                <input type="file" name="file" required style="font-size: 0.8rem; margin-bottom: 20px;">
+                
+                <button type="submit" class="btn-submit">1. ENVOYER LE FICHIER</button>
+                
+                <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank">
+                    2. PAYER <span id="displayPrice">100</span>€ VIA PAYPAL
+                </a>
             </form>
         </div>
     </div>
 </section>
 
-<section id="localisation">
-    <h2 class="section-title">CONTACT & <span>ACCÈS</span></h2>
-    <div style="height: 350px; border-radius: 8px; overflow: hidden; border: 5px solid var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.632281696035!2d4.0847849!3d45.918667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f3f9829e000001%3A0xc3f5869a8508f7b!2s2%20Bd%20Charles%20Gallet%2C%2042120%20Le%20Coteau!5e0!3m2!1sfr!2sfr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="contact-bar">
-        <a href="tel:0768879185" class="btn-contact btn-phone">📞 APPEL ATELIER</a>
-        <a href="mailto:zianimohamed1979@gmail.com" class="btn-contact btn-mail">✉️ ENVOYER UN MAIL</a>
+<section id="contact">
+    <h2 class="section-title">CONTACT & <span>POSITION</span></h2>
+    <div class="contact-container">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=2+Boulevard+Charles+Gallet+42120+Le+Coteau" target="_blank" class="btn-action btn-gps">
+            📍 LANCER L'ITINÉRAIRE GPS
+        </a>
+        <a href="tel:0768879185" class="btn-action btn-phone">
+            📞 APPELER LE 07 68 87 91 85
+        </a>
     </div>
 </section>
 
 <footer>
     <p><strong>MZ AUTO MOTORSPORT</strong> - 2 Boulevard Charles Gallet, 42120 Le Coteau</p>
-    <p>07 68 87 91 85 | SIRET : 943 225 953 00018 | © 2025</p>
+    <p>SIRET : 943 225 953 00018 | © 2025</p>
 </footer>
 
-<a href="https://wa.me/33768879185" class="whatsapp-float">WHATSAPP PRO</a>
+<a href="https://wa.me/33768879185" class="whatsapp-float">WHATSAPP</a>
 
 <script>
-    const sel = document.getElementById('preSelect');
-    const pay = document.getElementById('payLink');
-    sel.addEventListener('change', function() {
-        pay.href = "https://paypal.me/mziani761/" + this.value;
+    // GESTION DU PRIX DYNAMIQUE PAYPAL
+    const selectEl = document.getElementById('preSelect');
+    const payLinkEl = document.getElementById('payLink');
+    const displayPriceEl = document.getElementById('displayPrice');
+
+    selectEl.addEventListener('change', function() {
+        const montant = this.value;
+        // Met à jour le lien PayPal
+        payLinkEl.href = "https://paypal.me/mziani761/" + montant;
+        // Met à jour le texte du bouton pour le client
+        displayPriceEl.textContent = montant;
+    });
+
+    // EFFET PARALLAXE FLUIDE
+    window.addEventListener('scroll', function() {
+        const scroll = window.pageYOffset;
+        const heroBg = document.querySelector('.hero-bg');
+        if(window.innerWidth > 768) {
+            heroBg.style.transform = 'translateY(' + (scroll * 0.4) + 'px)';
+        }
     });
 </script>
 
 </body>
-</html>
+</html>        
