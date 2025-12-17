@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -26,83 +26,66 @@
 
         /* HERO */
         .hero { 
-            height: 80vh; position: relative; overflow: hidden;
+            height: 70vh; position: relative; overflow: hidden;
             display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 120%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images.unsplash.com') center/cover no-repeat;
-            z-index: -1; will-change: transform;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('images.unsplash.com') center/cover no-repeat;
+            z-index: -1;
         }
-        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2.2rem, 8vw, 4rem); margin: 0; font-weight: 900; }
+        .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2rem, 7vw, 3.5rem); margin: 0; font-weight: 900; line-height: 1.1; }
         .hero-text h1 span { color: var(--primary); }
-        .slogan { font-family: 'Orbitron'; font-size: clamp(0.7rem, 3vw, 1.1rem); color: var(--white); margin: 15px 0; font-weight: 700; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 12px; display: inline-block; }
+        .slogan { font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 2px; margin-top: 20px; color: #ddd; }
 
-        section { padding: 80px 6%; position: relative; }
-        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        section { padding: 80px 6%; }
+        .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 1.8rem; text-transform: uppercase; }
         .section-title span { color: var(--primary); }
 
-        /* GRILLES TARIFS & LOGIQUE D'AFFICHAGE */
-        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        /* --- CARTES PIVOTANTES 3D --- */
+        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .flip-card { background-color: transparent; width: 100%; height: 220px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); padding: 20px; }
         
-        .card-price, .card-file { 
-            background: #fff; padding: 25px; border-radius: 4px; border-bottom: 4px solid #ddd; 
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; 
-        }
-        .card-file { background: #151515; border: 1px solid #333; color: white; }
-
-        .card-price h3, .card-file h3 { font-family: 'Orbitron'; margin: 0; font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
-        .card-file h3 { border-bottom-color: #333; }
-
-        /* Masquage du prix par défaut */
-        .price { 
-            display: none; 
-            color: var(--primary); 
-            font-family: 'Orbitron'; 
-            font-weight: 900; 
-            font-size: 1.4rem; 
-            margin-top: 10px; 
-        }
-
-        /* Bouton Voir le tarif */
-        .btn-reveal {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-family: 'Orbitron';
-            font-size: 0.7rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 2px;
-            text-transform: uppercase;
-            transition: 0.2s;
-        }
-        .btn-reveal:hover { opacity: 0.8; transform: scale(1.05); }
-
-        /* Classe active pour afficher le prix */
-        .revealed .price { display: block; animation: fadeIn 0.4s ease; }
-        .revealed .btn-reveal { display: none; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* PARALLAX & FORMULAIRE (Suite du design précédent) */
-        .parallax-divider { height: 400px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images.unsplash.com') center/cover no-repeat; background-attachment: fixed; }
-        #fileservice { background: var(--dark); color: white; }
-        .pro-card-form { background: var(--white); border-radius: 8px; max-width: 900px; margin: 50px auto 0; overflow: hidden; color: var(--dark); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .pro-header { background: var(--primary); color: white; padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; }
-        .form-pro { padding: 35px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-group { margin-bottom: 20px; }
-        label { font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 900; margin-bottom: 8px; display: block; color: #555; }
-        input, select { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; background: #fcfcfc; }
-        .btn-submit { background: var(--dark); color: white; border: none; padding: 20px; font-family: 'Orbitron'; font-weight: 900; width: 100%; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
-        #payLink { display: block; text-align: center; padding: 18px; margin-top: 15px; background: #f2f7ff; color: var(--paypal-blue); text-decoration: none; font-family: 'Orbitron'; font-weight: 900; border: 2px solid var(--paypal-blue); border-radius: 4px; }
+        .flip-card-front { background: #fff; border-bottom: 4px solid var(--primary); }
+        .flip-card-front h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin-bottom: 20px; color: var(--dark); }
         
-        footer { background: #000; color: #666; padding: 50px 5%; text-align: center; font-size: 0.8rem; }
-        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: var(--win-green); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        /* Bouton Arrondi "Cliquez ici" */
+        .btn-click { background: var(--primary); color: white; padding: 10px 20px; border-radius: 50px; font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 900; border: none; text-transform: uppercase; letter-spacing: 1px; }
 
-        @media (max-width: 768px) { .nav-links { display: none; } .form-row { grid-template-columns: 1fr; } .parallax-divider { background-attachment: scroll; } }
+        .flip-card-back { background: var(--dark); color: white; transform: rotateY(180deg); }
+        .flip-card-back .price { font-family: 'Orbitron'; font-size: 2.2rem; font-weight: 900; color: var(--primary); }
+        .flip-card-back span { font-size: 0.7rem; margin-top: 10px; opacity: 0.6; }
+
+        /* SECTIONS SPÉCIFIQUES */
+        .parallax-divider { height: 300px; background: url('images.unsplash.com') center/cover fixed; }
+        #fileservice { background: #0a0a0a; color: white; }
+        #fileservice .flip-card-front { background: #1a1a1a; border-color: var(--primary); }
+        #fileservice .flip-card-front h3 { color: white; }
+
+        /* FORMULAIRE */
+        .pro-card-form { background: white; border-radius: 15px; max-width: 800px; margin: 50px auto; overflow: hidden; color: var(--dark); }
+        .pro-header { background: var(--primary); color: white; padding: 20px; text-align: center; font-family: 'Orbitron'; font-weight: 900; font-size: 0.9rem; }
+        .form-pro { padding: 30px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Inter'; }
+        .btn-submit { background: var(--dark); color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: var(--primary); }
+
+        /* --- CONTACT WHATSAPP DOUBLE --- */
+        .wa-container { position: fixed; bottom: 25px; right: 25px; z-index: 2000; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-menu { display: none; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+        .wa-menu.active { display: flex; }
+        .wa-btn-contact { background: white; color: var(--dark); padding: 12px 20px; border-radius: 30px; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 800; border: 2px solid var(--win-green); box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 220px; text-align: center; }
+        .wa-btn-contact span { display: block; color: var(--win-green); font-size: 0.6rem; margin-bottom: 2px; }
+        .wa-main-trigger { background: var(--win-green); color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* BOUTON RETOUR HAUT */
+        #backTop { position: fixed; bottom: 95px; right: 25px; width: 45px; height: 45px; background: var(--primary); color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 1999; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        footer { background: #000; color: #555; text-align: center; padding: 40px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -111,92 +94,157 @@
     <a href="#" class="logo">MZ AUTO <span>MOTORSPORT</span></a>
     <div class="nav-links">
         <a href="#domicile">DOMICILE</a>
-        <a href="#fileservice">ONLINE PRO</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#fileservice">ONLINE</a>
     </div>
 </nav>
 
 <div class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1>MZ AUTO <span>MOTORSPORT</span></h1>
-            <div class="slogan">L'EXCELLENCE ÉLECTRONIQUE SUR SITE & ONLINE</div>
-        </div>
+    <div class="hero-text">
+        <h1>MZ AUTO<br><span>MOTORSPORT</span></h1>
+        <div class="slogan">L'EXCELLENCE ÉLECTRONIQUE SUR SITE & ONLINE</div>
     </div>
 </div>
 
 <section id="domicile">
-    <h2 class="section-title">TARIFS <span>À DOMICILE</span></h2>
+    <h2 class="section-title">SERVICES <span>À DOMICILE</span></h2>
     <div class="grid-prices">
-        <!-- Cartes avec bouton de révélation -->
-        <div class="card-price"><h3>STAGE 1</h3><span class="price">390€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>E85 FLEXFUEL</h3><span class="price">450€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>STAGE 1 + E85</h3><span class="price">550€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>ADBLUE OFF</h3><span class="price">300€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>FAP OFF</h3><span class="price">250€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>EGR OFF</h3><span class="price">200€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>CLONAGE ECU</h3><span class="price">200€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>CLONAGE BSI</h3><span class="price">180€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>IMMO OFF</h3><span class="price">150€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-price"><h3>DIAGNOSTIC</h3><span class="price">40€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <!-- Carte 1 -->
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>REPROGRAMMATION STAGE 1</h3>
+                    <button class="btn-click">Cliquez ici</button>
+                </div>
+                <div class="flip-card-back">
+                    <div class="price">390€</div>
+                    <span>Intervention incluse</span>
+                </div>
+            </div>
+        </div>
+        <!-- Carte 2 -->
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>CONVERSION E85 FLEX</h3>
+                    <button class="btn-click">Cliquez ici</button>
+                </div>
+                <div class="flip-card-back">
+                    <div class="price">450€</div>
+                    <span>Économies immédiates</span>
+                </div>
+            </div>
+        </div>
+        <!-- Carte 3 -->
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>CLONAGE CALCULATEUR</h3>
+                    <button class="btn-click">Cliquez ici</button>
+                </div>
+                <div class="flip-card-back">
+                    <div class="price">200€</div>
+                    <span>Sauvegarde de données</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <div class="parallax-divider"></div>
 
 <section id="fileservice">
-    <h2 class="section-title">TARIFS <span>ONLINE FILE SERVICE</span></h2>
-    <div class="grid-prices" style="margin-bottom: 50px;">
-        <div class="card-file"><h3>STAGE 1</h3><span class="price">100€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-file"><h3>E85 FLEX</h3><span class="price">120€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-file"><h3>STAGE 1 + E85</h3><span class="price">150€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-file"><h3>DTC/FAP/EGR OFF</h3><span class="price">60€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-file"><h3>ADBLUE OFF</h3><span class="price">80€</span><button class="btn-reveal">Voir le tarif</button></div>
-        <div class="card-file"><h3>IMMO / CLONAGE</h3><span class="price">80€</span><button class="btn-reveal">Voir le tarif</button></div>
+    <h2 class="section-title">ONLINE <span>FILE SERVICE</span></h2>
+    <div class="grid-prices">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>FILE SERVICE STAGE 1</h3>
+                    <button class="btn-click">Cliquez ici</button>
+                </div>
+                <div class="flip-card-back">
+                    <div class="price">100€</div>
+                    <span>Délai < 1 Heure</span>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>DTC / FAP / EGR OFF</h3>
+                    <button class="btn-click">Cliquez ici</button>
+                </div>
+                <div class="flip-card-back">
+                    <div class="price">60€</div>
+                    <span>Solution logicielle</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Formulaire Pro -->
-    <div class="pro-card-form" id="contact">
-        <div class="pro-header">DÉPOSER UN FICHIER (PROS)</div>
+    <div class="pro-card-form">
+        <div class="pro-header">DÉPOSER UN FICHIER (ADMIN : ANTHONY)</div>
         <form class="form-pro">
             <div class="form-row">
-                <div class="form-group"><label>NOM / ENTREPRISE</label><input type="text" required></div>
-                <div class="form-group"><label>EMAIL</label><input type="email" required></div>
+                <input type="text" placeholder="Nom Garage / Client" required>
+                <input type="email" placeholder="Votre Email" required>
             </div>
             <div class="form-row">
-                <div class="form-group"><label>VÉHICULE & MOTEUR</label><input type="text" required></div>
-                <div class="form-group"><label>CALCULATEUR (ECU)</label><input type="text" required></div>
+                <input type="text" placeholder="Véhicule (Ex: Audi RS3)" required>
+                <input type="text" placeholder="Type ECU (Ex: Bosch MED17)" required>
             </div>
-            <div class="form-group">
-                <label>FICHIER ORIGINAL</label>
-                <input type="file" style="background:#eee; padding:10px;">
-            </div>
-            <button type="submit" class="btn-submit">ENVOYER LE FICHIER</button>
-            <a href="#" id="payLink">PAIEMENT SÉCURISÉ PAYPAL</a>
+            <input type="file" style="margin-bottom: 15px; background: #f4f4f4; padding: 10px;">
+            <button type="submit" class="btn-submit">ENVOYER POUR TRAITEMENT</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2025 MZ AUTO MOTORSPORT. Expert en électronique automobile.</p>
+    <p>&copy; 2025 MZ AUTO MOTORSPORT | Experts : MOHAMED & ANTHONY</p>
 </footer>
 
-<a href="wa.me" class="whatsapp-float">WHATSAPP DIRECT</a>
+<!-- BOUTON RETOUR EN HAUT -->
+<button id="backTop">↑</button>
+
+<!-- WHATSAPP DOUBLE CONTACT -->
+<div class="wa-container">
+    <div class="wa-menu" id="waMenu">
+        <a href="wa.me" class="wa-btn-contact" target="_blank">
+            <span>SUPPORT & RDV</span> ANTHONY
+        </a>
+        <a href="wa.me" class="wa-btn-contact" target="_blank"> <!-- Changer ici -->
+            <span>PROGRAMMATION</span> MOHAMED
+        </a>
+    </div>
+    <button class="wa-main-trigger" onclick="toggleWA()">WHATSAPP DIRECT</button>
+</div>
 
 <script>
-    // SCRIPT POUR RÉVÉLER LES PRIX
-    document.querySelectorAll('.btn-reveal').forEach(button => {
-        button.addEventListener('click', function() {
-            this.parentElement.classList.add('revealed');
-        });
-    });
+    // Toggle Menu WhatsApp
+    function toggleWA() {
+        document.getElementById('waMenu').classList.toggle('active');
+    }
 
-    // Effet Parallaxe Hero
-    window.addEventListener('scroll', function() {
-        const bg = document.querySelector('.hero-bg');
-        bg.style.transform = 'translateY(' + window.pageYOffset * 0.4 + 'px)';
-    });
+    // Bouton Retour en Haut
+    const btt = document.getElementById("backTop");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btt.style.display = "flex";
+        } else {
+            btt.style.display = "none";
+        }
+    };
+    btt.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    // Fermer WhatsApp si clic ailleurs
+    window.onclick = function(event) {
+        if (!event.target.matches('.wa-main-trigger')) {
+            document.getElementById('waMenu').classList.remove('active');
+        }
+    }
 </script>
 
 </body>
