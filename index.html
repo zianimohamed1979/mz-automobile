@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,123 +10,127 @@
         :root { --primary: #e63946; --dark: #0a0a0a; --white: #ffffff; --win-green: #25d366; --paypal-blue: #0070ba; }
         body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
-        nav { display: flex; justify-content: space-between; padding: 15px 8%; background: #fff; position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; border-bottom: 2px solid var(--primary); align-items: center; }
-        .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--dark); text-transform: uppercase; }
+        nav { display: flex; justify-content: space-between; padding: 20px 8%; background: rgba(0,0,0,0.9); position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; border-bottom: 2px solid var(--primary); align-items: center; }
+        .logo { text-decoration: none; font-family: 'Orbitron'; font-weight: 900; color: var(--white); text-transform: uppercase; }
         .logo span { color: var(--primary); }
 
-        /* EN-TÊTE AVEC VOTRE BANNIÈRE MZ AUTO MOTORSPORT */
         .hero { 
-            height: 60vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: url('header.jpg') center no-repeat; 
-            background-size: contain; /* Pour voir tout votre logo */
-            background-color: #000;
-            padding-top: 60px;
+            height: 65vh; 
+            background: #000 url('header.jpg') center no-repeat; 
+            background-size: cover;
+            padding-top: 80px;
         }
 
         section { padding: 80px 10%; }
         .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 40px; text-transform: uppercase; font-size: 1.8rem; letter-spacing: 2px; }
         .section-title span { color: var(--primary); }
 
-        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        /* GRILLE DE PRIX */
+        .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         
-        .card-atelier { padding: 25px; border-radius: 10px; border: 1px solid #eee; border-left: 5px solid var(--primary); display: flex; flex-direction: column; background: white; }
-        .card-atelier h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin: 0; letter-spacing: 1px; }
-        .card-atelier .price { display: block; font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-top: 10px; }
+        /* ÉTIQUETTES BLANCHES (UTILISÉES PARTOUT) */
+        .card-price { 
+            padding: 25px; 
+            border-radius: 10px; 
+            background: white; /* Fond blanc pour l'étiquette */
+            color: #0a0a0a; 
+            border-left: 5px solid var(--primary); 
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .card-price h3 { font-family: 'Orbitron'; font-size: 0.85rem; margin: 0; letter-spacing: 1px; }
+        .card-price .price { display: block; font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-top: 10px; }
 
-        /* BANDEAU CENTRAL AVEC VOTRE IMAGE DE BMW ROUGE SEULE */
-        .parallax-divider { 
-            height: 500px; 
-            background: url('voiture.jpg') center no-repeat; 
+        /* EFFET PARALLAXE : BMW ROUGE */
+        .parallax-section {
+            height: 550px;
+            background-image: url('voiture.jpg');
             background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
             border-top: 5px solid var(--primary);
             border-bottom: 5px solid var(--primary);
         }
 
-        .card-pro { padding: 20px; border-radius: 10px; border: 1px solid #333; border-top: 3px solid var(--primary); display: flex; flex-direction: column; background: #111; color: white; text-align: center; }
-        .card-pro .price { display: block; font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-top: 10px; }
-
+        /* SECTION FILE SERVICE : FOND NOIR */
         #fileservice { background: var(--dark); color: white; }
-        .pro-card-form { border: 1px solid #333; border-radius: 12px; overflow: hidden; background: #111; max-width: 900px; margin: 0 auto; }
-        .pro-header { background: var(--primary); padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; }
-        
+
+        /* FORMULAIRE PRO */
+        .pro-card-form { border: 1px solid #333; border-radius: 12px; overflow: hidden; background: #111; max-width: 900px; margin: 60px auto 0; }
+        .pro-header { background: var(--primary); padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; color: white; }
         .form-pro { padding: 40px; background: #161616; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        input, select { width: 100%; padding: 15px; margin-bottom: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 4px; box-sizing: border-box;}
+        input, select { width: 100%; padding: 15px; margin-bottom: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 4px; box-sizing: border-box; }
         
-        .btn-submit { background: var(--white); color: var(--dark); border: none; padding: 18px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; border-radius: 4px; width: 100%; transition: 0.3s;}
+        .btn-submit { background: var(--white); color: var(--dark); border: none; padding: 18px; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; border-radius: 4px; width: 100%; }
         .btn-submit:hover { background: var(--primary); color: white; }
         .btn-paypal-direct { background: var(--paypal-blue); color: white; border: none; padding: 18px; font-family: 'Orbitron'; font-weight: 900; text-decoration: none; border-radius: 4px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
         footer { background: #000; color: #888; padding: 60px 10%; border-top: 5px solid var(--primary); text-align: center; }
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--win-green); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; }
 
-        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .parallax-divider { background-attachment: scroll; height: 300px; } .hero { height: 40vh; } }
+        @media (max-width: 768px) { .parallax-section { background-attachment: scroll; height: 300px; } .form-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="#" class="logo">MZ AUTO <span>MOTORSPORT</span></a>
-    <div>
-        <a href="#atelier" style="text-decoration:none; color:black; font-family:'Orbitron'; font-weight:700; font-size:0.7rem; margin-left:20px;">ATELIER</a>
-        <a href="#fileservice" style="text-decoration:none; color:black; font-family:'Orbitron'; font-weight:700; font-size:0.7rem; margin-left:20px;">FILE SERVICE</a>
+    <div style="display:flex; gap:20px;">
+        <a href="#atelier" style="text-decoration:none; color:white; font-family:'Orbitron'; font-size:0.75rem;">ATELIER</a>
+        <a href="#fileservice" style="text-decoration:none; color:white; font-family:'Orbitron'; font-size:0.75rem;">PROS</a>
     </div>
 </nav>
 
 <section class="hero"></section>
 
 <section id="atelier">
-    <h2 class="section-title">NOS PRESTATIONS <span>ATELIER</span></h2>
+    <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
     <div class="grid-prices">
-        <div class="card-atelier"><h3>STAGE 1 PERF</h3><span class="price">390€*</span></div>
-        <div class="card-atelier"><h3>BIO-ÉTHANOL E85</h3><span class="price">450€*</span></div>
-        <div class="card-atelier"><h3>ADBLUE OFF</h3><span class="price">300€*</span></div>
-        <div class="card-atelier"><h3>FAP / EGR OFF</h3><span class="price">250€*</span></div>
-        <div class="card-atelier"><h3>IMMO-OFF</h3><span class="price">80€*</span></div>
-        <div class="card-atelier"><h3>CLONAGE ECU</h3><span class="price">Dès 80€*</span></div>
-        <div class="card-atelier"><h3>OPTIONS PERF</h3><span class="price">Dès 150€*</span></div>
-        <div class="card-atelier"><h3>DIAGNOSTIC</h3><span class="price">40€*</span></div>
+        <div class="card-price"><h3>STAGE 1 PERF</h3><span class="price">390€*</span></div>
+        <div class="card-price"><h3>BIO-ÉTHANOL E85</h3><span class="price">450€*</span></div>
+        <div class="card-price"><h3>ADBLUE OFF</h3><span class="price">300€*</span></div>
+        <div class="card-price"><h3>FAP / EGR OFF</h3><span class="price">250€*</span></div>
+        <div class="card-price"><h3>IMMO-OFF</h3><span class="price">80€*</span></div>
+        <div class="card-price"><h3>CLONAGE ECU</h3><span class="price">Dès 80€*</span></div>
+        <div class="card-price"><h3>OPTIONS PERF</h3><span class="price">Dès 150€*</span></div>
+        <div class="card-price"><h3>DIAGNOSTIC</h3><span class="price">40€*</span></div>
     </div>
 </section>
 
-<div class="parallax-divider"></div>
+<div class="parallax-section"></div>
 
 <section id="fileservice">
     <h2 class="section-title" style="color:white;">PROFESSIONAL <span>FILE SERVICE</span></h2>
-    
     <div class="grid-prices">
-        <div class="card-pro"><h3>STAGE 1</h3><span class="price">100€</span></div>
-        <div class="card-pro"><h3>E85 FLEXFUEL</h3><span class="price">120€</span></div>
-        <div class="card-pro"><h3>ADBLUE OFF</h3><span class="price">100€</span></div>
-        <div class="card-pro"><h3>FAP / EGR OFF</h3><span class="price">90€</span></div>
-        <div class="card-pro"><h3>IMMO-OFF</h3><span class="price">60€</span></div>
-        <div class="card-pro"><h3>CLONAGE ECU</h3><span class="price">80€</span></div>
-        <div class="card-pro"><h3>DTC OFF</h3><span class="price">50€</span></div>
-        <div class="card-pro"><h3>OPTIONS PERF</h3><span class="price">50€</span></div>
+        <div class="card-price"><h3>STAGE 1</h3><span class="price">100€</span></div>
+        <div class="card-price"><h3>E85 FLEXFUEL</h3><span class="price">120€</span></div>
+        <div class="card-price"><h3>ADBLUE OFF</h3><span class="price">100€</span></div>
+        <div class="card-price"><h3>FAP / EGR OFF</h3><span class="price">90€</span></div>
+        <div class="card-price"><h3>IMMO-OFF</h3><span class="price">60€</span></div>
+        <div class="card-price"><h3>CLONAGE ECU</h3><span class="price">80€</span></div>
+        <div class="card-price"><h3>DTC OFF</h3><span class="price">50€</span></div>
+        <div class="card-price"><h3>OPTIONS PERF</h3><span class="price">50€</span></div>
     </div>
 
     <div class="pro-card-form">
-        <div class="pro-header">ZONE D'ENVOI (.BIN)</div>
+        <div class="pro-header">ZONE DÉPÔT FICHIER (.BIN)</div>
         <div class="form-pro">
             <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
-                    <input type="text" name="garage" placeholder="Nom du Garage" required>
+                    <input type="text" name="garage" placeholder="Garage" required>
                     <input type="email" name="_replyto" placeholder="Email" required>
                 </div>
                 <div class="form-row">
-                    <input type="text" name="vehicule" placeholder="Marque & Modèle" required>
-                    <input type="text" name="ecu" placeholder="Modèle ECU" required>
+                    <input type="text" name="vehicule" placeholder="Véhicule" required>
+                    <input type="text" name="ecu" placeholder="ECU" required>
                 </div>
                 <select name="prestation" id="preSelect" required>
                     <option value="100">Stage 1 - 100€</option>
                     <option value="120">E85 Flexfuel - 120€</option>
                     <option value="100">AdBlue OFF - 100€</option>
-                    <option value="90">FAP / DPF OFF - 90€</option>
-                    <option value="90">EGR OFF - 90€</option>
+                    <option value="90">FAP / DPF / EGR OFF - 90€</option>
                     <option value="60">Immo-OFF - 60€</option>
                     <option value="80">Clonage ECU - 80€</option>
                     <option value="50">DTC OFF - 50€</option>
@@ -133,7 +138,7 @@
                 <input type="file" name="file" required style="border: 2px dashed #444; padding:20px; background:#050505; margin-bottom:20px; width:100%; color:white;">
                 <div class="form-row">
                     <button type="submit" class="btn-submit">1. ENVOYER</button>
-                    <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank" class="btn-paypal-direct">PAYER</a>
+                    <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank" class="btn-paypal-direct">2. PAYER</a>
                 </div>
             </form>
         </div>
@@ -142,7 +147,7 @@
 
 <footer>
     <p><strong>MZ AUTO MOTORSPORT</strong> - 2 Boulevard Charles Gallet, 42120 Le Coteau</p>
-    <p>TÉL : 07 68 87 91 85 | SIRET : 943 225 953 00018</p>
+    <p>07 68 87 91 85 | SIRET : 943 225 953 00018</p>
 </footer>
 
 <a href="https://wa.me/33768879185" class="whatsapp-float">WHATSAPP</a>
