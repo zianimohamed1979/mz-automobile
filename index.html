@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MZ AUTO MOTORSPORT | Expert Programmation & Clonage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="fonts.googleapis.com" rel="stylesheet">
     <style>
         :root { 
             --primary: #ff0000; 
@@ -31,7 +31,7 @@
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 120%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=2000') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images.unsplash.com') center/cover no-repeat;
             z-index: -1; will-change: transform;
         }
         .hero-text h1 { font-family: 'Orbitron'; font-size: clamp(2.2rem, 8vw, 4rem); margin: 0; font-weight: 900; }
@@ -42,52 +42,67 @@
         .section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; }
         .section-title span { color: var(--primary); }
 
-        /* GRILLES TARIFS */
+        /* GRILLES TARIFS & LOGIQUE D'AFFICHAGE */
         .grid-prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card-price { background: #fff; padding: 25px; border-radius: 4px; border-bottom: 4px solid #ddd; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .card-price:hover { border-bottom-color: var(--primary); transform: translateY(-5px); }
-        .card-price h3 { font-family: 'Orbitron'; margin: 0; font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .card-price .price { color: var(--primary); font-family: 'Orbitron'; font-weight: 900; font-size: 1.4rem; display: block; margin-top: 10px; }
+        
+        .card-price, .card-file { 
+            background: #fff; padding: 25px; border-radius: 4px; border-bottom: 4px solid #ddd; 
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; 
+        }
+        .card-file { background: #151515; border: 1px solid #333; color: white; }
 
-        /* SÉPARATEUR SPORTIVE RADICALE */
-        .parallax-divider {
-            height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2000') center/cover no-repeat;
-            background-attachment: fixed;
+        .card-price h3, .card-file h3 { font-family: 'Orbitron'; margin: 0; font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+        .card-file h3 { border-bottom-color: #333; }
+
+        /* Masquage du prix par défaut */
+        .price { 
+            display: none; 
+            color: var(--primary); 
+            font-family: 'Orbitron'; 
+            font-weight: 900; 
+            font-size: 1.4rem; 
+            margin-top: 10px; 
         }
 
-        /* SECTION ONLINE PRO */
-        #fileservice { background: var(--dark); color: white; }
-        .card-file { background: #151515; border: 1px solid #333; padding: 20px; text-align: center; border-radius: 4px; }
-        .card-file h3 { font-family: 'Orbitron'; font-size: 0.75rem; margin-bottom: 8px; color: #fff; }
-        .card-file .price { color: var(--primary); font-weight: 900; font-size: 1.2rem; font-family: 'Orbitron'; }
+        /* Bouton Voir le tarif */
+        .btn-reveal {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Orbitron';
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 2px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .btn-reveal:hover { opacity: 0.8; transform: scale(1.05); }
 
-        /* FORMULAIRE PRO */
+        /* Classe active pour afficher le prix */
+        .revealed .price { display: block; animation: fadeIn 0.4s ease; }
+        .revealed .btn-reveal { display: none; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* PARALLAX & FORMULAIRE (Suite du design précédent) */
+        .parallax-divider { height: 400px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images.unsplash.com') center/cover no-repeat; background-attachment: fixed; }
+        #fileservice { background: var(--dark); color: white; }
         .pro-card-form { background: var(--white); border-radius: 8px; max-width: 900px; margin: 50px auto 0; overflow: hidden; color: var(--dark); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .pro-header { background: var(--primary); color: white; padding: 25px; text-align: center; font-family: 'Orbitron'; font-weight: 900; }
         .form-pro { padding: 35px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .form-group { margin-bottom: 20px; }
         label { font-family: 'Orbitron'; font-size: 0.65rem; font-weight: 900; margin-bottom: 8px; display: block; color: #555; }
-        input, select { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; background: #fcfcfc; font-family: 'Inter'; }
-
-        .btn-submit { background: var(--dark); color: white; border: none; padding: 20px; font-family: 'Orbitron'; font-weight: 900; width: 100%; cursor: pointer; text-transform: uppercase; transition: 0.3s; margin-bottom: 15px; border-radius: 4px; }
-        .btn-submit:hover { background: var(--primary); }
-
-        #payLink { 
-            display: block; text-align: center; padding: 18px; background: #f2f7ff; color: var(--paypal-blue); 
-            text-decoration: none; font-family: 'Orbitron'; font-weight: 900; border: 2px solid var(--paypal-blue); border-radius: 4px; transition: 0.3s;
-        }
-        #payLink:hover { background: var(--paypal-blue); color: white; }
-
+        input, select { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; background: #fcfcfc; }
+        .btn-submit { background: var(--dark); color: white; border: none; padding: 20px; font-family: 'Orbitron'; font-weight: 900; width: 100%; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
+        #payLink { display: block; text-align: center; padding: 18px; margin-top: 15px; background: #f2f7ff; color: var(--paypal-blue); text-decoration: none; font-family: 'Orbitron'; font-weight: 900; border: 2px solid var(--paypal-blue); border-radius: 4px; }
+        
         footer { background: #000; color: #666; padding: 50px 5%; text-align: center; font-size: 0.8rem; }
-        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: var(--win-green); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; font-size: 0.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: var(--win-green); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-family: 'Orbitron'; font-weight: 900; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .form-row { grid-template-columns: 1fr; }
-            .parallax-divider { background-attachment: scroll; height: 300px; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } .form-row { grid-template-columns: 1fr; } .parallax-divider { background-attachment: scroll; } }
     </style>
 </head>
 <body>
@@ -112,135 +127,75 @@
 </div>
 
 <section id="domicile">
-    <h2 class="section-title">TARIFS <span>À DOMICILE / SUR SITE</span></h2>
+    <h2 class="section-title">TARIFS <span>À DOMICILE</span></h2>
     <div class="grid-prices">
-        <div class="card-price"><h3>STAGE 1</h3><span class="price">390€</span></div>
-        <div class="card-price"><h3>E85 FLEXFUEL</h3><span class="price">450€</span></div>
-        <div class="card-price"><h3>STAGE 1 + E85</h3><span class="price">550€</span></div>
-        <div class="card-price"><h3>ADBLUE OFF</h3><span class="price">300€</span></div>
-        <div class="card-price"><h3>FAP OFF</h3><span class="price">250€</span></div>
-        <div class="card-price"><h3>EGR OFF</h3><span class="price">200€</span></div>
-        <div class="card-price"><h3>CLONAGE ECU</h3><span class="price">200€</span></div>
-        <div class="card-price"><h3>CLONAGE BSI</h3><span class="price">180€</span></div>
-        <div class="card-price"><h3>IMMO OFF</h3><span class="price">150€</span></div>
-        <div class="card-price"><h3>DIAGNOSTIC</h3><span class="price">40€</span></div>
+        <!-- Cartes avec bouton de révélation -->
+        <div class="card-price"><h3>STAGE 1</h3><span class="price">390€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>E85 FLEXFUEL</h3><span class="price">450€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>STAGE 1 + E85</h3><span class="price">550€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>ADBLUE OFF</h3><span class="price">300€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>FAP OFF</h3><span class="price">250€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>EGR OFF</h3><span class="price">200€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>CLONAGE ECU</h3><span class="price">200€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>CLONAGE BSI</h3><span class="price">180€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>IMMO OFF</h3><span class="price">150€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-price"><h3>DIAGNOSTIC</h3><span class="price">40€</span><button class="btn-reveal">Voir le tarif</button></div>
     </div>
 </section>
 
 <div class="parallax-divider"></div>
 
 <section id="fileservice">
-    <h2 class="section-title" style="color:white;">TARIFS <span>ONLINE FILE SERVICE</span></h2>
+    <h2 class="section-title">TARIFS <span>ONLINE FILE SERVICE</span></h2>
     <div class="grid-prices" style="margin-bottom: 50px;">
-        <div class="card-file"><h3>STAGE 1</h3><span class="price">100€</span></div>
-        <div class="card-file"><h3>E85 FLEX</h3><span class="price">120€</span></div>
-        <div class="card-file"><h3>STAGE 1 + E85</h3><span class="price">150€</span></div>
-        <div class="card-file"><h3>ADBLUE/FAP/EGR</h3><span class="price">100€</span></div>
-        <div class="card-file"><h3>CLONAGE ECU/BSI</h3><span class="price">100€</span></div>
-        <div class="card-file"><h3>IMMO OFF</h3><span class="price">80€</span></div>
+        <div class="card-file"><h3>STAGE 1</h3><span class="price">100€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-file"><h3>E85 FLEX</h3><span class="price">120€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-file"><h3>STAGE 1 + E85</h3><span class="price">150€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-file"><h3>DTC/FAP/EGR OFF</h3><span class="price">60€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-file"><h3>ADBLUE OFF</h3><span class="price">80€</span><button class="btn-reveal">Voir le tarif</button></div>
+        <div class="card-file"><h3>IMMO / CLONAGE</h3><span class="price">80€</span><button class="btn-reveal">Voir le tarif</button></div>
     </div>
 
-    <div class="pro-card-form">
-        <div class="pro-header">COMMANDE DE FICHIER (ZONE PRO)</div>
-        <div class="form-pro">
-            <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>NOM DU GARAGE / PRO</label>
-                        <input type="text" name="garage" placeholder="Votre enseigne" required>
-                    </div>
-                    <div class="form-group">
-                        <label>VOTRE E-MAIL (POUR LE RETOUR)</label>
-                        <input type="email" name="_replyto" placeholder="votre@email.com" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>MARQUE VÉHICULE</label>
-                        <input type="text" name="marque" placeholder="Ex: BMW" required>
-                    </div>
-                    <div class="form-group">
-                        <label>MODÈLE VÉHICULE</label>
-                        <input type="text" name="modele" placeholder="Ex: Série 3" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>MOTORISATION</label>
-                        <input type="text" name="motorisation" placeholder="Ex: 330d 258cv" required>
-                    </div>
-                    <div class="form-group">
-                        <label>MODÈLE DE L'ECU</label>
-                        <input type="text" name="ecu" placeholder="Ex: Bosch EDC17C50" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>SÉLECTIONNER LA PRESTATION ONLINE</label>
-                    <select name="prestation" id="preSelect" required>
-                        <option value="100">Stage 1 - 100€</option>
-                        <option value="120">E85 Flexfuel - 120€</option>
-                        <option value="150">Stage 1 + E85 - 150€</option>
-                        <option value="100">AdBlue OFF - 100€</option>
-                        <option value="100">FAP OFF - 100€</option>
-                        <option value="100">EGR OFF - 100€</option>
-                        <option value="100">Clonage ECU / BSI (Soft) - 100€</option>
-                        <option value="80">IMMO OFF - 80€</option>
-                        <option value="50">Options DTC / Pop & Bang - 50€</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>FICHIER D'ORIGINE (.BIN, .ZIP, .RAR)</label>
-                    <input type="file" name="file" required>
-                </div>
-                
-                <button type="submit" class="btn-submit">1. ENVOYER LA DEMANDE</button>
-                
-                <a href="https://paypal.me/mziani761/100" id="payLink" target="_blank">
-                    2. PAYER <span id="displayPrice">100</span>€ VIA PAYPAL
-                </a>
-            </form>
-        </div>
-    </div>
-</section>
-
-<section id="contact" style="text-align: center;">
-    <h2 class="section-title">CONTACT <span>DIRECT</span></h2>
-    <div style="max-width: 600px; margin: 0 auto; padding: 0 5%;">
-        <a href="tel:0768879185" class="btn-submit" style="text-decoration:none; display:block; background: var(--primary);">📞 APPELER LE 07 68 87 91 85</a>
-        <p style="font-family: 'Orbitron'; font-weight: 800; font-size: 0.75rem; margin-top:15px; letter-spacing: 1px;">SECTEUR : LE COTEAU (42120) & ALENTOURS</p>
+    <!-- Formulaire Pro -->
+    <div class="pro-card-form" id="contact">
+        <div class="pro-header">DÉPOSER UN FICHIER (PROS)</div>
+        <form class="form-pro">
+            <div class="form-row">
+                <div class="form-group"><label>NOM / ENTREPRISE</label><input type="text" required></div>
+                <div class="form-group"><label>EMAIL</label><input type="email" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>VÉHICULE & MOTEUR</label><input type="text" required></div>
+                <div class="form-group"><label>CALCULATEUR (ECU)</label><input type="text" required></div>
+            </div>
+            <div class="form-group">
+                <label>FICHIER ORIGINAL</label>
+                <input type="file" style="background:#eee; padding:10px;">
+            </div>
+            <button type="submit" class="btn-submit">ENVOYER LE FICHIER</button>
+            <a href="#" id="payLink">PAIEMENT SÉCURISÉ PAYPAL</a>
+        </form>
     </div>
 </section>
 
 <footer>
-    <p><strong>MZ AUTO MOTORSPORT</strong> - SIRET : 943 225 953 00018 | © 2025</p>
+    <p>&copy; 2025 MZ AUTO MOTORSPORT. Expert en électronique automobile.</p>
 </footer>
 
-<a href="https://wa.me/33768879185" class="whatsapp-float">WHATSAPP DIRECT</a>
+<a href="wa.me" class="whatsapp-float">WHATSAPP DIRECT</a>
 
 <script>
-    // Synchronisation dynamique du prix PayPal
-    const selectEl = document.getElementById('preSelect');
-    const payLinkEl = document.getElementById('payLink');
-    const displayPriceEl = document.getElementById('displayPrice');
-
-    selectEl.addEventListener('change', function() {
-        const montant = this.value;
-        payLinkEl.href = "https://paypal.me/mziani761/" + montant;
-        displayPriceEl.textContent = montant;
+    // SCRIPT POUR RÉVÉLER LES PRIX
+    document.querySelectorAll('.btn-reveal').forEach(button => {
+        button.addEventListener('click', function() {
+            this.parentElement.classList.add('revealed');
+        });
     });
 
-    // Effet Parallaxe
+    // Effet Parallaxe Hero
     window.addEventListener('scroll', function() {
-        const scroll = window.pageYOffset;
-        const heroBg = document.querySelector('.hero-bg');
-        if(window.innerWidth > 768) {
-            heroBg.style.transform = 'translateY(' + (scroll * 0.4) + 'px)';
-        }
+        const bg = document.querySelector('.hero-bg');
+        bg.style.transform = 'translateY(' + window.pageYOffset * 0.4 + 'px)';
     });
 </script>
 
