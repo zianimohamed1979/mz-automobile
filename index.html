@@ -17,7 +17,7 @@
 --paypal:#0070ba;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333}
+body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333;scroll-behavior:smooth}
 
 /* NAV */
 nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,26,26,.95);display:flex;justify-content:space-between;align-items:center;padding:20px 8%;border-bottom:2px solid var(--primary)}
@@ -82,18 +82,29 @@ button{font-family:'Orbitron';font-weight:900;cursor:pointer}
 .paypal:hover{background:#005ea6}
 .paypal img{height:24px;margin-right:10px}
 
-/* MAP */
-.map{border:4px solid #1a1a1a;border-bottom:8px solid var(--primary);border-radius:15px;overflow:hidden}
-
 /* FOOTER */
 footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 
-/* WHATSAPP, MAP BUTTONS */
-.whatsapp,.map-button,#back-to-top{position:fixed;right:30px;padding:15px 20px;border-radius:50px;font-family:'Orbitron';font-weight:900;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:1000;color:#fff;cursor:pointer}
-.whatsapp{background:var(--green);bottom:30px}
-.map-button{background:#1a73e8;bottom:180px}
-#back-to-top{background:var(--primary);bottom:250px;left:30px;display:none;font-size:0.85rem;transition:0.3s}
-#back-to-top:hover{background:#c6303f}
+/* BOUTONS FLOTTANTS DISCRETS */
+.float-btn{
+  position:fixed;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:1.2rem;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  z-index:1000;
+  transition:0.3s;
+}
+.float-btn:hover{opacity:0.8;transform:scale(1.1)}
+.float-map{bottom:100px;right:20px;background:#1a73e8}
+.float-ws{bottom:30px;left:20px;background:#25d366}
+#back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
 
 /* RESPONSIVE */
 @media(max-width:768px){.hero h1{font-size:2.2rem}.form-row{grid-template-columns:1fr}}
@@ -107,7 +118,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div>
 <a href="#atelier">ATELIER</a>
 <a href="#fileservice">FILE SERVICE</a>
-<a href="#contact">CONTACT</a>
+<a href="#team">ÉQUIPE</a>
 </div>
 </nav>
 
@@ -121,55 +132,56 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <section id="atelier">
 <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
 <div class="grid">
+<!-- Stage 1 -->
 <div class="card-price">
 <h3>Stage 1 Performance</h3>
-<div class="badges"><span class="badge badge-perf">Performance</span><span class="badge badge-safe">Sur-mesure</span><span class="badge badge-fast">Optimisation ECU</span></div>
+<div class="badges"><span class="badge badge-perf">Performance</span><span class="badge badge-safe">Sur-mesure</span></div>
 <p>Optimisation moteur personnalisée.</p>
 <span class="price">390€</span>
 </div>
-
+<!-- E85 -->
 <div class="card-price">
 <h3>Bio Éthanol E85</h3>
-<div class="badges"><span class="badge badge-eco">Économie</span><span class="badge badge-safe">Fiable</span></div>
+<div class="badges"><span class="badge badge-eco">Économie</span></div>
 <p>Conversion carburant E85.</p>
 <span class="price">450€</span>
 </div>
-
+<!-- Pop & Bangs -->
 <div class="card-price">
 <h3>Pop & Bangs</h3>
 <div class="badges"><span class="badge badge-fast">Son sportif</span></div>
 <p>Crépitements à la décélération.</p>
 <span class="price">80€</span>
 </div>
-
+<!-- Launch Control -->
 <div class="card-price">
 <h3>Launch Control / Hard Cut</h3>
 <div class="badges"><span class="badge badge-pro">Sport</span></div>
 <p>Démarrage optimisé & rupteur.</p>
 <span class="price">150€</span>
 </div>
-
+<!-- FAP OFF -->
 <div class="card-price">
 <h3>FAP OFF</h3>
-<div class="badges"><span class="badge badge-pro">Suppression</span><span class="badge badge-fast">Performance</span></div>
+<div class="badges"><span class="badge badge-pro">Suppression</span></div>
 <p>Désactivation électronique du filtre à particules.</p>
 <span class="price">Sur devis</span>
 </div>
-
+<!-- EGR OFF -->
 <div class="card-price">
 <h3>EGR OFF</h3>
-<div class="badges"><span class="badge badge-pro">Suppression</span><span class="badge badge-fast">Performance</span></div>
+<div class="badges"><span class="badge badge-pro">Suppression</span></div>
 <p>Désactivation électronique de la vanne EGR.</p>
 <span class="price">Sur devis</span>
 </div>
-
+<!-- IMMO OFF -->
 <div class="card-price">
 <h3>IMMO OFF</h3>
-<div class="badges"><span class="badge badge-pro">Suppression</span><span class="badge badge-fast">Performance</span></div>
+<div class="badges"><span class="badge badge-pro">Suppression</span></div>
 <p>Désactivation de l’immobiliseur.</p>
 <span class="price">Sur devis</span>
 </div>
-
+<!-- AdBlue OFF -->
 <div class="card-price">
 <h3>AdBlue OFF</h3>
 <div class="badges"><span class="badge badge-pro">Solution ECU</span></div>
@@ -187,31 +199,11 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 
 <div class="grid">
-<div class="card-file">
-<h3>STAGE 1</h3><div class="badges"><span class="badge badge-perf">Performance</span><span class="badge badge-pro">Pro Only</span></div>
-<span class="price">100€</span>
-</div>
-
-<div class="card-file">
-<h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Économie</span><span class="badge badge-pro">Pro</span></div>
-<span class="price">120€</span>
-</div>
-
-<div class="card-file">
-<h3>POPS & BANGS</h3><div class="badges"><span class="badge badge-fast">Son sportif</span></div>
-<span class="price">80€</span>
-</div>
-
-<div class="card-file">
-<h3>DPF / FAP OFF / EGR OFF / ADBLUE OFF</h3>
-<div class="badges"><span class="badge badge-pro">Pack complet</span><span class="badge badge-fast">Performance</span><span class="badge badge-pro">FAP OFF</span><span class="badge badge-pro">EGR OFF</span></div>
-<span class="price">150€</span>
-</div>
-
-<div class="card-file">
-<h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span><span class="badge badge-fast">Performance</span></div>
-<span class="price">Sur devis</span>
-</div>
+<div class="card-file"><h3>STAGE 1</h3><span class="price">100€</span></div>
+<div class="card-file"><h3>E85 FLEXFUEL</h3><span class="price">120€</span></div>
+<div class="card-file"><h3>POPS & BANGS</h3><span class="price">80€</span></div>
+<div class="card-file"><h3>DPF / FAP OFF / EGR OFF / ADBLUE OFF</h3><span class="price">150€</span></div>
+<div class="card-file"><h3>IMMO OFF</h3><span class="price">Sur devis</span></div>
 </div>
 
 <div class="form-box">
@@ -248,27 +240,18 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </section>
 
-<section id="contact">
-<h2 class="section-title">CONTACT <span>MZ AUTO</span></h2>
-<div class="grid" style="gap:30px;align-items:center;">
-<div class="map" style="height:400px;">
-<iframe src="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau&output=embed" width="100%" height="100%" style="border:0;"></iframe>
-<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" style="display:block;text-align:center;margin-top:10px;color:var(--primary);font-weight:900;text-decoration:none;">📍 Voir sur Google Maps</a>
+<section id="team">
+<h2 class="section-title">NOTRE <span>ÉQUIPE</span></h2>
+<div class="grid" style="gap:30px;justify-items:center;align-items:center;">
+<div class="card-price" style="max-width:300px;">
+<h3>Mohamed</h3>
+<p><strong>Responsable & Programmateur</strong></p>
+<p>Passionné et expérimenté, spécialisé en reprogrammation moteur et optimisation ECU.</p>
 </div>
-
-<div class="form-box" style="margin:0;">
-<div class="form-header">CONTACT RAPIDE</div>
-<div class="form-body">
-<form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST">
-<div class="form-row">
-<input type="text" name="name" placeholder="Nom" required>
-<input type="email" name="_replyto" placeholder="Email" required>
-</div>
-<input type="text" name="subject" placeholder="Objet / Service" required>
-<textarea name="message" placeholder="Votre message" required></textarea>
-<button type="submit" class="btn-submit">Envoyer</button>
-</form>
-</div>
+<div class="card-price" style="max-width:300px;">
+<h3>Anthony</h3>
+<p><strong>Programmateur</strong></p>
+<p>Expert en File Service et programmation personnalisée, passionné par la performance automobile.</p>
 </div>
 </div>
 </section>
@@ -280,17 +263,9 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </footer>
 
 <!-- BOUTONS FLOTTANTS -->
-<div class="map-button">
-<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank">📍 Voir la position</a>
-</div>
-
-<div class="whatsapp">
-<span>💬 WhatsApp :</span>
-<a href="https://wa.me/33768879185" target="_blank">Mohamed (Responsable) – 07 68 87 91 85</a>
-<a href="https://wa.me/33668501143" target="_blank">Anthony – 06 68 50 11 43</a>
-</div>
-
-<div id="back-to-top">⬆️ Haut de page</div>
+<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
+<a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
+<a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <script>
 // PayPal multi-choix pour services à prix fixe
@@ -304,10 +279,10 @@ function updatePayPal() {
 checkboxes.forEach(chk => chk.addEventListener('change', updatePayPal));
 updatePayPal();
 
-// Bouton "Haut de page"
+// Bouton haut de page
 const backTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => { backTop.style.display = (window.scrollY>200)?'block':'none'; });
-backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+window.addEventListener('scroll', () => { backTop.style.display = (window.scrollY>200)?'flex':'none'; });
+backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
 </script>
 
 </body>
