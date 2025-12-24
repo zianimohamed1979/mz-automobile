@@ -87,8 +87,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 .float-btn:hover{opacity:.8;transform:scale(1.1)}
 .float-map{bottom:100px;right:20px;background:var(--primary)}
 .float-ws{bottom:30px;left:20px;background:#25d366}
-.float-ws-file{bottom:30px;right:80px;background:#25d366}
-#back-to-top{bottom:30px;right:140px;background:var(--primary);font-size:1rem;display:none}
+#back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
 
 /* RESPONSIVE */
 @media(max-width:768px){.hero h1{font-size:2rem;line-height:1.2}.hero p{font-size:.9rem;letter-spacing:1px}.form-row{flex-direction:column}.form-services{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.float-btn{width:40px;height:40px;font-size:1rem}footer{padding:30px 5%;font-size:.9rem}}
@@ -159,7 +158,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <input required name="ecu" placeholder="Référence ECU">
       </div>
 
-      <!-- Champ lien fichier -->
       <div class="form-row">
         <input required type="url" name="binlink" placeholder="Lien de votre fichier .BIN (Google Drive, Dropbox, etc.)">
       </div>
@@ -179,6 +177,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
       <div class="form-row" style="gap:15px;flex-wrap:wrap;">
         <button type="submit" class="btn-action" style="flex:1 1 200px;">1. ENVOYER</button>
         <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">2. PAYER avec PayPal</a>
+        <a id="whatsapp-send" class="btn-action" style="background:#25d366;color:white;flex:1 1 200px;" target="_blank">3. ENVOYER via WhatsApp</a>
       </div>
     </form>
   </div>
@@ -211,11 +210,11 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
   <div class="testimonial-card"><p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p><strong>- Karim</strong></div>
   <div class="testimonial-card"><p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p><strong>- Lucas</strong></div>
   <div class="testimonial-card"><p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p><strong>- Nadia</strong></div>
-  <div class="testimonial-card"><p>"Travail de qualité, vraiment satisfait du suivi personnalisé."</p><strong>- Thomas</strong></div>
-  <div class="testimonial-card"><p>"Livraison rapide et efficace, mon moteur est au top."</p><strong>- Claire</strong></div>
-  <div class="testimonial-card"><p>"Service client très réactif, je recommande vivement."</p><strong>- Ahmed</strong></div>
-  <div class="testimonial-card"><p>"Le fichier ECU fourni a parfaitement fonctionné, résultats immédiats."</p><strong>- Emilie</strong></div>
-  <div class="testimonial-card"><p>"Très professionnel, je ferai appel à nouveau pour mes prochains projets."</p><strong>- Vincent</strong></div>
+  <div class="testimonial-card"><p>"Une équipe sérieuse, résultat bluffant après la reprogrammation."</p><strong>- Thomas</strong></div>
+  <div class="testimonial-card"><p>"Très satisfait de la qualité et de la rapidité du service."</p><strong>- Camille</strong></div>
+  <div class="testimonial-card"><p>"Le fichier original fourni était parfait et le suivi excellent."</p><strong>- Romain</strong></div>
+  <div class="testimonial-card"><p>"Service professionnel, je recommande pour tout amateur de performance."</p><strong>- Emilie</strong></div>
+  <div class="testimonial-card"><p>"Super expérience, mon moteur est transformé. Merci !"</p><strong>- Adrien</strong></div>
 </div>
 </section>
 
@@ -229,7 +228,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <!-- FLOATING BUTTONS -->
 <a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
 <a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
-<a href="https://wa.me/33768879185?text=Bonjour,%20je%20souhaite%20envoyer%20mon%20fichier%20.BIN" target="_blank" class="float-btn float-ws-file" title="Envoyer fichier via WhatsApp">📤</a>
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <!-- SCRIPTS -->
@@ -240,26 +238,25 @@ const pay=document.getElementById('paypal');
 function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
 boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 
+// WhatsApp dynamique
+const waBtn=document.getElementById('whatsapp-send');
+const form=document.querySelector('#fileservice form');
+waBtn.addEventListener('click',()=>{let garage=form.garage.value,veh=form.vehicule.value,link=form.binlink.value;window.open(`https://wa.me/33768879185?text=Garage:${garage}%0AVéhicule:${veh}%0AFichier:.BIN%0ALien:${link}`,'_blank')});
+
 // Back-to-top
 const backTop=document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
 
-// Slider témoignages fluide infini
-const sliderEl = document.getElementById('slider');
-const slides = Array.from(sliderEl.children);
-slides.forEach(slide => sliderEl.appendChild(slide.cloneNode(true)));
-let position = 0;
-function animateSlider() {
-  position -= 0.3; // vitesse
-  if(Math.abs(position) >= sliderEl.scrollWidth / 2) position = 0;
-  sliderEl.style.transform = `translateX(${position}px)`;
-  requestAnimationFrame(animateSlider);
+// Slider infini
+const slider=document.getElementById('slider');
+let slideIndex=0;
+function moveSlider(){
+  slideIndex++;
+  if(slideIndex>=slider.children.length)slideIndex=0;
+  slider.style.transform=`translateX(-${slideIndex*100}%)`;
 }
-sliderEl.style.display = 'flex';
-sliderEl.style.flexWrap = 'nowrap';
-sliderEl.style.overflow = 'hidden';
-animateSlider();
+setInterval(moveSlider,4000);
 </script>
 
 </body>
