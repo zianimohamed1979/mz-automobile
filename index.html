@@ -3,129 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MZ AUTO MOTORSPORT | Programmation moteur & File Service</title>
-
-<meta name="description" content="MZ Auto Motorsport – Reprogrammation moteur, Stage 1, E85, File Service professionnel. Fichiers ECU sur mesure.">
+<title>MZ AUTO MOTORSPORT | Atelier & File Service</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-:root{--primary:#e63946;--dark:#1a1a1a;--paypal:#0070ba}
-body{margin:0;font-family:Inter,sans-serif}
-nav{position:fixed;top:0;width:100%;background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;z-index:1000;border-bottom:2px solid var(--primary)}
+:root{
+  --primary:#e63946;
+  --dark:#1a1a1a;
+  --green:#25d366;
+  --paypal:#0070ba;
+  --bg-card:#fff;
+  --bg-dark:#111;
+}
+body{margin:0;font-family:Inter,sans-serif;color:#333;scroll-behavior:smooth;background:#f5f5f5}
+
+/* NAVIGATION */
+nav{position:fixed;top:0;width:100%;background:var(--bg-dark);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:15px 8%;z-index:1000;border-bottom:2px solid var(--primary)}
 nav a{color:#fff;text-decoration:none;font-family:Orbitron;font-weight:700;margin-left:20px}
-.hero{height:75vh;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding-top:80px}
-.hero h1{font-family:Orbitron;font-size:3rem}
+.logo span{color:var(--primary)}
+.nav-links{display:flex;gap:20px;align-items:center}
+.lang-switch{margin-left:15px;cursor:pointer;font-size:.85rem;padding:5px 10px;background:var(--primary);border-radius:5px;transition:.3s}
+.lang-switch:hover{opacity:.8}
+
+/* HERO */
+.hero{height:70vh;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding-top:60px}
+.hero h1{font-family:Orbitron;font-size:3rem;margin:0}
 .hero span{color:var(--primary)}
+.hero p{font-size:1rem;color:#ccc;margin-top:10px}
+
+/* SECTIONS */
 section{padding:80px 10%}
 .section-title{text-align:center;font-family:Orbitron;font-size:2rem;margin-bottom:40px}
 .section-title span{color:var(--primary)}
-#fileservice{background:#1a1a1a;color:#fff}
 
+/* GRID & CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:var(--bg-card);padding:25px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08);text-align:center;transition:.3s}
+.card:hover{transform:scale(1.02)}
+.price{font-family:Orbitron;font-weight:900;color:var(--primary);margin-top:10px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.badge{font-size:.65rem;font-weight:800;letter-spacing:1px;padding:6px 10px;border-radius:20px;font-family:'Orbitron';text-transform:uppercase;color:#fff}
+.badge-perf{background:#e63946}
+.badge-eco{background:#2ecc71}
+.badge-fast{background:#1abc9c}
+.badge-pro{background:#9b59b6}
+
+/* PARALLAX */
+.parallax{height:400px;background:url("https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000") center/cover fixed;display:flex;align-items:center;justify-content:center}
+.parallax h2{color:#fff;font-family:Orbitron;background:rgba(0,0,0,.7);padding:25px 40px;border:3px solid var(--primary)}
+
+/* FILE SERVICE */
+#fileservice{background:#1a1a1a;color:#fff}
 .form-box{max-width:900px;margin:auto;background:#222;border-radius:15px}
 .form-header{background:var(--primary);padding:25px;text-align:center;font-family:Orbitron;font-weight:900}
 .form-body{padding:40px}
 .form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px}
 .form-row input{flex:1;padding:12px;border-radius:8px;border:1px solid #444;background:#111;color:#fff}
+.form-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
 .form-services label{display:flex;justify-content:space-between;align-items:center;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;margin-bottom:8px;cursor:pointer}
 .price-inline{color:var(--primary);font-weight:800}
-.btn{flex:1;padding:16px;border-radius:8px;font-family:Orbitron;font-weight:900;cursor:pointer}
+.btn{flex:1;padding:16px;border-radius:8px;font-family:Orbitron;font-weight:900;cursor:pointer;margin-bottom:10px}
 .paypal{background:var(--paypal);color:#fff;text-decoration:none;text-align:center}
+
+/* TESTIMONIALS SLIDER */
+.testimonials-slider{display:flex;overflow:hidden;scroll-behavior:smooth;gap:20px}
+.testimonial-card{min-width:100%;flex-shrink:0;background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);text-align:center;transition:transform .3s}
+.testimonial-card p{font-style:italic;margin:10px 0}
+.testimonial-card strong{display:block;margin-top:10px;color:var(--primary)}
+.slider-btn{padding:8px 15px;margin:0 5px;border:none;border-radius:5px;background:var(--primary);color:#fff;cursor:pointer;font-size:1rem;transition:.3s}
+.slider-btn:hover{opacity:.8}
+
+/* FOOTER */
 footer{background:#111;color:#777;text-align:center;padding:40px;font-size:.85rem}
+
+/* FLOATING BUTTONS */
+.float{position:fixed;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,.3)}
+.map{right:20px;bottom:100px;background:var(--primary)}
+.ws{left:20px;bottom:30px;background:var(--green)}
+.top{right:20px;bottom:30px;background:var(--primary);display:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2rem;line-height:1.2}
+  .hero p{font-size:.85rem}
+  .form-row{flex-direction:column}
+  .form-services{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .testimonials-slider{grid-template-columns:1fr}
+  .nav-links{flex-direction:column;gap:10px;margin-top:10px}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .grid,.testimonials-slider{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
+<body lang="fr">
 
-<body>
-
+<!-- NAVIGATION -->
 <nav>
-<a href="#" style="font-family:Orbitron;font-weight:900">MZ AUTO <span style="color:#e63946">MOTORSPORT</span></a>
+<a class="logo" href="#">MZ AUTO <span>MOTORSPORT</span></a>
+<div class="nav-links">
+<a href="#atelier" class="lang" data-fr="ATELIER" data-en="WORKSHOP">ATELIER</a>
+<a href="#fileservice" class="lang" data-fr="FILE SERVICE" data-en="FILE SERVICE">FILE SERVICE</a>
+<a href="#team" class="lang" data-fr="ÉQUIPE" data-en="TEAM">ÉQUIPE</a>
+<a href="#testimonials" class="lang" data-fr="TÉMOIGNAGES" data-en="TESTIMONIALS">TÉMOIGNAGES</a>
+<span class="lang-switch" id="switchLang">EN</span>
+</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
-<h1>MZ AUTO <span>MOTORSPORT</span></h1>
-<p>Professional ECU File Service & Engine Tuning</p>
-<p style="font-size:.85rem;color:#ccc;margin-top:10px">✔ Custom files • ✔ Fast support • ✔ Professional service</p>
+<h1 class="lang" data-fr="MZ AUTO MOTORSPORT" data-en="MZ AUTO MOTORSPORT">MZ AUTO MOTORSPORT</h1>
+<p class="lang" data-fr="Expertise & Performance Automobile" data-en="Expertise & Automotive Performance">Expertise & Performance Automobile</p>
+<p style="font-size:.85rem;color:#ccc;margin-top:10px" class="lang" data-fr="✔ Sur mesure • ✔ Support pro • ✔ Rapidité" data-en="✔ Custom files • ✔ Pro support • ✔ Fast service">✔ Sur mesure • ✔ Support pro • ✔ Rapidité</p>
 </div>
 </section>
 
+<!-- ATELIER -->
+<section id="atelier">
+<h2 class="section-title lang" data-fr="PRESTATIONS ATELIER" data-en="WORKSHOP SERVICES">PRESTATIONS ATELIER</h2>
+<div class="grid">
+<div class="card lang" data-fr="Stage 1 Performance" data-en="Stage 1 Performance">Stage 1 Performance
+  <div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span>
+</div>
+<div class="card lang" data-fr="E85 FlexFuel" data-en="E85 FlexFuel">E85 FlexFuel
+  <div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">450€</span>
+</div>
+<div class="card lang" data-fr="AdBlue OFF" data-en="AdBlue OFF">AdBlue OFF
+  <div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span>
+</div>
+<div class="card lang" data-fr="FAP OFF" data-en="DPF OFF">FAP OFF
+  <div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span>
+</div>
+<div class="card lang" data-fr="EGR OFF" data-en="EGR OFF">EGR OFF
+  <div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span>
+</div>
+<div class="card lang" data-fr="IMMO OFF" data-en="IMMO OFF">IMMO OFF
+  <div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span>
+</div>
+<div class="card lang" data-fr="Pops & Bangs" data-en="Pops & Bangs">Pops & Bangs
+  <div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">200€</span>
+</div>
+<div class="card lang" data-fr="Launch Control" data-en="Launch Control">Launch Control
+  <div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">180€</span>
+</div>
+</div>
+</section>
+
+<!-- PARALLAX -->
+<div class="parallax"><h2 class="lang" data-fr="L’EXCELLENCE DE LA PERFORMANCE" data-en="THE EXCELLENCE OF PERFORMANCE">L’EXCELLENCE DE LA PERFORMANCE</h2></div>
+
+<!-- FILE SERVICE -->
 <section id="fileservice">
-<h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
+<h2 class="section-title lang" data-fr="FILE SERVICE PROFESSIONNEL" data-en="PROFESSIONAL FILE SERVICE">FILE SERVICE PROFESSIONNEL</h2>
 
 <div class="form-box">
-<div class="form-header">ECU FILE UPLOAD (.BIN)</div>
+<div class="form-header lang" data-fr="DÉPÔT DE FICHIER ECU (.BIN)" data-en="UPLOAD ECU FILE (.BIN)">DÉPÔT DE FICHIER ECU (.BIN)</div>
 <div class="form-body">
-
 <form action="https://formspree.io/f/xvzpnvrr" method="POST" enctype="multipart/form-data">
-
 <input type="hidden" name="_subject" value="Nouveau fichier File Service – MZ Auto Motorsport">
 <input type="hidden" name="_template" value="table">
 
 <div class="form-row">
-<input required name="garage" placeholder="Garage / Company name">
-<input required type="email" name="_replyto" placeholder="Professional email">
+<input required name="garage" class="lang" data-fr="Nom du garage" data-en="Garage / Company Name" placeholder="Nom du garage">
+<input required type="email" name="_replyto" class="lang" data-fr="Email professionnel" data-en="Professional Email" placeholder="Email professionnel">
 </div>
 
 <div class="form-row">
-<input required name="vehicle" placeholder="Vehicle (Brand / Model)">
-<input required name="ecu" placeholder="ECU reference">
+<input required name="vehicule" class="lang" data-fr="Véhicule" data-en="Vehicle (Brand/Model)" placeholder="Véhicule">
+<input required name="ecu" class="lang" data-fr="Référence ECU" data-en="ECU Reference" placeholder="Référence ECU">
 </div>
 
 <div class="form-row">
 <input type="file" name="file" required>
 </div>
 
-<p style="font-size:.75rem;color:#aaa">.BIN file only – Max recommended size: 20MB</p>
-
 <div class="form-services">
-<label><input type="checkbox" value="100"> Stage 1 <span class="price-inline">100€</span></label>
-<label><input type="checkbox" value="120"> E85 FlexFuel <span class="price-inline">120€</span></label>
-<label><input type="checkbox" value="100"> AdBlue OFF <span class="price-inline">100€</span></label>
-<label><input type="checkbox" value="80"> DPF / FAP OFF <span class="price-inline">80€</span></label>
-<label><input type="checkbox" value="80"> EGR OFF <span class="price-inline">80€</span></label>
-<label><input type="checkbox" value="80"> IMMO OFF <span class="price-inline">80€</span></label>
-<label><input type="checkbox" value="80"> Pops & Bangs <span class="price-inline">80€</span></label>
-<label><input type="checkbox" value="90"> Launch Control <span class="price-inline">90€</span></label>
+<label><input type="checkbox" value="100"><span class="lang" data-fr="Stage 1" data-en="Stage 1">Stage 1</span> <span class="price-inline">100€</span></label>
+<label><input type="checkbox" value="120"><span class="lang" data-fr="E85" data-en="E85">E85</span> <span class="price-inline">120€</span></label>
+<label><input type="checkbox" value="80"><span class="lang" data-fr="FAP OFF" data-en="DPF OFF">FAP OFF</span> <span class="price-inline">80€</span></label>
+<label><input type="checkbox" value="80"><span class="lang" data-fr="EGR OFF" data-en="EGR OFF">EGR OFF</span> <span class="price-inline">80€</span></label>
+<label><input type="checkbox" id="express" value="50"><span class="lang" data-fr="Service Express +50€" data-en="Express Service +50€">Service Express +50€</span></label>
 </div>
 
-<p id="total" style="text-align:center;font-weight:900;margin:15px 0">Total : 0 €</p>
+<p id="total" style="text-align:center;font-weight:900">Total : 0 €</p>
 
 <div class="form-row">
-<button type="submit" class="btn">1. SEND FILE</button>
-<a id="paypal" class="btn paypal">2. PAY WITH PAYPAL</a>
+<button type="submit" class="btn lang" data-fr="1. ENVOYER" data-en="1. SEND FILE">1. ENVOYER</button>
+<a id="paypal" class="btn paypal lang" data-fr="2. PAYER PAYPAL" data-en="2. PAY WITH PAYPAL">2. PAYER PAYPAL</a>
 </div>
-
 </form>
 
-<div style="margin-top:40px;text-align:center;font-size:.9rem;color:#ccc">
-<p><strong>File Service Process</strong></p>
-<p>1️⃣ Upload ECU file</p>
-<p>2️⃣ Pay via PayPal</p>
-<p>3️⃣ Custom analysis & modification</p>
-<p>4️⃣ Optimized file delivery</p>
-</div>
-
+<p style="text-align:center;font-size:.85rem;color:#aaa;margin-top:30px" class="lang" data-fr="1️⃣ Envoi fichier → 2️⃣ Paiement → 3️⃣ Analyse → 4️⃣ Retour fichier" data-en="1️⃣ Upload → 2️⃣ Pay → 3️⃣ Analysis → 4️⃣ Return optimized file">1️⃣ Envoi fichier → 2️⃣ Paiement → 3️⃣ Analyse → 4️⃣ Retour fichier</p>
 </div>
 </div>
 </section>
 
+<!-- TEAM -->
+<section id="team">
+<h2 class="section-title lang" data-fr="NOTRE ÉQUIPE" data-en="OUR TEAM">NOTRE ÉQUIPE</h2>
+<div class="grid">
+<div class="card lang" data-fr="Mohamed – Responsable & Programmateur ECU" data-en="Mohamed – Head & ECU Programmer">Mohamed – Responsable & Programmateur ECU</div>
+<div class="card lang" data-fr="Anthony – Programmateur File Service" data-en="Anthony – File Service Programmer">Anthony – Programmateur File Service</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS SLIDER -->
+<section id="testimonials">
+<h2 class="section-title lang" data-fr="TÉMOIGNAGES CLIENTS" data-en="CUSTOMER REVIEWS">TÉMOIGNAGES CLIENTS</h2>
+<div class="testimonials-slider">
+  <div class="testimonial-card">
+    <p>"Travail rapide et précis, moteur optimisé parfaitement."</p>
+    <strong>– Jean, Lyon</strong>
+  </div>
+  <div class="testimonial-card">
+    <p>"Service express très efficace, je recommande."</p>
+    <strong>– Lucas, Paris</strong>
+  </div>
+  <div class="testimonial-card">
+    <p>"Fichier reçu rapidement, performance au top."</p>
+    <strong>– Karim, Marseille</strong>
+  </div>
+</div>
+<div style="text-align:center;margin-top:15px;">
+  <button class="slider-btn" id="prev">⬅️</button>
+  <button class="slider-btn" id="next">➡️</button>
+</div>
+</section>
+
+<!-- FOOTER -->
 <footer>
 <p><strong>MZ AUTO MOTORSPORT</strong></p>
-<p>Services reserved for track / export use or according to local regulations.</p>
+<p class="lang" data-fr="2 Boulevard Charles Gallet – 42120 Le Coteau" data-en="2 Boulevard Charles Gallet – 42120 Le Coteau">2 Boulevard Charles Gallet – 42120 Le Coteau</p>
+<p class="lang" data-fr="Prestations réservées à un usage circuit / export" data-en="Services intended for track / export use">Prestations réservées à un usage circuit / export</p>
 </footer>
 
+<!-- FLOATING -->
+<a class="float map" target="_blank" href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau">📍</a>
+<a class="float ws" target="_blank" href="https://wa.me/33768879185">💬</a>
+<a class="float top" id="top">⬆️</a>
+
 <script>
+// Lang switch
+const switchBtn=document.getElementById('switchLang');
+let currentLang='fr';
+switchBtn.onclick=()=>{
+  currentLang=currentLang==='fr'?'en':'fr';
+  document.documentElement.lang=currentLang;
+  document.querySelectorAll('.lang').forEach(el=>{
+    el.textContent=el.getAttribute(`data-${currentLang}`);
+  });
+  switchBtn.textContent=currentLang==='fr'?'EN':'FR';
+}
+
+// File Service total PayPal
 const boxes=document.querySelectorAll('.form-services input');
 const paypal=document.getElementById('paypal');
-const totalTxt=document.getElementById('total');
-
-function update(){
- let total=0;
- boxes.forEach(b=>{if(b.checked) total+=parseInt(b.value)});
- totalTxt.textContent="Total : "+total+" €";
- paypal.href = total>0 ? "https://paypal.me/mziani761/"+total : "javascript:void(0)";
+const total=document.getElementById('total');
+boxes.forEach(b=>b.addEventListener('change',updateTotal));
+function updateTotal(){
+ let t=0;
+ boxes.forEach(b=>{if(b.checked)t+=parseInt(b.value)});
+ total.textContent='Total : '+t+' €';
+ paypal.href="https://paypal.me/mziani761/"+t;
 }
-boxes.forEach(b=>b.addEventListener('change',update));
+updateTotal();
+
+// Back to top
+const topBtn=document.getElementById('top');
+window.addEventListener('scroll',()=>{topBtn.style.display=window.scrollY>200?'flex':'none'});
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+// Slider testimonials
+const slider=document.querySelector('.testimonials-slider');
+const cards=document.querySelectorAll('.testimonial-card');
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+let index=0;
+function showSlide(i){slider.scrollLeft=i*slider.clientWidth;}
+prev.onclick=()=>{index=(index-1+cards.length)%cards.length;showSlide(index);}
+next.onclick=()=>{index=(index+1)%cards.length;showSlide(index);}
+setInterval(()=>{index=(index+1)%cards.length;showSlide(index)},5000);
+window.addEventListener('resize',()=>{showSlide(index);});
 </script>
 
 </body>
