@@ -22,8 +22,6 @@ nav a:hover{color:var(--primary);transform:scale(1.05)}
 .logo{font-weight:900}
 .logo span{color:var(--primary)}
 .nav-links{display:flex;gap:25px;align-items:center}
-.lang-switch{margin-left:15px;cursor:pointer;font-size:.85rem;padding:5px 10px;background:var(--primary);border-radius:5px;transition:.3s}
-.lang-switch:hover{opacity:.8}
 
 /* HERO */
 .hero{height:70vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px}
@@ -100,6 +98,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
 <a class="logo" href="#">MZ AUTO <span>MOTORSPORT</span></a>
 <div class="nav-links">
@@ -110,6 +109,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>MZ AUTO <span>MOTORSPORT</span></h1>
@@ -132,6 +132,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </section>
 
+<!-- PARALLAX -->
 <div class="parallax"><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
 
 <!-- FILE SERVICE -->
@@ -175,7 +176,57 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </section>
 
-<!-- Ici on ajoutera TEAM et TESTIMONIALS -->
+<!-- ÉQUIPE -->
+<section id="team">
+<h2 class="section-title">NOTRE <span>ÉQUIPE</span></h2>
+<div class="grid">
+  <div class="card-team">
+    <h3>Mohamed</h3>
+    <p><strong>Responsable & Programmateur</strong></p>
+    <p>Passionné et expérimenté, spécialisé en reprogrammation moteur et optimisation ECU.</p>
+  </div>
+  <div class="card-team">
+    <h3>Anthony</h3>
+    <p><strong>Programmateur</strong></p>
+    <p>Expert en File Service et programmation personnalisée, passionné par la performance automobile.</p>
+  </div>
+</div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="testimonials">
+<h2 class="section-title">TÉMOIGNAGES <span>CLIENTS</span></h2>
+<div class="testimonials-slider">
+  <div class="testimonial-card">
+    <p>"Service rapide et professionnel. Mon véhicule a gagné en performance immédiatement."</p>
+    <strong>- Julien</strong>
+  </div>
+  <div class="testimonial-card">
+    <p>"Equipe compétente et disponible. Recommande vivement le File Service."</p>
+    <strong>- Sophie</strong>
+  </div>
+  <div class="testimonial-card">
+    <p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p>
+    <strong>- Karim</strong>
+  </div>
+</div>
+<div style="text-align:center;margin-top:15px;">
+  <button class="slider-btn" id="prev">⬅️</button>
+  <button class="slider-btn" id="next">➡️</button>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p><strong>MZ AUTO MOTORSPORT</strong></p>
+<p>2 Boulevard Charles Gallet – 42120 Le Coteau</p>
+<p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
+</footer>
+
+<!-- BOUTONS FLOTTANTS -->
+<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
+<a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
+<a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <script>
 // PayPal dynamique
@@ -188,6 +239,19 @@ boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 const backTop=document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+
+// Slider témoignages
+const slider=document.querySelector('.testimonials-slider');
+const cards=document.querySelectorAll('.testimonial-card');
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+let index=0;
+function showSlide(i){slider.scrollLeft=i*slider.clientWidth;}
+prev.onclick=()=>{index=(index-1+cards.length)%cards.length;showSlide(index);}
+next.onclick=()=>{index=(index+1)%cards.length;showSlide(index);}
+setInterval(()=>{index=(index+1)%cards.length;showSlide(index)},5000);
+window.addEventListener('resize',()=>{showSlide(index);});
 </script>
+
 </body>
 </html>
