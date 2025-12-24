@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MZ AUTO MOTORSPORT</title>
-
+<title>MZ AUTO MOTORSPORT | Atelier & File Service</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <style>
 :root{
 --primary:#e63946;
@@ -15,174 +13,251 @@
 --green:#25d366;
 --paypal:#0070ba;
 }
+body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333;scroll-behavior:smooth}
 
-body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333}
-
-/* NAV */
-nav{position:fixed;top:0;width:100%;background:#111;padding:15px 8%;display:flex;justify-content:space-between;z-index:1000}
-nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.85rem}
+/* NAVIGATION */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,26,26,.95);display:flex;justify-content:space-between;align-items:center;padding:15px 8%;border-bottom:2px solid var(--primary)}
+nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.85rem;font-weight:700;margin-left:25px;padding:5px 10px;transition:0.3s}
+nav a:hover{color:var(--primary);transform:scale(1.05)}
+.logo{font-weight:900}
 .logo span{color:var(--primary)}
-.nav-links{display:flex;gap:25px}
+.nav-links{display:flex;gap:25px;align-items:center}
 
 /* HERO */
 .hero{height:70vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px}
-.hero h1{font-family:'Orbitron';font-size:3rem;color:#fff}
+.hero h1{font-family:'Orbitron';font-size:3rem;color:#fff;margin:0}
 .hero span{color:var(--primary)}
+.hero p{color:#eee;letter-spacing:2px;font-weight:600}
 
 /* SECTIONS */
 section{padding:80px 10%}
-.section-title{text-align:center;font-family:'Orbitron';font-size:2rem;margin-bottom:50px}
+.section-title{text-align:center;font-family:'Orbitron';font-size:2rem;letter-spacing:2px;margin-bottom:50px}
 .section-title span{color:var(--primary)}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+/* GRID & CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card-price,.card-file,.card-team,.testimonial-card{padding:25px;border-radius:12px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);background:#fff}
+.card-price{border-left:6px solid var(--primary)}
+.card-file{border-bottom:4px solid var(--primary)}
+.card-price h3,.card-file h3,.card-team h3{font-family:'Orbitron';font-size:1rem;font-weight:700}
+.price{display:block;font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.2rem;color:var(--primary);margin-top:10px}
 
-/* CARDS */
-.card-price,.card-file,.card-team,.testimonial-card{
-background:#fff;padding:25px;border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center
-}
+/* BADGES */
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 15px}
+.badge{font-size:.65rem;font-weight:800;letter-spacing:1px;padding:6px 10px;border-radius:20px;font-family:'Orbitron';text-transform:uppercase;color:#fff}
+.badge-perf{background:#e63946}
+.badge-eco{background:#2ecc71}
+.badge-fast{background:#1abc9c}
+.badge-pro{background:#9b59b6}
 
-.price{color:var(--primary);font-family:'Orbitron';font-weight:900}
+/* PARALLAX */
+.parallax{height:400px;background:url("https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000") center/cover fixed;display:flex;align-items:center;justify-content:center}
+.parallax h2{color:#fff;font-family:'Orbitron';padding:25px 45px;border:3px solid var(--primary);background:rgba(26,26,26,.8)}
 
-/* FORM */
+/* FILE SERVICE */
 #fileservice{background:#1a1a1a;color:#fff}
-.form-box{max-width:900px;margin:auto;background:#222;border-radius:15px}
-.form-header{background:var(--primary);padding:25px;text-align:center;font-family:'Orbitron'}
+.form-box{max-width:900px;margin:40px auto;background:#222;border-radius:15px;overflow:hidden}
+.form-header{background:var(--primary);padding:25px;text-align:center;font-family:'Orbitron';font-weight:900}
 .form-body{padding:40px}
-.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px}
-.form-row input{flex:1;padding:12px;background:#1a1a1a;border:1px solid #444;color:#fff;border-radius:8px}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.form-row input,.form-row select,.form-row textarea{flex:1 1 200px;padding:12px;font-size:0.95rem;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:white;box-sizing:border-box}
+.form-services{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px}
+.form-services label{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.05);border-radius:8px;cursor:pointer;transition:background 0.3s}
+.form-services label:hover{background:rgba(255,255,255,0.15)}
+.price-inline{font-weight:700;color:var(--primary)}
+.btn-action{flex:1 1 200px;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;font-family:'Orbitron';font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;transition:0.3s;min-width:200px}
+.btn-action:hover{opacity:.9;transform:scale(1.02)}
+.btn-action.paypal{background:var(--paypal);color:white;border:none}
 
-.btn-action{
-flex:1;padding:18px;border-radius:8px;
-font-family:'Orbitron';font-weight:900;
-text-align:center;text-decoration:none;color:#fff;cursor:pointer
-}
+/* TEAM */
+.card-team h3{margin-bottom:10px}
+.card-team p{font-size:.9rem;line-height:1.3}
 
-.btn-email{background:#444}
-.btn-whatsapp{background:var(--green)}
-.btn-paypal{background:var(--paypal)}
-
-/* TESTIMONIALS */
-#slider{overflow:hidden}
-.testimonial-track{display:flex;animation:scroll 45s linear infinite}
-.testimonial-card{min-width:300px;margin-right:20px}
-
-@keyframes scroll{
-0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
-}
+/* TESTIMONIALS - SLIDER FLUIDE */
+#slider{overflow:hidden;position:relative;width:100%;margin-top:30px;}
+.testimonial-track{display:flex;width:max-content;animation:slideInfinite 40s linear infinite;}
+.testimonial-card{min-width:300px;margin-right:20px;flex-shrink:0;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);background:#fff;text-align:center}
+.testimonial-card p{font-style:italic;margin:10px 0}
+.testimonial-card strong{display:block;margin-top:10px;color:var(--primary)}
+@keyframes slideInfinite{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* FOOTER */
-footer{background:#111;color:#777;text-align:center;padding:40px}
+footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 
-/* FLOAT */
-.float-btn{position:fixed;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--primary);color:#fff;bottom:30px;right:20px;text-decoration:none}
+/* FLOATING BUTTONS */
+.float-btn{position:fixed;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;transition:.3s}
+.float-btn:hover{opacity:.8;transform:scale(1.1)}
+.float-map{bottom:100px;right:20px;background:var(--primary)}
+#back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){.hero h1{font-size:2rem;line-height:1.2}.hero p{font-size:.9rem;letter-spacing:1px}.form-row{flex-direction:column}.form-services{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.float-btn{width:40px;height:40px;font-size:1rem}footer{padding:30px 5%;font-size:.9rem}}
+@media(min-width:769px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
-
 <body>
 
+<!-- NAVIGATION -->
 <nav>
 <a class="logo" href="#">MZ AUTO <span>MOTORSPORT</span></a>
 <div class="nav-links">
 <a href="#atelier">ATELIER</a>
 <a href="#fileservice">FILE SERVICE</a>
+<a href="#team">ÉQUIPE</a>
 <a href="#testimonials">TÉMOIGNAGES</a>
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>MZ AUTO <span>MOTORSPORT</span></h1>
-<p style="color:#eee">Expertise & Performance Automobile</p>
+<p>Expertise & Performance Automobile</p>
 </div>
 </section>
 
+<!-- ATELIER -->
+<section id="atelier">
+<h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
+<div class="grid">
+  <div class="card-price"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span></div>
+  <div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">450€</span></div>
+  <div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
+  <div class="card-price"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">200€</span></div>
+  <div class="card-price"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">180€</span></div>
+  <div class="card-price" style="grid-column:1/-1;"><h3>Clonage ECU</h3><div class="badges" style="justify-content:center;"><span class="badge badge-pro">Clonage</span></div><span class="price">70€</span></div>
+</div>
+</section>
+
+<!-- PARALLAX -->
+<div class="parallax"><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
+
+<!-- FILE SERVICE -->
 <section id="fileservice">
-<h2 class="section-title">FILE <span>SERVICE</span></h2>
+<h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 
 <div class="form-box">
-<div class="form-header">DEMANDE FILE SERVICE</div>
-<div class="form-body">
+  <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
+  <div class="form-body">
+    <form action="https://formsubmit.co/el/wisafi" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="merci.html">
 
-<div class="form-row">
-<input placeholder="Nom du garage">
-<input placeholder="Email">
-</div>
+      <div class="form-row">
+        <input required name="garage" placeholder="Nom du garage">
+        <input required type="email" name="_replyto" placeholder="Email professionnel">
+      </div>
+      <div class="form-row">
+        <input required name="vehicule" placeholder="Véhicule (Marque/Modèle)">
+        <input required name="annee" placeholder="Année du véhicule">
+      </div>
+      <div class="form-row">
+        <input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
+        <input required name="ecu" placeholder="Référence ECU">
+      </div>
 
-<div class="form-row">
-<input placeholder="Véhicule">
-<input placeholder="Année">
-</div>
+      <div class="form-row">
+        <input required type="url" name="binlink" placeholder="Lien de votre fichier .BIN (Google Drive, Dropbox, etc.)">
+      </div>
 
-<div class="form-row">
-<input placeholder="Motorisation">
-<input placeholder="Référence ECU">
-</div>
+      <div class="form-services">
+        <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
+        <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
+        <label><input type="checkbox" name="services" value="100"> AdBlue OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">100€</span></label>
+        <label><input type="checkbox" name="services" value="80"> FAP OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> EGR OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
+        <label style="flex-basis:100%;justify-content:center;display:flex;"><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
+      </div>
 
-<div class="form-row">
-<input placeholder="Lien du fichier .BIN (Drive / WeTransfer)">
-</div>
+      <!-- BOUTONS -->
+      <div class="form-row" style="gap:15px;flex-wrap:wrap;">
+        <button type="submit" class="btn-action" style="flex:1 1 200px;">1. ENVOYER</button>
+        <a id="whatsapp-send" class="btn-action" style="background:#25d366;color:white;flex:1 1 200px;" target="_blank">2. ENVOYER via WhatsApp</a>
+        <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">3. PAYER avec PayPal</a>
+      </div>
 
-<div class="form-row">
-<a href="mailto:zianimohamed1979@gmail.com?subject=File%20Service%20MZ%20Auto%20Motorsport"
-   class="btn-action btn-email">
-1. CONTACT PAR EMAIL
-</a>
-
-<a href="https://wa.me/33768879185"
-   target="_blank"
-   class="btn-action btn-whatsapp">
-2. CONTACT WhatsApp
-</a>
-
-<a id="paypal"
-   target="_blank"
-   class="btn-action btn-paypal">
-3. PAYER avec PayPal
-</a>
-</div>
-
-</div>
+    </form>
+  </div>
 </div>
 </section>
 
+<!-- ÉQUIPE -->
+<section id="team">
+<h2 class="section-title">NOTRE <span>ÉQUIPE</span></h2>
+<div class="grid">
+  <div class="card-team">
+    <h3>Mohamed</h3>
+    <p><strong>Responsable & Programmateur</strong></p>
+    <p>Passionné et expérimenté, spécialisé en reprogrammation moteur et optimisation ECU.</p>
+  </div>
+  <div class="card-team">
+    <h3>Anthony</h3>
+    <p><strong>Programmateur</strong></p>
+    <p>Expert en File Service et programmation personnalisée, passionné par la performance automobile.</p>
+  </div>
+</div>
+</section>
+
+<!-- TÉMOIGNAGES -->
 <section id="testimonials">
-<h2 class="section-title">AVIS <span>CLIENTS</span></h2>
-
+<h2 class="section-title">TÉMOIGNAGES <span>CLIENTS</span></h2>
 <div id="slider">
-<div class="testimonial-track">
-
-<div class="testimonial-card"><p>"Service rapide et efficace."</p><strong>Julien</strong></div>
-<div class="testimonial-card"><p>"Très pro, je recommande."</p><strong>Sophie</strong></div>
-<div class="testimonial-card"><p>"Résultat incroyable après stage 1."</p><strong>Karim</strong></div>
-<div class="testimonial-card"><p>"File service parfait."</p><strong>Lucas</strong></div>
-<div class="testimonial-card"><p>"Suivi sérieux et rapide."</p><strong>Nadia</strong></div>
-<div class="testimonial-card"><p>"Équipe compétente."</p><strong>Thomas</strong></div>
-<div class="testimonial-card"><p>"Excellent rapport qualité/prix."</p><strong>Camille</strong></div>
-<div class="testimonial-card"><p>"Très satisfait."</p><strong>Romain</strong></div>
-<div class="testimonial-card"><p>"Professionnel."</p><strong>Émilie</strong></div>
-<div class="testimonial-card"><p>"Je recommande à 100%."</p><strong>Adrien</strong></div>
-
-<!-- DUPLICATION POUR BOUCLE -->
-<div class="testimonial-card"><p>"Service rapide et efficace."</p><strong>Julien</strong></div>
-<div class="testimonial-card"><p>"Très pro, je recommande."</p><strong>Sophie</strong></div>
-
-</div>
+  <div class="testimonial-track">
+    <div class="testimonial-card"><p>"Service rapide et professionnel. Mon véhicule a gagné en performance immédiatement."</p><strong>- Julien</strong></div>
+    <div class="testimonial-card"><p>"Equipe compétente et disponible. Recommande vivement le File Service."</p><strong>- Sophie</strong></div>
+    <div class="testimonial-card"><p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p><strong>- Karim</strong></div>
+    <div class="testimonial-card"><p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p><strong>- Lucas</strong></div>
+    <div class="testimonial-card"><p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p><strong>- Nadia</strong></div>
+    <div class="testimonial-card"><p>"Rapide, efficace et un service client au top. Mon véhicule est transformé."</p><strong>- Thomas</strong></div>
+    <div class="testimonial-card"><p>"Très bonne expérience, les fichiers envoyés fonctionnent parfaitement."</p><strong>- Laura</strong></div>
+  </div>
 </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
 <p><strong>MZ AUTO MOTORSPORT</strong></p>
 <p>2 Boulevard Charles Gallet – 42120 Le Coteau</p>
-<p>07 68 87 91 85</p>
+<p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
 </footer>
 
-<a href="#top" class="float-btn">⬆️</a>
+<!-- FLOATING BUTTONS -->
+<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
+<a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
+<!-- SCRIPTS -->
 <script>
-document.getElementById("paypal").href="https://paypal.me/mziani761";
+// PayPal dynamique
+const boxes=document.querySelectorAll('input[name="services"]');
+const pay=document.getElementById('paypal');
+function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
+boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
+
+// WhatsApp lien dynamique
+const whatsappBtn=document.getElementById('whatsapp-send');
+whatsappBtn.addEventListener('click',()=> {
+  const garage=document.querySelector('input[name="garage"]').value;
+  const vehicule=document.querySelector('input[name="vehicule"]').value;
+  const annee=document.querySelector('input[name="annee"]').value;
+  const motor=document.querySelector('input[name="motorisation"]').value;
+  const ecu=document.querySelector('input[name="ecu"]').value;
+  const bin=document.querySelector('input[name="binlink"]').value;
+  let services=[];
+  document.querySelectorAll('input[name="services"]:checked').forEach(s=>services.push(s.parentNode.textContent.trim()));
+  let msg=`Garage: ${garage}\nVéhicule: ${vehicule} ${annee}\nMotorisation: ${motor}\nECU: ${ecu}\nFichier: ${bin}\nServices: ${services.join(', ')}`;
+  window.open(`https://wa.me/33768879185?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+// Back-to-top
+const backTop=document.getElementById('back-to-top');
+window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
+backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
 </script>
 
 </body>
