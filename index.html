@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MZ AUTO MOTORSPORT | Programmation moteur & File Service</title>
-<meta name="description" content="MZ Auto Motorsport – Programmation moteur Stage 1, E85, Pop & Bangs, Launch Control, AdBlue OFF, FAP OFF, EGR OFF, IMMO OFF. File Service professionnel.">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -16,7 +14,6 @@
 --green:#25d366;
 --paypal:#0070ba;
 }
-*{box-sizing:border-box}
 body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333;scroll-behavior:smooth}
 
 /* NAV */
@@ -43,7 +40,6 @@ section{padding:80px 10%}
 .card-file{background:rgba(255,255,255,.06);color:#fff;border-bottom:4px solid var(--primary)}
 .card-price h3,.card-file h3{font-family:'Orbitron';font-size:.9rem;font-weight:700}
 .price{display:block;font-family:'Orbitron',sans-serif;font-weight:900;font-size:1.2rem;color:var(--primary);margin-top:10px}
-.price-surdevis{font-style:italic;color:#f1c40f}
 
 /* BADGES */
 .badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 15px}
@@ -52,7 +48,6 @@ section{padding:80px 10%}
 .badge-eco{background:#2ecc71}
 .badge-fast{background:#1abc9c}
 .badge-pro{background:#9b59b6}
-.badge-safe{background:#3498db}
 
 /* PARALLAX */
 .parallax{height:500px;position:relative;border-top:6px solid var(--primary);border-bottom:6px solid var(--primary)}
@@ -64,7 +59,7 @@ section{padding:80px 10%}
 #fileservice{background:#1a1a1a;color:#fff}
 
 /* FORM */
-.form-box{max-width:900px;margin:80px auto 0;background:#222;border-radius:15px;overflow:hidden}
+.form-box{max-width:900px;margin:40px auto;background:#222;border-radius:15px;overflow:hidden}
 .form-header{background:var(--primary);padding:25px;text-align:center;font-family:'Orbitron';font-weight:900}
 .form-body{padding:40px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -104,7 +99,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
   transition:0.3s;
 }
 .float-btn:hover{opacity:0.8;transform:scale(1.1)}
-.float-map{bottom:100px;right:20px;background:#1a73e8}
+.float-map{bottom:100px;right:20px;background:var(--primary)}
 .float-ws{bottom:30px;left:20px;background:#25d366}
 #back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
 
@@ -131,17 +126,18 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </section>
 
+<!-- ATELIER -->
 <section id="atelier">
 <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
 <div class="grid">
-<div class="card-price"><h3>Stage 1 Performance</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><p>Optimisation moteur personnalisée.</p><span class="price">390€</span></div>
-<div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Économie</span></div><p>Conversion carburant E85.</p><span class="price">450€</span></div>
-<div class="card-price"><h3>POPS & BANGS</h3><div class="badges"><span class="badge badge-fast">Son sportif</span></div><p>Crépitements à la décélération.</p><span class="price">80€</span></div>
-<div class="card-price"><h3>Launch Control / Hard Cut</h3><div class="badges"><span class="badge badge-pro">Sport</span></div><p>Démarrage optimisé & rupteur.</p><span class="price">150€</span></div>
-<div class="card-price"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><p>Désactivation filtre à particules.</p><span class="price-surdevis">Sur devis</span></div>
-<div class="card-price"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><p>Désactivation vanne EGR.</p><span class="price-surdevis">Sur devis</span></div>
-<div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><p>Désactivation immobiliseur.</p><span class="price">150€</span></div>
-<div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><p>Désactivation AdBlue.</p><span class="price-surdevis">Sur devis</span></div>
+<div class="card-price"><h3>Stage 1 Performance</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span></div>
+<div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Économie</span></div><span class="price">450€</span></div>
+<div class="card-price"><h3>POPS & BANGS</h3><div class="badges"><span class="badge badge-fast">Son sportif</span></div><span class="price">80€</span></div>
+<div class="card-price"><h3>Launch Control / Hard Cut</h3><div class="badges"><span class="badge badge-pro">Sport</span></div><span class="price">150€</span></div>
+<div class="card-price"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
+<div class="card-price"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
+<div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
+<div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
 </div>
 </section>
 
@@ -149,14 +145,25 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
 </div>
 
+<!-- FILE SERVICE -->
 <section id="fileservice">
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
+
+<div class="grid">
+<div class="card-file"><h3>Stage 1 Performance</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">100€</span></div>
+<div class="card-file"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Économie</span></div><span class="price">120€</span></div>
+<div class="card-file"><h3>POPS & BANGS</h3><div class="badges"><span class="badge badge-fast">Son sportif</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>Launch Control / Hard Cut</h3><div class="badges"><span class="badge badge-pro">Sport</span></div><span class="price">90€</span></div>
+<div class="card-file"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">100€</span></div>
+</div>
 
 <div class="form-box">
 <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
 <div class="form-body">
 <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
-
 <div class="form-row">
 <input required name="garage" placeholder="Nom du garage">
 <input required type="email" name="_replyto" placeholder="Email">
@@ -167,28 +174,27 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 
 <div class="form-services">
-  <label><input type="checkbox" name="services" value="100"> Stage 1 Performance <span class="badge badge-perf">Performance</span> - <span class="price-inline">100€</span></label>
-  <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Économie</span> - <span class="price-inline">120€</span></label>
-  <label><input type="checkbox" name="services" value="80"> POPS & BANGS <span class="badge badge-fast">Son sportif</span> - <span class="price-inline">80€</span></label>
-  <label><input type="checkbox" name="services" value="90"> Launch Control / Hard Cut <span class="badge badge-pro">Sport</span> - <span class="price-inline">90€</span></label>
-  <label><input type="checkbox" name="services" value="80"> FAP OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
-  <label><input type="checkbox" name="services" value="80"> EGR OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
-  <label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
-  <label><input type="checkbox" name="services" value="100"> AdBlue OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">100€</span></label>
+<label><input type="checkbox" name="services" value="100"> Stage 1 Performance <span class="badge badge-perf">Performance</span> - <span class="price-inline">100€</span></label>
+<label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Économie</span> - <span class="price-inline">120€</span></label>
+<label><input type="checkbox" name="services" value="80"> POPS & BANGS <span class="badge badge-fast">Son sportif</span> - <span class="price-inline">80€</span></label>
+<label><input type="checkbox" name="services" value="90"> Launch Control / Hard Cut <span class="badge badge-pro">Sport</span> - <span class="price-inline">90€</span></label>
+<label><input type="checkbox" name="services" value="80"> FAP OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
+<label><input type="checkbox" name="services" value="80"> EGR OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
+<label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">80€</span></label>
+<label><input type="checkbox" name="services" value="100"> AdBlue OFF <span class="badge badge-pro">Suppression</span> - <span class="price-inline">100€</span></label>
 </div>
 
 <input type="file" name="file" required>
 <div class="form-row">
 <button type="submit">1. ENVOYER</button>
-<a id="paypal" class="paypal" target="_blank">
-<img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg">Payer avec PayPal
-</a>
+<a id="paypal" class="paypal" target="_blank"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg">Payer avec PayPal</a>
 </div>
 </form>
 </div>
 </div>
 </section>
 
+<!-- ÉQUIPE -->
 <section id="team">
 <h2 class="section-title">NOTRE <span>ÉQUIPE</span></h2>
 <div class="grid" style="gap:30px;justify-items:center;align-items:center;">
@@ -205,6 +211,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
 <p><strong>MZ AUTO MOTORSPORT</strong></p>
 <p>2 Boulevard Charles Gallet – 42120 Le Coteau</p>
@@ -217,12 +224,12 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <script>
-// PayPal multi-choix pour services à prix fixe
+// PayPal dynamique
 const checkboxes = document.querySelectorAll('input[name="services"]');
 const pay = document.getElementById('paypal');
 function updatePayPal() {
     let total = 0;
-    checkboxes.forEach(chk => { if(chk.checked && chk.value!="0") total += parseInt(chk.value); });
+    checkboxes.forEach(chk => { if(chk.checked) total += parseInt(chk.value); });
     pay.href = "https://paypal.me/mziani761/" + total;
 }
 checkboxes.forEach(chk => chk.addEventListener('change', updatePayPal));
