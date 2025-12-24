@@ -113,51 +113,44 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <!-- FILE SERVICE -->
 <section id="fileservice">
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
-
-<!-- Services centrés -->
-<div class="form-services" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:30px;">
-<label><input type="checkbox" name="services" value="100" data-name="Stage 1 Perf"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
-<label><input type="checkbox" name="services" value="120" data-name="E85 FLEXFUEL"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
-<label><input type="checkbox" name="services" value="100" data-name="AdBlue OFF"> AdBlue OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">100€</span></label>
-<label><input type="checkbox" name="services" value="80" data-name="FAP OFF"> FAP OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
-<label><input type="checkbox" name="services" value="80" data-name="EGR OFF"> EGR OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
-<label><input type="checkbox" name="services" value="80" data-name="IMMO OFF"> IMMO OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
-<label><input type="checkbox" name="services" value="80" data-name="Pops & Bangs"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
-<label><input type="checkbox" name="services" value="90" data-name="Launch Control"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
-<label><input type="checkbox" name="services" value="40" data-name="Fichier Original"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
-</div>
-
-<div class="form-box" style="position:relative;">
-<div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
-<div class="form-body" style="display:flex;gap:20px;flex-wrap:wrap;">
-
-<form action="https://formspree.io/f/xvzpnvrr" method="POST" style="flex:1 1 400px;min-width:300px;">
-<div class="form-row">
-<input required name="garage" placeholder="Nom du garage">
-<input required type="email" name="_replyto" placeholder="Email professionnel">
-</div>
-<div class="form-row">
-<input required name="vehicule" placeholder="Véhicule (Marque/Modèle)">
-<input required name="annee" placeholder="Année du véhicule">
-</div>
-<div class="form-row">
-<input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
-<input required name="ecu" placeholder="Référence ECU">
-</div>
-</form>
-
-<div id="sticky-cart" style="flex:0 0 280px;background:#222;color:#fff;border-radius:12px;padding:20px;position:sticky;top:20px;height:max-content;display:flex;flex-direction:column;gap:15px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-<div style="display:flex;justify-content:space-between;align-items:center;">
-<h3 style="color:var(--primary);margin:0;">Votre panier</h3>
-<span id="cart-count" style="background:var(--primary);border-radius:50%;padding:4px 10px;font-weight:900;">0</span>
-</div>
-<div id="cart-items" style="display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto;"></div>
-<div id="total-price" style="font-weight:900;font-size:1.2rem;text-align:center;color:var(--primary);">Total : 0€</div>
-<a id="paypal" class="btn-action paypal" target="_blank" style="background:#0070ba;color:#fff;text-align:center;">PAYER avec PayPal</a>
-<a href="mailto:mziani@example.com?subject=Fichier .BIN&body=Veuillez joindre votre fichier .BIN" class="btn-action" style="background:#25d366;color:#fff;text-align:center;">ENVOYER par Email</a>
-</div>
-
-</div>
+<div class="form-box">
+  <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
+  <div class="form-body">
+    <form action="https://formspree.io/f/xvzpnvrr" method="POST">
+      <div class="form-row">
+        <input required name="garage" placeholder="Nom du garage">
+        <input required type="email" name="_replyto" placeholder="Email professionnel">
+      </div>
+      <div class="form-row">
+        <input required name="vehicule" placeholder="Véhicule (Marque/Modèle)">
+        <input required name="annee" placeholder="Année du véhicule">
+      </div>
+      <div class="form-row">
+        <input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
+        <input required name="ecu" placeholder="Référence ECU">
+      </div>
+      <div class="form-row">
+        <textarea readonly style="flex:1 1 100%;background:#333;color:#fff;border-radius:8px;padding:12px;border:none;">
+⚠️ Veuillez envoyer votre fichier .BIN par email à mziani@example.com ou via WhatsApp au 07 68 87 91 85 après avoir rempli ce formulaire.
+        </textarea>
+      </div>
+      <div class="form-services">
+        <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
+        <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
+        <label><input type="checkbox" name="services" value="100"> AdBlue OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">100€</span></label>
+        <label><input type="checkbox" name="services" value="80"> FAP OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> EGR OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="80"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
+        <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
+        <label><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
+      </div>
+      <div class="form-row">
+        <button type="submit" class="btn-action">1. ENVOYER</button>
+        <a id="paypal" class="btn-action paypal" target="_blank">2. PAYER avec PayPal</a>
+      </div>
+    </form>
+  </div>
 </div>
 </section>
 
@@ -192,47 +185,18 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
-<!-- JS mini-panier complet -->
+<!-- SCRIPTS -->
 <script>
-const boxes = document.querySelectorAll('input[name="services"]');
-const pay = document.getElementById('paypal');
-const totalEl = document.getElementById('total-price');
-const cartItems = document.getElementById('cart-items');
-const cartCount = document.getElementById('cart-count');
-
-function popEffect(el){
-  el.style.transition='transform 0.15s ease';
-  el.style.transform='scale(1.2)';
-  setTimeout(()=>el.style.transform='scale(1)',150);
-}
-
-function updateCart(){
-  let total = 0;
-  cartItems.innerHTML='';
-  let count =0;
-  boxes.forEach(b=>{
-    if(b.checked){
-      count++;
-      const div = document.createElement('div');
-      div.style.display='flex';
-      div.style.justifyContent='space-between';
-      div.style.alignItems='center';
-      div.innerHTML=`<span>${b.dataset.name}</span><span>${b.value}€</span><button style="background:red;color:#fff;border:none;border-radius:4px;padding:2px 5px;cursor:pointer;">X</button>`;
-      div.querySelector('button').addEventListener('click',()=>{
-        b.checked=false;
-        updateCart();
-      });
-      cartItems.appendChild(div);
-      total+=parseInt(b.value);
-    }
-  });
-  totalEl.textContent='Total : '+total+'€';
-  cartCount.textContent=count;
+// PayPal dynamique
+const boxes=document.querySelectorAll('input[name="services"]');
+const pay=document.getElementById('paypal');
+function updatePayPal(){
+  let total=0;
+  boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});
   pay.href="https://paypal.me/mziani761/"+total;
 }
-
-boxes.forEach(b=>b.addEventListener('change',updateCart));
-updateCart();
+boxes.forEach(b=>b.addEventListener('change',updatePayPal));
+updatePayPal();
 
 // Back-to-top
 const backTop=document.getElementById('back-to-top');
