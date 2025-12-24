@@ -129,6 +129,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
 <div class="card-price"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">200€</span></div>
 <div class="card-price"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">180€</span></div>
+<div class="card-price"><h3>Clonage ECU</h3><div class="badges"><span class="badge badge-pro">Clonage</span></div><span class="price">70€</span></div>
 </div>
 </section>
 
@@ -141,7 +142,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div class="form-box">
 <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
 <div class="form-body">
-<form action="https://formspree.io/f/xvzpnvrr" method="POST" enctype="multipart/form-data">
+<form action="https://formspree.io/f/xvzpnvrr" method="POST">
 <div class="form-row">
 <input required name="garage" placeholder="Nom du garage">
 <input required type="email" name="_replyto" placeholder="Email professionnel">
@@ -155,7 +156,9 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <input required name="ecu" placeholder="Référence ECU">
 </div>
 <div class="form-row">
-<input type="file" name="file" required>
+<textarea readonly style="flex:1 1 100%;background:#333;color:#fff;border-radius:8px;padding:12px;border:none;">
+⚠️ Veuillez envoyer votre fichier .BIN par email à mziani@example.com ou via WhatsApp au 07 68 87 91 85 après avoir rempli ce formulaire.
+</textarea>
 </div>
 <div class="form-services">
 <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
@@ -166,6 +169,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
 <label><input type="checkbox" name="services" value="80"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
 <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
+<label><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
 </div>
 <div class="form-row">
 <button type="submit" class="btn-action">1. ENVOYER</button>
@@ -173,6 +177,19 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 </div>
 </form>
 </div>
+</div>
+
+<div class="grid" style="margin-top:30px;">
+<!-- Cartes File Service -->
+<div class="card-file"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">100€</span></div>
+<div class="card-file"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">120€</span></div>
+<div class="card-file"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">100€</span></div>
+<div class="card-file"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">80€</span></div>
+<div class="card-file"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">90€</span></div>
+<div class="card-file"><h3>Fichier Original</h3><div class="badges"><span class="badge badge-pro">Original</span></div><span class="price">40€</span></div>
 </div>
 </section>
 
@@ -210,10 +227,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
     <strong>- Karim</strong>
   </div>
 </div>
-<div style="text-align:center;margin-top:15px;">
-  <button class="slider-btn" id="prev">⬅️</button>
-  <button class="slider-btn" id="next">➡️</button>
-</div>
 </section>
 
 <!-- FOOTER -->
@@ -223,11 +236,12 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
 </footer>
 
-<!-- BOUTONS FLOTTANTS -->
+<!-- FLOATING BUTTONS -->
 <a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
 <a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
+<!-- SCRIPTS -->
 <script>
 // PayPal dynamique
 const boxes=document.querySelectorAll('input[name="services"]');
@@ -235,22 +249,10 @@ const pay=document.getElementById('paypal');
 function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
 boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 
-// Back to top
+// Back-to-top
 const backTop=document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-
-// Slider témoignages
-const slider=document.querySelector('.testimonials-slider');
-const cards=document.querySelectorAll('.testimonial-card');
-const prev=document.getElementById('prev');
-const next=document.getElementById('next');
-let index=0;
-function showSlide(i){slider.scrollLeft=i*slider.clientWidth;}
-prev.onclick=()=>{index=(index-1+cards.length)%cards.length;showSlide(index);}
-next.onclick=()=>{index=(index+1)%cards.length;showSlide(index);}
-setInterval(()=>{index=(index+1)%cards.length;showSlide(index)},5000);
-window.addEventListener('resize',()=>{showSlide(index);});
 </script>
 
 </body>
