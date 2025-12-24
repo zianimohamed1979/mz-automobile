@@ -141,7 +141,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div class="form-box">
   <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
   <div class="form-body">
-    <form action="https://formsubmit.co/el/wisafi" method="POST" enctype="multipart/form-data">
+    <form action="https://formsubmit.co/el/wisafi" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="merci.html">
 
@@ -157,10 +157,12 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
         <input required name="ecu" placeholder="Référence ECU">
       </div>
+
+      <!-- Champ lien fichier -->
       <div class="form-row">
-        <input type="file" name="binfile" accept=".bin" required
-          style="flex:1 1 100%;padding:12px;background:#1a1a1a;border-radius:8px;border:1px solid #444;color:#fff;">
+        <input required type="url" name="binlink" placeholder="Lien de votre fichier .BIN (Google Drive, Dropbox, etc.)">
       </div>
+
       <div class="form-services">
         <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
         <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
@@ -172,6 +174,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
         <label style="flex-basis:100%;justify-content:center;display:flex;"><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
       </div>
+
       <div class="form-row" style="gap:15px;flex-wrap:wrap;">
         <button type="submit" class="btn-action" style="flex:1 1 200px;">1. ENVOYER</button>
         <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">2. PAYER avec PayPal</a>
@@ -207,6 +210,11 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
   <div class="testimonial-card"><p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p><strong>- Karim</strong></div>
   <div class="testimonial-card"><p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p><strong>- Lucas</strong></div>
   <div class="testimonial-card"><p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p><strong>- Nadia</strong></div>
+  <div class="testimonial-card"><p>"Travail de qualité, vraiment satisfait du suivi personnalisé."</p><strong>- Thomas</strong></div>
+  <div class="testimonial-card"><p>"Livraison rapide et efficace, mon moteur est au top."</p><strong>- Claire</strong></div>
+  <div class="testimonial-card"><p>"Service client très réactif, je recommande vivement."</p><strong>- Ahmed</strong></div>
+  <div class="testimonial-card"><p>"Le fichier ECU fourni a parfaitement fonctionné, résultats immédiats."</p><strong>- Emilie</strong></div>
+  <div class="testimonial-card"><p>"Très professionnel, je ferai appel à nouveau pour mes prochains projets."</p><strong>- Vincent</strong></div>
 </div>
 </section>
 
@@ -225,20 +233,15 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <!-- SCRIPTS -->
 <script>
 // PayPal dynamique
-const boxes = document.querySelectorAll('input[name="services"]');
-const pay = document.getElementById('paypal');
-function updatePayPal() {
-  let total = 0;
-  boxes.forEach(b => { if(b.checked) total += parseInt(b.value) });
-  pay.href = "https://paypal.me/mziani761/" + total;
-}
-boxes.forEach(b => b.addEventListener('change', updatePayPal));
-updatePayPal();
+const boxes=document.querySelectorAll('input[name="services"]');
+const pay=document.getElementById('paypal');
+function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
+boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 
-// Back to top
-const backTop = document.getElementById('back-to-top');
-window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>300)?'flex':'none'});
-backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// Back-to-top
+const backTop=document.getElementById('back-to-top');
+window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
+backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
 
 // Slider témoignages fluide infini
 const sliderEl = document.getElementById('slider');
@@ -247,7 +250,7 @@ slides.forEach(slide => sliderEl.appendChild(slide.cloneNode(true)));
 
 let position = 0;
 function animateSlider() {
-  position -= 0.3;
+  position -= 0.3; // vitesse
   if(Math.abs(position) >= sliderEl.scrollWidth / 2) position = 0;
   sliderEl.style.transform = `translateX(${position}px)`;
   requestAnimationFrame(animateSlider);
