@@ -107,7 +107,6 @@ width:100%;padding:18px;margin-bottom:20px;
 background:#111;color:#fff;border:1px solid #444;border-radius:8px
 }
 button{font-family:'Orbitron';font-weight:900;cursor:pointer}
-.paypal{background:var(--paypal);text-decoration:none;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;}
 
 /* Checkbox Services */
 .form-services{
@@ -131,6 +130,24 @@ margin-right:10px;
 background:rgba(255,255,255,0.15);
 }
 
+/* PAYPAL BUTTON */
+.paypal{
+background:var(--paypal);
+color:#fff;
+text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:15px;
+border-radius:8px;
+font-family:'Orbitron';
+font-weight:900;
+font-size:1rem;
+transition:0.3s;
+}
+.paypal:hover{background:#005ea6}
+.paypal img{height:24px;margin-right:10px}
+
 /* MAP */
 #localisation{background:#f9f9f9}
 .map{border:4px solid #1a1a1a;border-bottom:8px solid var(--primary);border-radius:15px;overflow:hidden}
@@ -138,13 +155,18 @@ background:rgba(255,255,255,0.15);
 /* FOOTER */
 footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;bottom:30px;right:30px;
-background:var(--green);color:#fff;
-padding:18px 35px;border-radius:50px;
-font-family:'Orbitron';font-weight:900;text-decoration:none
+/* WHATSAPP, CALL, MAP BUTTONS */
+.whatsapp,.call-button,.map-button,#back-to-top{
+position:fixed;right:30px;padding:15px 20px;border-radius:50px;
+font-family:'Orbitron';font-weight:900;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:1000;color:#fff;cursor:pointer;
 }
+.whatsapp{background:var(--green);bottom:30px;}
+.call-button{background:#e63946;bottom:100px;}
+.map-button{background:#1a73e8;bottom:180px;}
+#back-to-top{background:#ff9f1c;bottom:250px;display:none;transition:0.3s;}
+.whatsapp span,.call-button span,.map-button span{display:block;margin-bottom:10px;font-size:0.9rem;}
+.whatsapp a,.call-button a,.map-button a,#back-to-top{display:block;color:#fff;text-decoration:none;margin:5px 0;}
+.whatsapp a:hover,.call-button a:hover,.map-button a:hover,#back-to-top:hover{text-decoration:underline}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -161,6 +183,7 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <div>
 <a href="#atelier">ATELIER</a>
 <a href="#fileservice">FILE SERVICE</a>
+<a href="#localisation">LOCALISATION</a>
 </div>
 </nav>
 
@@ -173,9 +196,7 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 
 <section id="atelier">
 <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
-
 <div class="grid">
-
 <div class="card-price">
 <h3>Stage 1 Performance</h3>
 <div class="badges">
@@ -200,21 +221,39 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <div class="card-price">
 <h3>Pop & Bangs</h3>
 <div class="badges">
-<span class="badge badge-perf">Son sportif</span>
-<span class="badge badge-fast">Paramétrable</span>
+<span class="badge badge-fast">Son sportif</span>
 </div>
 <p>Crépitements à la décélération.</p>
-<span class="price">À partir de 150€</span>
+<span class="price">80€</span>
 </div>
 
 <div class="card-price">
 <h3>Launch Control / Hard Cut</h3>
 <div class="badges">
 <span class="badge badge-pro">Sport</span>
-<span class="badge badge-fast">Régime réglable</span>
 </div>
 <p>Démarrage optimisé & rupteur.</p>
-<span class="price">À partir de 150€</span>
+<span class="price">150€</span>
+</div>
+
+<div class="card-price">
+<h3>FAP OFF</h3>
+<div class="badges">
+<span class="badge badge-pro">Suppression</span>
+<span class="badge badge-fast">Performance</span>
+</div>
+<p>Désactivation électronique du filtre à particules.</p>
+<span class="price">Sur devis</span>
+</div>
+
+<div class="card-price">
+<h3>EGR OFF</h3>
+<div class="badges">
+<span class="badge badge-pro">Suppression</span>
+<span class="badge badge-fast">Performance</span>
+</div>
+<p>Désactivation électronique de la vanne EGR.</p>
+<span class="price">Sur devis</span>
 </div>
 
 <div class="card-price">
@@ -225,17 +264,6 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <p>Désactivation électronique.</p>
 <span class="price">300€</span>
 </div>
-
-<div class="card-price">
-<h3>EGR / FAP OFF</h3>
-<div class="badges">
-<span class="badge badge-pro">Gestion moteur</span>
-<span class="badge badge-fast">Suppression logicielle</span>
-</div>
-<p>Désactivation électronique.</p>
-<span class="price">Sur devis</span>
-</div>
-
 </div>
 </section>
 
@@ -247,7 +275,6 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 
 <div class="grid">
-
 <div class="card-file">
 <h3>STAGE 1</h3>
 <div class="badges">
@@ -281,7 +308,6 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 </div>
 <span class="price">150€</span>
 </div>
-
 </div>
 
 <div class="form-box">
@@ -308,7 +334,9 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <input type="file" name="file" required>
 <div class="form-row">
 <button type="submit">1. ENVOYER</button>
-<a id="paypal" class="paypal" target="_blank">2. PAYER</a>
+<a id="paypal" class="paypal" target="_blank">
+<img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg">Payer avec PayPal
+</a>
 </div>
 </form>
 </div>
@@ -318,7 +346,7 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <section id="localisation">
 <h2 class="section-title">NOUS <span>TROUVER</span></h2>
 <div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.582875323545!2d4.0841221!3d46.0315893" width="100%" height="450" style="border:0"></iframe>
+<iframe src="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau&output=embed" width="100%" height="450" style="border:0;"></iframe>
 </div>
 </section>
 
@@ -328,20 +356,45 @@ font-family:'Orbitron';font-weight:900;text-decoration:none
 <p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/33768879185">WHATSAPP</a>
+<!-- BOUTONS FLOTTANTS -->
+<div class="map-button">
+<a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank">📍 Voir la position</a>
+</div>
+
+<div class="call-button">
+<span>📞 Appeler :</span>
+<a href="tel:+33768879185">Mohamed (Responsable) – 07 68 87 91 85</a>
+<a href="tel:+33668501143">Anthony – 06 68 50 11 43</a>
+</div>
+
+<div class="whatsapp">
+<span>💬 WhatsApp :</span>
+<a href="https://wa.me/33768879185" target="_blank">Mohamed (Responsable) – 07 68 87 91 85</a>
+<a href="https://wa.me/33668501143" target="_blank">Anthony – 06 68 50 11 43</a>
+</div>
+
+<div id="back-to-top">⬆️ Haut de page</div>
 
 <script>
+// PayPal multi-choix
 const checkboxes = document.querySelectorAll('input[name="services"]');
 const pay = document.getElementById('paypal');
-
 function updatePayPal() {
     let total = 0;
     checkboxes.forEach(chk => { if(chk.checked) total += parseInt(chk.value); });
     pay.href = "https://paypal.me/mziani761/" + total;
 }
-
 checkboxes.forEach(chk => chk.addEventListener('change', updatePayPal));
 updatePayPal();
+
+// Bouton "Haut de page"
+const backTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+    backTop.style.display = (window.scrollY > 200) ? 'block' : 'none';
+});
+backTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+});
 </script>
 
 </body>
