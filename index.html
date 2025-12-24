@@ -17,10 +17,10 @@ body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333;scroll-b
 
 /* NAVIGATION */
 nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,26,26,.95);display:flex;justify-content:space-between;align-items:center;padding:20px 8%;border-bottom:2px solid var(--primary)}
-nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.8rem;font-weight:700;margin-left:25px}
+nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.85rem;font-weight:700;margin-left:25px;padding:5px 10px;transition:0.3s}
+nav a:hover{color:var(--primary);transform:scale(1.05)}
 .logo{font-weight:900}
 .logo span{color:var(--primary)}
-.nav-links a[href="#team"]{color:var(--primary);font-weight:900}
 
 /* HERO */
 .hero{height:75vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px}
@@ -69,20 +69,14 @@ section{padding:80px 10%}
 .form-box{max-width:900px;margin:40px auto;background:#222;border-radius:15px;overflow:hidden}
 .form-header{background:var(--primary);padding:25px;text-align:center;font-family:'Orbitron';font-weight:900}
 .form-body{padding:40px}
-.form-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px}
-input,select,textarea,button,.paypal{height:50px;padding:12px;font-size:.9rem;box-sizing:border-box;font-family:'Orbitron'}
-textarea{resize:none}
-
-/* CHECKBOX SERVICES */
-.form-services{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-.form-services label{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,0.05);border-radius:8px;cursor:pointer;transition:background 0.3s}
+.form-row{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.form-row input,.form-row select,.form-row textarea{flex:1 1 200px;padding:12px;font-size:0.95rem;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:white;box-sizing:border-box}
+.form-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.form-services label{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.05);border-radius:8px;cursor:pointer;transition:background 0.3s}
 .form-services label:hover{background:rgba(255,255,255,0.15)}
-.form-services input[type="checkbox"]{margin-right:10px}
-.price-inline{font-weight:700;color:var(--primary);margin-left:10px}
-
-/* BOUTONS */
-.btn-action{flex:1;display:flex;align-items:center;justify-content:center;padding:15px 0;border-radius:8px;font-family:'Orbitron';font-weight:900;font-size:.95rem;text-decoration:none;cursor:pointer;transition:.3s}
-.btn-action:hover{opacity:.9;transform:scale(1.02)}
+.price-inline{font-weight:700;color:var(--primary)}
+.btn-action{flex:1 1 200px;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;font-family:'Orbitron';font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;transition:0.3s;min-width:200px}
+.btn-action:hover{opacity:0.9;transform:scale(1.02)}
 .btn-action.paypal{background:var(--paypal);color:white;border:none}
 .btn-action:not(.paypal){background:white;color:var(--dark);border:none}
 
@@ -158,16 +152,18 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <div class="form-row">
 <input required name="garage" placeholder="Nom du garage">
 <input required type="email" name="_replyto" placeholder="Email professionnel">
+</div>
+<div class="form-row">
 <input required name="vehicule" placeholder="Véhicule (Marque/Modèle)">
 <input required name="annee" placeholder="Année du véhicule">
 </div>
 <div class="form-row">
 <input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
 <input required name="ecu" placeholder="Référence ECU">
-<input type="file" name="file" required>
-<div></div>
 </div>
-
+<div class="form-row">
+<input type="file" name="file" required>
+</div>
 <div class="form-services">
 <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
 <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
@@ -178,7 +174,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <label><input type="checkbox" name="services" value="80"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
 <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
 </div>
-
 <div class="form-row">
 <button type="submit" class="btn-action">1. ENVOYER</button>
 <a id="paypal" class="btn-action paypal" target="_blank">2. PAYER avec PayPal</a>
