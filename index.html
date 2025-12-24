@@ -3,249 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MZ AUTO MOTORSPORT | Expert Programmation Moteur</title>
+<title>MZ AUTO MOTORSPORT | Programmation moteur & File Service</title>
+<meta name="description" content="MZ Auto Motorsport – Programmation moteur Stage 1, E85, Pop & Bangs, Launch Control, AdBlue OFF. File Service professionnel.">
 
-<meta name="description" content="MZ Auto Motorsport – Programmation moteur, Stage 1, E85, AdBlue OFF. File Service professionnel et atelier à Le Coteau.">
-
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --primary:#e63946;
-    --dark:#1a1a1a;
-    --white:#fff;
-    --green:#25d366;
-    --paypal:#0070ba;
+:root{
+--primary:#e63946;
+--dark:#1a1a1a;
+--white:#fff;
+--green:#25d366;
+--paypal:#0070ba;
 }
 *{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background:#fff;
-    color:#333;
-    scroll-behavior:smooth;
-}
+body{margin:0;font-family:'Inter',sans-serif;background:#fff;color:#333}
 
 /* NAV */
 nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
-    background:rgba(26,26,26,.95);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    border-bottom:2px solid var(--primary);
+position:fixed;top:0;width:100%;z-index:1000;
+background:rgba(26,26,26,.95);
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 8%;border-bottom:2px solid var(--primary)
 }
-nav a{
-    color:#fff;
-    text-decoration:none;
-    font-family:'Orbitron';
-    font-size:.8rem;
-    font-weight:700;
-    margin-left:25px;
-}
-.logo{
-    font-weight:900;
-}
+nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.8rem;font-weight:700;margin-left:25px}
+.logo{font-weight:900}
 .logo span{color:var(--primary)}
 
 /* HERO */
 .hero{
-    height:75vh;
-    background:
-    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-    url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-top:80px;
+height:75vh;
+background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;
+display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px
 }
-.hero h1{
-    font-family:'Orbitron';
-    font-size:3.5rem;
-    color:#fff;
-    margin:0;
-}
+.hero h1{font-family:'Orbitron';font-size:3.5rem;color:#fff;margin:0}
 .hero h1 span{color:var(--primary)}
-.hero p{
-    color:#eee;
-    letter-spacing:4px;
-    font-weight:600;
-}
+.hero p{color:#eee;letter-spacing:4px;font-weight:600}
 
 /* SECTIONS */
 section{padding:80px 10%}
 .section-title{
-    text-align:center;
-    font-family:'Orbitron';
-    font-size:2rem;
-    letter-spacing:2px;
-    margin-bottom:50px;
+text-align:center;font-family:'Orbitron';
+font-size:2rem;letter-spacing:2px;margin-bottom:50px
 }
 .section-title span{color:var(--primary)}
 
-/* CARDS */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+/* GRID & CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card-price,.card-file{
+padding:25px;border-radius:12px;text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.08)
 }
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    border-left:6px solid var(--primary);
-    transition:.3s;
-    text-align:center;
+.card-price{background:#fff;border-left:6px solid var(--primary)}
+.card-file{background:rgba(255,255,255,.06);color:#fff;border-bottom:4px solid var(--primary)}
+.card-price h3,.card-file h3{font-family:'Orbitron';font-size:.9rem}
+.price{font-family:'Orbitron';font-weight:800;color:var(--primary)}
+
+/* BADGES */
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 15px}
+.badge{
+font-size:.65rem;font-weight:800;letter-spacing:1px;
+padding:6px 10px;border-radius:20px;
+font-family:'Orbitron';text-transform:uppercase;color:#fff
 }
-.card:hover{
-    transform:translateY(-5px);
-}
-.card h3{
-    font-family:'Orbitron';
-    font-size:.9rem;
-}
-.price{
-    font-family:'Orbitron';
-    font-weight:800;
-    color:var(--primary);
-}
+.badge-perf{background:#e63946}
+.badge-eco{background:#2ecc71}
+.badge-fast{background:#1abc9c}
+.badge-pro{background:#9b59b6}
+.badge-safe{background:#3498db}
 
 /* PARALLAX */
 .parallax{
-    height:500px;
-    position:relative;
-    border-top:6px solid var(--primary);
-    border-bottom:6px solid var(--primary);
+height:500px;position:relative;
+border-top:6px solid var(--primary);
+border-bottom:6px solid var(--primary)
 }
 .parallax::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url("https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000") center/cover fixed;
+content:"";position:absolute;inset:0;
+background:url("https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000") center/cover fixed
 }
 .parallax div{
-    position:relative;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,0,0,.4);
+position:relative;height:100%;
+display:flex;align-items:center;justify-content:center;
+background:rgba(0,0,0,.4)
 }
 .parallax h2{
-    color:#fff;
-    font-family:'Orbitron';
-    padding:25px 45px;
-    border:3px solid var(--primary);
-    background:rgba(26,26,26,.8);
+color:#fff;font-family:'Orbitron';
+padding:25px 45px;border:3px solid var(--primary);
+background:rgba(26,26,26,.8)
 }
 
 /* FILE SERVICE */
-#fileservice{
-    background:#1a1a1a;
-    color:#fff;
-}
-.file-card{
-    background:rgba(255,255,255,.05);
-    border-bottom:4px solid var(--primary);
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-}
+#fileservice{background:#1a1a1a;color:#fff}
 
 /* FORM */
-.form-box{
-    max-width:900px;
-    margin:80px auto 0;
-    background:#222;
-    border-radius:15px;
-    overflow:hidden;
-}
-.form-header{
-    background:var(--primary);
-    padding:25px;
-    text-align:center;
-    font-family:'Orbitron';
-    font-weight:900;
-}
-.form-body{
-    padding:40px;
-}
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
+.form-box{max-width:900px;margin:80px auto 0;background:#222;border-radius:15px;overflow:hidden}
+.form-header{background:var(--primary);padding:25px;text-align:center;font-family:'Orbitron';font-weight:900}
+.form-body{padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 input,select,button{
-    width:100%;
-    padding:18px;
-    margin-bottom:20px;
-    background:#111;
-    color:#fff;
-    border:1px solid #444;
-    border-radius:8px;
+width:100%;padding:18px;margin-bottom:20px;
+background:#111;color:#fff;border:1px solid #444;border-radius:8px
 }
-button{
-    cursor:pointer;
-    font-family:'Orbitron';
-    font-weight:900;
+button{font-family:'Orbitron';font-weight:900;cursor:pointer}
+.paypal{background:var(--paypal);text-decoration:none;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;}
+
+/* Checkbox Services */
+.form-services{
+margin-bottom:20px;
 }
-.paypal{
-    background:var(--paypal);
-    text-decoration:none;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.form-services label{
+display:block;
+font-family:'Orbitron';
+color:white;
+padding:6px 10px;
+background:rgba(255,255,255,0.05);
+border-radius:8px;
+margin-bottom:8px;
+cursor:pointer;
+transition:0.3s;
+}
+.form-services input[type="checkbox"]{
+margin-right:10px;
+}
+.form-services label:hover{
+background:rgba(255,255,255,0.15);
 }
 
 /* MAP */
 #localisation{background:#f9f9f9}
-.map{
-    border:4px solid #1a1a1a;
-    border-bottom:8px solid var(--primary);
-    border-radius:15px;
-    overflow:hidden;
-}
+.map{border:4px solid #1a1a1a;border-bottom:8px solid var(--primary);border-radius:15px;overflow:hidden}
 
 /* FOOTER */
-footer{
-    background:#111;
-    color:#777;
-    padding:40px 10%;
-    text-align:center;
-}
-footer a{
-    color:#555;
-    text-decoration:none;
-    font-size:.8rem;
-}
-footer a:hover{color:var(--primary)}
+footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 
 /* WHATSAPP */
 .whatsapp{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background:var(--green);
-    color:#fff;
-    padding:18px 35px;
-    border-radius:50px;
-    font-family:'Orbitron';
-    font-weight:900;
-    text-decoration:none;
+position:fixed;bottom:30px;right:30px;
+background:var(--green);color:#fff;
+padding:18px 35px;border-radius:50px;
+font-family:'Orbitron';font-weight:900;text-decoration:none
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-    .hero h1{font-size:2.2rem}
-    .form-row{grid-template-columns:1fr}
+.hero h1{font-size:2.2rem}
+.form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -253,92 +157,191 @@ footer a:hover{color:var(--primary)}
 <body>
 
 <nav>
-    <a class="logo" href="#">MZ AUTO <span>MOTORSPORT</span></a>
-    <div>
-        <a href="#atelier">ATELIER</a>
-        <a href="#fileservice">FILE SERVICE</a>
-    </div>
+<a class="logo" href="#">MZ AUTO <span>MOTORSPORT</span></a>
+<div>
+<a href="#atelier">ATELIER</a>
+<a href="#fileservice">FILE SERVICE</a>
+</div>
 </nav>
 
 <section class="hero">
-    <div>
-        <h1>MZ AUTO <span>MOTORSPORT</span></h1>
-        <p>Expertise & Performance Automobile</p>
-    </div>
+<div>
+<h1>MZ AUTO <span>MOTORSPORT</span></h1>
+<p>Expertise & Performance Automobile</p>
+</div>
 </section>
 
 <section id="atelier">
-    <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
-    <div class="grid">
-        <div class="card"><h3>Stage 1</h3><p>Optimisation moteur sur-mesure</p><span class="price">390€</span></div>
-        <div class="card"><h3>E85</h3><p>Conversion bio-éthanol</p><span class="price">450€</span></div>
-        <div class="card"><h3>AdBlue OFF</h3><p>Désactivation électronique</p><span class="price">300€</span></div>
-    </div>
+<h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
+
+<div class="grid">
+
+<div class="card-price">
+<h3>Stage 1 Performance</h3>
+<div class="badges">
+<span class="badge badge-perf">Performance</span>
+<span class="badge badge-safe">Sur-mesure</span>
+<span class="badge badge-fast">Optimisation ECU</span>
+</div>
+<p>Optimisation moteur personnalisée.</p>
+<span class="price">390€</span>
+</div>
+
+<div class="card-price">
+<h3>Bio Éthanol E85</h3>
+<div class="badges">
+<span class="badge badge-eco">Économie</span>
+<span class="badge badge-safe">Fiable</span>
+</div>
+<p>Conversion carburant E85.</p>
+<span class="price">450€</span>
+</div>
+
+<div class="card-price">
+<h3>Pop & Bangs</h3>
+<div class="badges">
+<span class="badge badge-perf">Son sportif</span>
+<span class="badge badge-fast">Paramétrable</span>
+</div>
+<p>Crépitements à la décélération.</p>
+<span class="price">À partir de 150€</span>
+</div>
+
+<div class="card-price">
+<h3>Launch Control / Hard Cut</h3>
+<div class="badges">
+<span class="badge badge-pro">Sport</span>
+<span class="badge badge-fast">Régime réglable</span>
+</div>
+<p>Démarrage optimisé & rupteur.</p>
+<span class="price">À partir de 150€</span>
+</div>
+
+<div class="card-price">
+<h3>AdBlue OFF</h3>
+<div class="badges">
+<span class="badge badge-pro">Solution ECU</span>
+</div>
+<p>Désactivation électronique.</p>
+<span class="price">300€</span>
+</div>
+
+<div class="card-price">
+<h3>EGR / FAP OFF</h3>
+<div class="badges">
+<span class="badge badge-pro">Gestion moteur</span>
+<span class="badge badge-fast">Suppression logicielle</span>
+</div>
+<p>Désactivation électronique.</p>
+<span class="price">Sur devis</span>
+</div>
+
+</div>
 </section>
 
 <div class="parallax">
-    <div><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
+<div><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
 </div>
 
 <section id="fileservice">
-    <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
+<h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 
-    <div class="grid">
-        <div class="file-card"><h3>Stage 1</h3><span class="price">100€</span></div>
-        <div class="file-card"><h3>E85</h3><span class="price">120€</span></div>
-        <div class="file-card"><h3>AdBlue OFF</h3><span class="price">100€</span></div>
-    </div>
+<div class="grid">
 
-    <div class="form-box">
-        <div class="form-header">ZONE DÉPÔT FICHIER (.BIN)</div>
-        <div class="form-body">
-            <form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
-                <div class="form-row">
-                    <input required name="garage" placeholder="Nom du garage">
-                    <input required type="email" name="_replyto" placeholder="Email">
-                </div>
-                <div class="form-row">
-                    <input required name="vehicule" placeholder="Véhicule">
-                    <input required name="ecu" placeholder="Référence ECU">
-                </div>
-                <select id="service">
-                    <option value="100">Stage 1 - 100€</option>
-                    <option value="120">E85 - 120€</option>
-                    <option value="100">AdBlue OFF - 100€</option>
-                </select>
-                <input type="file" name="file" required>
-                <div class="form-row">
-                    <button type="submit">1. ENVOYER</button>
-                    <a id="paypal" class="paypal" target="_blank">2. PAYER</a>
-                </div>
-            </form>
-        </div>
-    </div>
+<div class="card-file">
+<h3>STAGE 1</h3>
+<div class="badges">
+<span class="badge badge-perf">Performance</span>
+<span class="badge badge-pro">Pro Only</span>
+</div>
+<span class="price">100€</span>
+</div>
+
+<div class="card-file">
+<h3>E85 FLEXFUEL</h3>
+<div class="badges">
+<span class="badge badge-eco">Économie</span>
+<span class="badge badge-pro">Pro</span>
+</div>
+<span class="price">120€</span>
+</div>
+
+<div class="card-file">
+<h3>POPS & BANGS</h3>
+<div class="badges">
+<span class="badge badge-fast">Son sportif</span>
+</div>
+<span class="price">80€</span>
+</div>
+
+<div class="card-file">
+<h3>DPF / EGR / ADBLUE OFF</h3>
+<div class="badges">
+<span class="badge badge-pro">Pack complet</span>
+</div>
+<span class="price">150€</span>
+</div>
+
+</div>
+
+<div class="form-box">
+<div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
+<div class="form-body">
+<form action="https://formspree.io/f/zianimohamed1979@gmail.com" method="POST" enctype="multipart/form-data">
+
+<div class="form-row">
+<input required name="garage" placeholder="Nom du garage">
+<input required type="email" name="_replyto" placeholder="Email">
+</div>
+<div class="form-row">
+<input required name="vehicule" placeholder="Véhicule">
+<input required name="ecu" placeholder="ECU">
+</div>
+
+<div class="form-services">
+<label><input type="checkbox" name="services" value="100"> Stage 1 - 100€</label>
+<label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL - 120€</label>
+<label><input type="checkbox" name="services" value="80"> POPS & BANGS - 80€</label>
+<label><input type="checkbox" name="services" value="150"> DPF / EGR / ADBLUE OFF - 150€</label>
+</div>
+
+<input type="file" name="file" required>
+<div class="form-row">
+<button type="submit">1. ENVOYER</button>
+<a id="paypal" class="paypal" target="_blank">2. PAYER</a>
+</div>
+</form>
+</div>
+</div>
 </section>
 
 <section id="localisation">
-    <h2 class="section-title">NOUS <span>TROUVER</span></h2>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.582875323545!2d4.0841221!3d46.0315893" width="100%" height="450" style="border:0" loading="lazy"></iframe>
-    </div>
+<h2 class="section-title">NOUS <span>TROUVER</span></h2>
+<div class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.582875323545!2d4.0841221!3d46.0315893" width="100%" height="450" style="border:0"></iframe>
+</div>
 </section>
 
 <footer>
-    <p><strong>MZ AUTO MOTORSPORT</strong></p>
-    <p>2 Boulevard Charles Gallet – 42120 Le Coteau</p>
-    <p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
+<p><strong>MZ AUTO MOTORSPORT</strong></p>
+<p>2 Boulevard Charles Gallet – 42120 Le Coteau</p>
+<p>07 68 87 91 85 – SIRET 943 225 953 00018</p>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/33768879185">WHATSAPP</a>
 
 <script>
-const sel=document.getElementById("service");
-const pay=document.getElementById("paypal");
-function updatePay(){
-    pay.href="https://paypal.me/mziani761/"+sel.value;
+const checkboxes = document.querySelectorAll('input[name="services"]');
+const pay = document.getElementById('paypal');
+
+function updatePayPal() {
+    let total = 0;
+    checkboxes.forEach(chk => { if(chk.checked) total += parseInt(chk.value); });
+    pay.href = "https://paypal.me/mziani761/" + total;
 }
-sel.addEventListener("change",updatePay);
-updatePay();
+
+checkboxes.forEach(chk => chk.addEventListener('change', updatePayPal));
+updatePayPal();
 </script>
 
 </body>
