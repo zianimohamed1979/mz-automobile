@@ -73,11 +73,13 @@ section{padding:80px 10%}
 .card-team h3{margin-bottom:10px}
 .card-team p{font-size:.9rem;line-height:1.3}
 
-/* TESTIMONIALS */
-#slider{display:flex;flex-wrap:nowrap;overflow:hidden}
-.testimonial-card{min-width:100%;flex-shrink:0;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);background:#fff;text-align:center}
+/* TESTIMONIALS - SLIDER FLUIDE */
+#slider{overflow:hidden;position:relative;width:100%;margin-top:30px;}
+.testimonial-track{display:flex;width:max-content;animation:slideInfinite 40s linear infinite;}
+.testimonial-card{min-width:300px;margin-right:20px;flex-shrink:0;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.08);background:#fff;text-align:center}
 .testimonial-card p{font-style:italic;margin:10px 0}
 .testimonial-card strong{display:block;margin-top:10px;color:var(--primary)}
+@keyframes slideInfinite{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* FOOTER */
 footer{background:#111;color:#777;padding:40px 10%;text-align:center}
@@ -86,7 +88,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 .float-btn{position:fixed;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1000;transition:.3s}
 .float-btn:hover{opacity:.8;transform:scale(1.1)}
 .float-map{bottom:100px;right:20px;background:var(--primary)}
-.float-ws{bottom:30px;left:20px;background:#25d366}
 #back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
 
 /* RESPONSIVE */
@@ -174,11 +175,13 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <label style="flex-basis:100%;justify-content:center;display:flex;"><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
       </div>
 
+      <!-- BOUTONS -->
       <div class="form-row" style="gap:15px;flex-wrap:wrap;">
         <button type="submit" class="btn-action" style="flex:1 1 200px;">1. ENVOYER</button>
-        <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">2. PAYER avec PayPal</a>
-        <a id="whatsapp-send" class="btn-action" style="background:#25d366;color:white;flex:1 1 200px;" target="_blank">3. ENVOYER via WhatsApp</a>
+        <a id="whatsapp-send" class="btn-action" style="background:#25d366;color:white;flex:1 1 200px;" target="_blank">2. ENVOYER via WhatsApp</a>
+        <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">3. PAYER avec PayPal</a>
       </div>
+
     </form>
   </div>
 </div>
@@ -205,16 +208,15 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <section id="testimonials">
 <h2 class="section-title">TÉMOIGNAGES <span>CLIENTS</span></h2>
 <div id="slider">
-  <div class="testimonial-card"><p>"Service rapide et professionnel. Mon véhicule a gagné en performance immédiatement."</p><strong>- Julien</strong></div>
-  <div class="testimonial-card"><p>"Equipe compétente et disponible. Recommande vivement le File Service."</p><strong>- Sophie</strong></div>
-  <div class="testimonial-card"><p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p><strong>- Karim</strong></div>
-  <div class="testimonial-card"><p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p><strong>- Lucas</strong></div>
-  <div class="testimonial-card"><p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p><strong>- Nadia</strong></div>
-  <div class="testimonial-card"><p>"Une équipe sérieuse, résultat bluffant après la reprogrammation."</p><strong>- Thomas</strong></div>
-  <div class="testimonial-card"><p>"Très satisfait de la qualité et de la rapidité du service."</p><strong>- Camille</strong></div>
-  <div class="testimonial-card"><p>"Le fichier original fourni était parfait et le suivi excellent."</p><strong>- Romain</strong></div>
-  <div class="testimonial-card"><p>"Service professionnel, je recommande pour tout amateur de performance."</p><strong>- Emilie</strong></div>
-  <div class="testimonial-card"><p>"Super expérience, mon moteur est transformé. Merci !"</p><strong>- Adrien</strong></div>
+  <div class="testimonial-track">
+    <div class="testimonial-card"><p>"Service rapide et professionnel. Mon véhicule a gagné en performance immédiatement."</p><strong>- Julien</strong></div>
+    <div class="testimonial-card"><p>"Equipe compétente et disponible. Recommande vivement le File Service."</p><strong>- Sophie</strong></div>
+    <div class="testimonial-card"><p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p><strong>- Karim</strong></div>
+    <div class="testimonial-card"><p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p><strong>- Lucas</strong></div>
+    <div class="testimonial-card"><p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p><strong>- Nadia</strong></div>
+    <div class="testimonial-card"><p>"Rapide, efficace et un service client au top. Mon véhicule est transformé."</p><strong>- Thomas</strong></div>
+    <div class="testimonial-card"><p>"Très bonne expérience, les fichiers envoyés fonctionnent parfaitement."</p><strong>- Laura</strong></div>
+  </div>
 </div>
 </section>
 
@@ -227,7 +229,6 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 
 <!-- FLOATING BUTTONS -->
 <a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
-<a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <!-- SCRIPTS -->
@@ -238,25 +239,25 @@ const pay=document.getElementById('paypal');
 function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
 boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 
-// WhatsApp dynamique
-const waBtn=document.getElementById('whatsapp-send');
-const form=document.querySelector('#fileservice form');
-waBtn.addEventListener('click',()=>{let garage=form.garage.value,veh=form.vehicule.value,link=form.binlink.value;window.open(`https://wa.me/33768879185?text=Garage:${garage}%0AVéhicule:${veh}%0AFichier:.BIN%0ALien:${link}`,'_blank')});
+// WhatsApp lien dynamique
+const whatsappBtn=document.getElementById('whatsapp-send');
+whatsappBtn.addEventListener('click',()=> {
+  const garage=document.querySelector('input[name="garage"]').value;
+  const vehicule=document.querySelector('input[name="vehicule"]').value;
+  const annee=document.querySelector('input[name="annee"]').value;
+  const motor=document.querySelector('input[name="motorisation"]').value;
+  const ecu=document.querySelector('input[name="ecu"]').value;
+  const bin=document.querySelector('input[name="binlink"]').value;
+  let services=[];
+  document.querySelectorAll('input[name="services"]:checked').forEach(s=>services.push(s.parentNode.textContent.trim()));
+  let msg=`Garage: ${garage}\nVéhicule: ${vehicule} ${annee}\nMotorisation: ${motor}\nECU: ${ecu}\nFichier: ${bin}\nServices: ${services.join(', ')}`;
+  window.open(`https://wa.me/33768879185?text=${encodeURIComponent(msg)}`, '_blank');
+});
 
 // Back-to-top
 const backTop=document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-
-// Slider infini
-const slider=document.getElementById('slider');
-let slideIndex=0;
-function moveSlider(){
-  slideIndex++;
-  if(slideIndex>=slider.children.length)slideIndex=0;
-  slider.style.transform=`translateX(-${slideIndex*100}%)`;
-}
-setInterval(moveSlider,4000);
 </script>
 
 </body>
