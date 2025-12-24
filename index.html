@@ -61,11 +61,11 @@ section{padding:80px 10%}
 .form-body{padding:40px}
 .form-row{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
 .form-row input,.form-row select,.form-row textarea{flex:1 1 200px;padding:12px;font-size:0.95rem;border-radius:8px;border:1px solid #444;background:#1a1a1a;color:white;box-sizing:border-box}
-.form-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.form-services{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px}
 .form-services label{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.05);border-radius:8px;cursor:pointer;transition:background 0.3s}
 .form-services label:hover{background:rgba(255,255,255,0.15)}
 .price-inline{font-weight:700;color:var(--primary)}
-.btn-action{flex:1 1 200px;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;font-family:'Orbitron';font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;transition:0.3s}
+.btn-action{flex:1 1 200px;display:flex;align-items:center;justify-content:center;padding:18px 0;border-radius:8px;font-family:'Orbitron';font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;transition:0.3s;min-width:200px}
 .btn-action:hover{opacity:.9;transform:scale(1.02)}
 .btn-action.paypal{background:var(--paypal);color:white;border:none}
 
@@ -121,26 +121,27 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <section id="atelier">
 <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
 <div class="grid">
-<div class="card-price"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span></div>
-<div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">450€</span></div>
-<div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
-<div class="card-price"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
-<div class="card-price"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
-<div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
-<div class="card-price"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">200€</span></div>
-<div class="card-price"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">180€</span></div>
-<div class="card-price"><h3>Clonage ECU</h3><div class="badges"><span class="badge badge-pro">Clonage</span></div><span class="price">70€</span></div>
+  <div class="card-price"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span></div>
+  <div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">450€</span></div>
+  <div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>FAP OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>EGR OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
+  <div class="card-price"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">150€</span></div>
+  <div class="card-price"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">200€</span></div>
+  <div class="card-price"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">180€</span></div>
+  <!-- Clonage ECU centré -->
+  <div class="card-price" style="grid-column:1/-1;"><h3>Clonage ECU</h3><div class="badges" style="justify-content:center;"><span class="badge badge-pro">Clonage</span></div><span class="price">70€</span></div>
 </div>
 </section>
 
 <!-- PARALLAX -->
 <div class="parallax"><h2>L'EXCELLENCE DE LA PERFORMANCE</h2></div>
 
-<!-- FILE SERVICE SECTION -->
+<!-- FILE SERVICE -->
 <section id="fileservice">
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 
-<!-- Services affichés comme les cartes Atelier -->
+<!-- Cartes des services -->
 <div class="grid" style="margin-bottom:40px;">
   <div class="card-file"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">100€</span></div>
   <div class="card-file"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">120€</span></div>
@@ -150,14 +151,16 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
   <div class="card-file"><h3>IMMO OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">80€</span></div>
   <div class="card-file"><h3>Pops & Bangs</h3><div class="badges"><span class="badge badge-fast">Son Sportif</span></div><span class="price">80€</span></div>
   <div class="card-file"><h3>Launch Control</h3><div class="badges"><span class="badge badge-fast">Sport</span></div><span class="price">90€</span></div>
-  <div class="card-file"><h3>Fichier Original</h3><div class="badges"><span class="badge badge-pro">Original</span></div><span class="price">40€</span></div>
+  <!-- Fichier Original centré -->
+  <div class="card-file" style="grid-column:1/-1;"><h3>Fichier Original</h3><div class="badges" style="justify-content:center;"><span class="badge badge-pro">Original</span></div><span class="price">40€</span></div>
 </div>
 
 <!-- Formulaire File Service -->
 <div class="form-box">
   <div class="form-header">DÉPÔT DE FICHIER (.BIN)</div>
   <div class="form-body">
-    <form action="https://formspree.io/f/xvzpnvrr" method="POST">
+    <form action="https://formspree.io/f/xqezovyk" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_to" value="zianimohamed1979@gmail.com">
       <div class="form-row">
         <input required name="garage" placeholder="Nom du garage">
         <input required type="email" name="_replyto" placeholder="Email professionnel">
@@ -170,8 +173,10 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <input required name="motorisation" placeholder="Motorisation (ex: 2.0 TDI)">
         <input required name="ecu" placeholder="Référence ECU">
       </div>
-
-      <!-- Choix services dans le formulaire -->
+      <div class="form-row">
+        <input type="file" name="binfile" accept=".bin" required
+          style="flex:1 1 100%;padding:12px;background:#1a1a1a;border-radius:8px;border:1px solid #444;color:#fff;">
+      </div>
       <div class="form-services" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px;">
         <label><input type="checkbox" name="services" value="100"> Stage 1 Perf <span class="badge badge-perf">Performance</span> <span class="price-inline">100€</span></label>
         <label><input type="checkbox" name="services" value="120"> E85 FLEXFUEL <span class="badge badge-eco">Éco</span> <span class="price-inline">120€</span></label>
@@ -181,15 +186,12 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
         <label><input type="checkbox" name="services" value="80"> IMMO OFF <span class="badge badge-pro">Suppression</span> <span class="price-inline">80€</span></label>
         <label><input type="checkbox" name="services" value="80"> Pops & Bangs <span class="badge badge-fast">Son Sportif</span> <span class="price-inline">80€</span></label>
         <label><input type="checkbox" name="services" value="90"> Launch Control <span class="badge badge-fast">Sport</span> <span class="price-inline">90€</span></label>
-        <label><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
+        <label style="flex-basis:100%;justify-content:center;display:flex;"><input type="checkbox" name="services" value="40"> Fichier Original <span class="badge badge-pro">Original</span> <span class="price-inline">40€</span></label>
       </div>
-
-      <!-- Boutons côte à côte -->
       <div class="form-row" style="gap:15px;flex-wrap:wrap;">
         <button type="submit" class="btn-action" style="flex:1 1 200px;">1. ENVOYER</button>
         <a id="paypal" class="btn-action paypal" target="_blank" style="flex:1 1 200px;">2. PAYER avec PayPal</a>
       </div>
-
     </form>
   </div>
 </div>
@@ -228,6 +230,14 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
     <p>"Très satisfait du stage 1 perf. Mon moteur respire mieux et la consommation est meilleure."</p>
     <strong>- Karim</strong>
   </div>
+  <div class="testimonial-card">
+    <p>"Super suivi et résultats au top. Le fichier ECU envoyé a parfaitement fonctionné."</p>
+    <strong>- Lucas</strong>
+  </div>
+  <div class="testimonial-card">
+    <p>"Professionnel et efficace. Je recommande MZ Auto Motorsport pour tout projet de reprogrammation."</p>
+    <strong>- Nadia</strong>
+  </div>
 </div>
 </section>
 
@@ -246,15 +256,10 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <!-- SCRIPTS -->
 <script>
 // PayPal dynamique
-const boxes = document.querySelectorAll('#fileservice input[name="services"]');
-const pay = document.getElementById('paypal');
-function updatePayPal(){
-  let total = 0;
-  boxes.forEach(b=>{if(b.checked) total += parseInt(b.value)});
-  pay.href = "https://paypal.me/mziani761/"+total;
-}
-boxes.forEach(b=>b.addEventListener('change', updatePayPal));
-updatePayPal();
+const boxes=document.querySelectorAll('input[name="services"]');
+const pay=document.getElementById('paypal');
+function updatePayPal(){let total=0;boxes.forEach(b=>{if(b.checked)total+=parseInt(b.value)});pay.href="https://paypal.me/mziani761/"+total}
+boxes.forEach(b=>b.addEventListener('change',updatePayPal));updatePayPal();
 
 // Back-to-top
 const backTop=document.getElementById('back-to-top');
