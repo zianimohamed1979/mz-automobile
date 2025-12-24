@@ -6,16 +6,15 @@
 
 <title>MZ Auto Motorsport | Reprogrammation & File Service</title>
 
-<meta name="description" content="MZ Auto Motorsport – Reprogrammation moteur, Stage 1, E85, AdBlue OFF, File Service professionnel. Le Coteau (42).">
-<meta name="author" content="MZ Auto Motorsport">
+<meta name="description" content="MZ Auto Motorsport – Reprogrammation moteur, Stage 1, E85, File Service professionnel. Le Coteau (42).">
 <meta name="robots" content="index, follow">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
 --primary:#e63946;
---dark:#1a1a1a;
+--dark:#111;
 --white:#fff;
 --green:#25d366;
 --paypal:#0070ba;
@@ -23,48 +22,37 @@
 
 body{
 margin:0;
-font-family:'Inter',sans-serif;
+font-family:Inter,sans-serif;
 background:#fff;
-color:#333;
-scroll-behavior:smooth;
-overflow-x:hidden;
+color:#222;
 }
 
 nav{
 position:fixed;
 top:0;
 width:100%;
+background:rgba(17,17,17,.95);
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
-background:rgba(26,26,26,.95);
-backdrop-filter:blur(10px);
 z-index:1000;
 border-bottom:2px solid var(--primary);
 }
 
-.logo{
-font-family:'Orbitron';
-font-weight:900;
-text-decoration:none;
-color:white;
-}
-.logo span{color:var(--primary);}
-
 nav a{
 color:white;
 text-decoration:none;
-font-family:'Orbitron';
-font-size:.8rem;
-font-weight:700;
+font-family:Orbitron;
+font-weight:900;
+font-size:.85rem;
 }
 
 .hero{
-height:75vh;
+height:80vh;
 background:
-linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.5)),
-url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000') center/cover no-repeat;
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1800") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -74,29 +62,32 @@ padding-top:80px;
 }
 
 .hero h1{
-font-family:'Orbitron';
-font-size:3.5rem;
-font-weight:900;
+font-family:Orbitron;
+font-size:3.2rem;
 margin:0;
 }
+
 .hero span{color:var(--primary);}
+
 .hero p{
 letter-spacing:4px;
-margin-top:10px;
 font-weight:600;
+margin-top:10px;
 text-transform:uppercase;
 }
 
-section{padding:80px 10%;}
+section{
+padding:80px 10%;
+}
 
-.section-title{
-font-family:'Orbitron';
+h2{
+font-family:Orbitron;
 text-align:center;
 margin-bottom:50px;
-font-size:2rem;
 letter-spacing:2px;
 }
-.section-title span{color:var(--primary);}
+
+h2 span{color:var(--primary);}
 
 .grid{
 display:grid;
@@ -107,28 +98,25 @@ gap:25px;
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
 border-left:6px solid var(--primary);
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
-}
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(230,57,70,.15);
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .card h3{
-font-family:'Orbitron';
+font-family:Orbitron;
 font-size:.9rem;
 margin:0 0 10px;
 }
+
 .card p{
-font-size:.8rem;
-color:#666;
+font-size:.85rem;
+color:#555;
 line-height:1.5;
 }
+
 .price{
-font-family:'Orbitron';
+font-family:Orbitron;
 font-weight:900;
 color:var(--primary);
 margin-top:10px;
@@ -142,10 +130,10 @@ color:white;
 
 .card-dark{
 background:rgba(255,255,255,.06);
-border-bottom:4px solid var(--primary);
-text-align:center;
 padding:25px;
 border-radius:10px;
+border-bottom:4px solid var(--primary);
+text-align:center;
 }
 
 .form-box{
@@ -159,13 +147,15 @@ border:1px solid #333;
 
 .form-header{
 background:var(--primary);
-padding:25px;
+padding:22px;
 text-align:center;
-font-family:'Orbitron';
+font-family:Orbitron;
 font-weight:900;
 }
 
-form{padding:40px;}
+form{
+padding:40px;
+}
 
 .form-row{
 display:grid;
@@ -183,15 +173,138 @@ border-radius:8px;
 color:white;
 }
 
-button,.paypal{
+button,a.paypal{
+width:100%;
 padding:18px;
 border:none;
 border-radius:8px;
-font-family:'Orbitron';
+font-family:Orbitron;
 font-weight:900;
 cursor:pointer;
-width:100%;
+text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 button{
-background:white
+background:white;
+color:#111;
+}
+
+button:hover{
+background:var(--primary);
+color:white;
+}
+
+.paypal{
+background:var(--paypal);
+color:white;
+}
+
+footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:40px 10%;
+border-top:1px solid #222;
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:var(--green);
+color:white;
+padding:16px 28px;
+border-radius:50px;
+font-family:Orbitron;
+font-weight:900;
+text-decoration:none;
+z-index:1000;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:2.2rem;}
+.form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#">MZ AUTO <span style="color:#e63946;">MOTORSPORT</span></a>
+<div>
+<a href="#atelier">ATELIER</a>
+&nbsp;&nbsp;
+<a href="#fileservice">FILE SERVICE</a>
+</div>
+</nav>
+
+<header class="hero">
+<div>
+<h1>MZ AUTO <span>MOTORSPORT</span></h1>
+<p>Expertise & Performance Automobile</p>
+</div>
+</header>
+
+<section id="atelier">
+<h2>Prestations <span>Atelier</span></h2>
+<div class="grid">
+<div class="card"><h3>Stage 1</h3><p>Optimisation moteur sur-mesure.</p><span class="price">390€*</span></div>
+<div class="card"><h3>E85</h3><p>Conversion Bio-Éthanol.</p><span class="price">450€*</span></div>
+<div class="card"><h3>AdBlue OFF*</h3><p>Usage circuit uniquement.</p><span class="price">300€*</span></div>
+<div class="card"><h3>FAP / EGR OFF*</h3><p>Usage circuit uniquement.</p><span class="price">250€*</span></div>
+<div class="card"><h3>Diagnostic</h3><p>Lecture défauts.</p><span class="price">40€*</span></div>
+</div>
+</section>
+
+<section id="fileservice">
+<h2 style="color:white;">Professional <span>File Service</span></h2>
+
+<div class="grid">
+<div class="card-dark"><h3>STAGE 1</h3><span class="price">100€</span></div>
+<div class="card-dark"><h3>E85</h3><span class="price">120€</span></div>
+<div class="card-dark"><h3>FAP / EGR OFF*</h3><span class="price">90€</span></div>
+</div>
+
+<div class="form-box">
+<div class="form-header">ZONE DÉPÔT FICHIER</div>
+
+<form action="#" method="POST" enctype="multipart/form-data">
+<div class="form-row">
+<input type="text" placeholder="Nom du garage" required>
+<input type="email" placeholder="Email" required>
+</div>
+
+<div class="form-row">
+<input type="text" placeholder="Véhicule" required>
+<input type="text" placeholder="ECU" required>
+</div>
+
+<select required>
+<option>Stage 1 – 100€</option>
+<option>E85 – 120€</option>
+<option>FAP / EGR OFF – 90€</option>
+</select>
+
+<input type="file" required>
+
+<div class="form-row">
+<button type="submit">1. ENVOYER</button>
+<a class="paypal" href="#">2. PAYER</a>
+</div>
+</form>
+</div>
+</section>
+
+<footer>
+<p><strong>MZ AUTO MOTORSPORT</strong></p>
+<p>Le Coteau (42) – 07 68 87 91 85</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/33768879185">WHATSAPP</a>
+
+</body>
+</html>
