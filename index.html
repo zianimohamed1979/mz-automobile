@@ -21,6 +21,7 @@ nav a{color:#fff;text-decoration:none;font-family:'Orbitron';font-size:.85rem;fo
 nav a:hover{color:var(--primary);transform:scale(1.05)}
 .logo{font-weight:900}
 .logo span{color:var(--primary)}
+.nav-links{display:flex;gap:25px;align-items:center}
 
 /* HERO */
 .hero{height:75vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2000") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:80px}
@@ -117,6 +118,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <section id="atelier">
 <h2 class="section-title">PRESTATIONS <span>ATELIER</span></h2>
 <div class="grid">
+<!-- 8 services avec prix et badges -->
 <div class="card-price"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">390€</span></div>
 <div class="card-price"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">450€</span></div>
 <div class="card-price"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">300€</span></div>
@@ -134,6 +136,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <section id="fileservice">
 <h2 class="section-title">PROFESSIONAL <span>FILE SERVICE</span></h2>
 <div class="grid">
+<!-- 8 services avec prix File Service -->
 <div class="card-file"><h3>Stage 1 Perf</h3><div class="badges"><span class="badge badge-perf">Performance</span></div><span class="price">100€</span></div>
 <div class="card-file"><h3>E85 FLEXFUEL</h3><div class="badges"><span class="badge badge-eco">Éco</span></div><span class="price">120€</span></div>
 <div class="card-file"><h3>AdBlue OFF</h3><div class="badges"><span class="badge badge-pro">Suppression</span></div><span class="price">100€</span></div>
@@ -223,6 +226,5 @@ const backTop=document.getElementById('back-to-top');
 window.addEventListener('scroll',()=>{backTop.style.display=(window.scrollY>200)?'flex':'none'});
 backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
 </script>
-
 </body>
 </html>
