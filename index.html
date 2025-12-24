@@ -87,7 +87,8 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 .float-btn:hover{opacity:.8;transform:scale(1.1)}
 .float-map{bottom:100px;right:20px;background:var(--primary)}
 .float-ws{bottom:30px;left:20px;background:#25d366}
-#back-to-top{bottom:30px;right:20px;background:var(--primary);font-size:1rem;display:none}
+.float-ws-file{bottom:30px;right:80px;background:#25d366}
+#back-to-top{bottom:30px;right:140px;background:var(--primary);font-size:1rem;display:none}
 
 /* RESPONSIVE */
 @media(max-width:768px){.hero h1{font-size:2rem;line-height:1.2}.hero p{font-size:.9rem;letter-spacing:1px}.form-row{flex-direction:column}.form-services{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.float-btn{width:40px;height:40px;font-size:1rem}footer{padding:30px 5%;font-size:.9rem}}
@@ -228,6 +229,7 @@ footer{background:#111;color:#777;padding:40px 10%;text-align:center}
 <!-- FLOATING BUTTONS -->
 <a href="https://www.google.com/maps?q=2+Boulevard+Charles+Gallet,+42120+Le+Coteau" target="_blank" class="float-btn float-map" title="Voir la position">📍</a>
 <a href="https://wa.me/33768879185" target="_blank" class="float-btn float-ws" title="WhatsApp Mohamed">💬</a>
+<a href="https://wa.me/33768879185?text=Bonjour,%20je%20souhaite%20envoyer%20mon%20fichier%20.BIN" target="_blank" class="float-btn float-ws-file" title="Envoyer fichier via WhatsApp">📤</a>
 <a href="javascript:void(0)" id="back-to-top" class="float-btn" title="Remonter en haut">⬆️</a>
 
 <!-- SCRIPTS -->
@@ -247,7 +249,6 @@ backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})
 const sliderEl = document.getElementById('slider');
 const slides = Array.from(sliderEl.children);
 slides.forEach(slide => sliderEl.appendChild(slide.cloneNode(true)));
-
 let position = 0;
 function animateSlider() {
   position -= 0.3; // vitesse
